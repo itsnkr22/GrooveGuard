@@ -137,7 +137,7 @@ const ServicesSection = () => {
               We offer integrated solutions that combine data privacy compliance with strategic business expansion. 
               Get a comprehensive package tailored to your global growth objectives.
             </p>
-            <Link href="#consultation" className="btn-primary">
+            <Link href="/contact" className="btn-primary">
               Schedule a Comprehensive Consultation
             </Link>
           </div>

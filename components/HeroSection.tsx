@@ -24,13 +24,13 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="#consultation" className="btn-primary flex items-center justify-center space-x-2 group">
+              <Link href="/contact" className="btn-primary flex items-center justify-center space-x-2 group">
                 <Calendar className="w-5 h-5" />
                 <span>Book a Free Consultation</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               
-              <Link href="#contact" className="btn-secondary flex items-center justify-center space-x-2 group">
+              <Link href="/contact" className="btn-secondary flex items-center justify-center space-x-2 group">
                 <Mail className="w-5 h-5" />
                 <span>Contact Us</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />

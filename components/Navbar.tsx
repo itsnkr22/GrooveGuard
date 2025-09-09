@@ -10,15 +10,15 @@ const Navbar = () => {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Resources', href: '#resources' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Resources', href: '/resources' },
     { name: 'Contact', href: '/contact' },
   ]
 
   const services = [
-    { name: 'Data Privacy & Compliance', href: '#privacy', icon: Shield },
-    { name: 'B2B Matchmaking', href: '#matchmaking', icon: Users },
-    { name: 'Market Entry Advisory', href: '#advisory', icon: TrendingUp },
+    { name: 'Data Privacy & Compliance', href: '/#services', icon: Shield },
+    { name: 'B2B Matchmaking', href: '/#services', icon: Users },
+    { name: 'Market Entry Advisory', href: '/#services', icon: TrendingUp },
   ]
 
   return (
@@ -79,10 +79,10 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="#contact" className="btn-secondary">
+            <Link href="/contact" className="btn-secondary">
               Contact Us
             </Link>
-            <Link href="#consultation" className="btn-primary">
+            <Link href="/contact" className="btn-primary">
               Book Consultation
             </Link>
           </div>
@@ -133,14 +133,14 @@ const Navbar = () => {
               
               <div className="pt-4 border-t border-gray-200 space-y-3">
                 <Link
-                  href="#contact"
+                  href="/contact"
                   className="block w-full text-center btn-secondary"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact Us
                 </Link>
                 <Link
-                  href="#consultation"
+                  href="/contact"
                   className="block w-full text-center btn-primary"
                   onClick={() => setIsMenuOpen(false)}
                 >

@@ -20,7 +20,7 @@ const CTASection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link 
-              href="#consultation" 
+              href="/contact" 
               className="bg-white text-primary-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-3 group"
             >
               <Calendar className="w-5 h-5" />
@@ -29,7 +29,7 @@ const CTASection = () => {
             </Link>
             
             <Link 
-              href="#contact" 
+              href="/contact" 
               className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-4 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 flex items-center space-x-3 group"
             >
               <Mail className="w-5 h-5" />
