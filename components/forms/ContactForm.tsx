@@ -38,8 +38,6 @@ const referralOptions = [
   { value: 'other', label: 'Other' },
 ];
 
-const WEBHOOK_URL = 'https://hooks.example.com/contact';
-
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
@@ -52,6 +50,7 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
@@ -91,19 +90,25 @@ export default function ContactForm() {
     if (!validate()) return;
 
     setIsSubmitting(true);
+    setSubmitError(null);
 
     try {
-      await fetch(WEBHOOK_URL, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-    } catch {
-      // Silently handle - show success state regardless for demo
-    }
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
+      if (!res.ok) {
+        throw new Error('Submission failed');
+      }
+
+      setIsSuccess(true);
+    } catch {
+      setSubmitError('Something went wrong. Please try again or reach out directly on LinkedIn.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -201,6 +206,10 @@ export default function ContactForm() {
               onChange={(e) => handleChange('referralSource', e.target.value)}
             />
 
+            {submitError && (
+              <p className="text-sm text-red-400 text-center">{submitError}</p>
+            )}
+
             <div className="mt-2">
               <Button
                 variant="primary"
@@ -209,7 +218,7 @@ export default function ContactForm() {
                 disabled={isSubmitting}
                 className="w-full"
               >
-                {isSubmitting ? 'Submitting...' : 'Book My Free Audit'}
+                {isSubmitting ? 'Sending...' : 'Book My Free Audit'}
               </Button>
             </div>
           </motion.form>

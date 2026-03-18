@@ -43,7 +43,7 @@ const FOOTER_COLUMNS = [
 const SOCIAL_LINKS = [
   {
     label: 'LinkedIn',
-    href: '#',
+    href: 'https://www.linkedin.com/company/groovegaurd/',
     icon: Linkedin,
   },
 ] as const
