@@ -4,7 +4,7 @@ import { Resend } from 'resend'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const TO_EMAIL = 'nkrajput.a6@gmail.com'
-const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev'
+const FROM_EMAIL = process.env.FROM_EMAIL || 'contact@groovegaurd.com'
 
 export async function POST(req: Request) {
   try {
