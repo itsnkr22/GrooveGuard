@@ -26,13 +26,13 @@ export default function TopBanner() {
           >
             <div className="mx-auto flex max-w-7xl items-center justify-center pr-8">
               <p className="text-sm font-medium" style={{ color: '#FFFFFF' }}>
-                We help businesses save 40+ hours/week with AI automation{' '}
+                Limited audit slots available this month — Book yours before they&apos;re gone{' '}
                 <Link
-                  href="/services"
+                  href="/contact"
                   className="inline-flex items-center font-semibold underline underline-offset-2 transition-opacity hover:opacity-80"
                   style={{ color: '#FFFFFF' }}
                 >
-                  &rarr; See how
+                  &rarr; Book now
                 </Link>
               </p>
             </div>
