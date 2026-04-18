@@ -1,31 +1,34 @@
 import type { Metadata, Viewport } from 'next'
-import { Sora, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
+import { Playfair_Display, DM_Sans, DM_Mono } from 'next/font/google'
 import '@/styles/globals.css'
-import { SITE_NAME, SITE_URL } from '@/lib/constants'
+import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '@/lib/constants'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import TopBanner from '@/components/layout/TopBanner'
 
-const sora = Sora({
+const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-heading',
   display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
 })
 
-const plusJakarta = Plus_Jakarta_Sans({
+const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
 })
 
-const jetbrainsMono = JetBrains_Mono({
+const dmMono = DM_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
   display: 'swap',
+  weight: ['400', '500'],
 })
 
 export const viewport: Viewport = {
-  themeColor: '#111118',
+  themeColor: '#0A0E1A',
   width: 'device-width',
   initialScale: 1,
 }
@@ -33,25 +36,31 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — AI Workflow Automation Agency`,
+    default: `${SITE_NAME} | AI Workflow Automation for Insurance Agencies`,
     template: `%s | ${SITE_NAME}`,
   },
-  description:
-    'Custom AI workflow automations for recruitment agencies, e-commerce brands, and marketing agencies. Save 40+ hours/week with intelligent automation.',
+  description: SITE_DESCRIPTION,
+  keywords: [
+    'insurance agency automation',
+    'P&C agency workflow automation',
+    'commercial lines insurance AI',
+    'insurance renewal automation',
+    'independent insurance agency software',
+  ],
   openGraph: {
     type: 'website',
-    locale: 'en_GB',
+    locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — AI Workflow Automation Agency`,
+    title: `${SITE_NAME} | AI Workflow Automation for Insurance Agencies`,
     description:
-      'Custom AI workflow automations for recruitment agencies, e-commerce brands, and marketing agencies. Save 40+ hours/week with intelligent automation.',
+      "Stop losing commission to manual processes. We build the automation layer that protects your renewal book and grows your agency without adding headcount.",
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_NAME} — AI Workflow Automation Agency`,
+    title: `${SITE_NAME} | AI Workflow Automation for Insurance Agencies`,
     description:
-      'Custom AI workflow automations for recruitment agencies, e-commerce brands, and marketing agencies. Save 40+ hours/week with intelligent automation.',
+      "Stop losing commission to manual processes. We build the automation layer that protects your renewal book and grows your agency without adding headcount.",
   },
   robots: {
     index: true,
@@ -67,7 +76,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${sora.variable} ${plusJakarta.variable} ${jetbrainsMono.variable}`}
+      className={`${playfair.variable} ${dmSans.variable} ${dmMono.variable}`}
     >
       <body className="min-h-screen font-body antialiased">
         <TopBanner />

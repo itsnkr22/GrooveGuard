@@ -13,26 +13,17 @@ export default function Navbar() {
   const pathname = usePathname()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-
+    const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false)
   }, [pathname])
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
@@ -47,27 +38,30 @@ export default function Navbar() {
     <nav
       className="sticky top-0 z-50 w-full transition-all duration-300"
       style={{
-        background: scrolled
-          ? `var(--nav-bg)`
-          : `var(--nav-bg-transparent)`,
+        background: scrolled ? 'rgba(10, 14, 26, 0.9)' : 'rgba(10, 14, 26, 0.4)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderBottom: scrolled
-          ? `1px solid var(--border-color)`
+          ? '1px solid var(--color-border)'
           : '1px solid transparent',
       }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        {/* Logo */}
+        {/* Logo — wordmark with amber dot */}
         <Link
           href="/"
-          className="text-xl font-bold tracking-tight transition-opacity hover:opacity-90"
-          style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-primary)' }}
+          className="flex items-center gap-2 text-xl font-bold tracking-tight transition-opacity hover:opacity-90"
+          style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
         >
+          <span
+            aria-hidden
+            className="inline-block h-2 w-2 rounded-full"
+            style={{ backgroundColor: 'var(--color-accent)' }}
+          />
           {SITE_NAME}
         </Link>
 
-        {/* Desktop Nav Links */}
+        {/* Desktop nav */}
         <div className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <Link
@@ -75,53 +69,50 @@ export default function Navbar() {
               href={link.href}
               className="group relative py-1 text-sm font-medium transition-colors"
               style={{
-                color: isActive(link.href) ? '#3B82F6' : 'var(--text-secondary)',
+                color: isActive(link.href)
+                  ? 'var(--color-accent)'
+                  : 'var(--color-text-secondary)',
+                fontFamily: 'var(--font-body)',
               }}
             >
               {link.label}
-              {/* Active indicator */}
               <span
-                className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-accent-blue transition-transform duration-200 group-hover:scale-x-100"
+                className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full transition-transform duration-200 group-hover:scale-x-100"
                 style={{
                   transform: isActive(link.href) ? 'scaleX(1)' : undefined,
-                  backgroundColor: '#3B82F6',
+                  backgroundColor: 'var(--color-accent)',
                 }}
               />
             </Link>
           ))}
         </div>
 
-        {/* Desktop CTA + Mobile Hamburger */}
+        {/* CTA + Hamburger */}
         <div className="flex items-center gap-3">
           <Link
-            href="/contact"
-            className="hidden rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-200 hover:shadow-lg md:inline-flex"
+            href="/audit"
+            className="btn-shimmer hidden rounded-md px-5 py-2.5 text-sm font-semibold transition-all duration-200 hover:brightness-110 md:inline-flex"
             style={{
-              background: 'linear-gradient(135deg, #3B82F6, #06B6D4)',
-              color: '#FFFFFF',
-              boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)',
+              backgroundColor: 'var(--color-accent)',
+              color: '#0A0E1A',
+              fontFamily: 'var(--font-body)',
             }}
           >
-            Book a Free Audit
+            Book Free Audit
           </Link>
 
-          {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="inline-flex items-center justify-center rounded-lg p-2 transition-colors md:hidden"
-            style={{ color: 'var(--text-secondary)' }}
+            style={{ color: 'var(--color-text-secondary)' }}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
-            {mobileOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -130,29 +121,32 @@ export default function Navbar() {
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
             className="fixed inset-0 top-0 z-40 flex flex-col md:hidden"
-            style={{ background: 'var(--mobile-overlay)' }}
+            style={{ background: 'rgba(10, 14, 26, 0.98)' }}
           >
-            {/* Close button at top-right */}
             <div className="flex items-center justify-between px-4 py-4 sm:px-6">
               <Link
                 href="/"
-                className="text-xl font-bold tracking-tight"
-                style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-primary)' }}
                 onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-2 text-xl font-bold tracking-tight"
+                style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
               >
+                <span
+                  aria-hidden
+                  className="inline-block h-2 w-2 rounded-full"
+                  style={{ backgroundColor: 'var(--color-accent)' }}
+                />
                 {SITE_NAME}
               </Link>
               <button
                 onClick={() => setMobileOpen(false)}
-                className="rounded-lg p-2 transition-colors"
-                style={{ color: 'var(--text-secondary)' }}
+                className="rounded-lg p-2"
+                style={{ color: 'var(--color-text-secondary)' }}
                 aria-label="Close menu"
               >
                 <X className="h-6 w-6" />
               </button>
             </div>
 
-            {/* Nav links */}
             <div className="flex flex-1 flex-col items-center justify-center gap-8">
               {NAV_LINKS.map((link, index) => (
                 <motion.div
@@ -164,10 +158,12 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-2xl font-semibold transition-colors"
+                    className="text-2xl font-semibold"
                     style={{
                       fontFamily: 'var(--font-heading)',
-                      color: isActive(link.href) ? '#3B82F6' : 'var(--text-primary)',
+                      color: isActive(link.href)
+                        ? 'var(--color-accent)'
+                        : 'var(--color-text-primary)',
                     }}
                   >
                     {link.label}
@@ -181,16 +177,16 @@ export default function Navbar() {
                 transition={{ delay: NAV_LINKS.length * 0.08 + 0.1 }}
               >
                 <Link
-                  href="/contact"
+                  href="/audit"
                   onClick={() => setMobileOpen(false)}
-                  className="inline-flex rounded-lg px-8 py-3 text-lg font-semibold transition-all duration-200"
+                  className="inline-flex rounded-md px-8 py-3 text-lg font-semibold"
                   style={{
-                    background: 'linear-gradient(135deg, #3B82F6, #06B6D4)',
-                    color: '#FFFFFF',
-                    boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)',
+                    backgroundColor: 'var(--color-accent)',
+                    color: '#0A0E1A',
+                    fontFamily: 'var(--font-body)',
                   }}
                 >
-                  Book a Free Audit
+                  Book Free Audit
                 </Link>
               </motion.div>
             </div>

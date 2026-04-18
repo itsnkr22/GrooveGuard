@@ -1,188 +1,293 @@
-import { generatePageMetadata } from '@/lib/metadata';
-import FadeInOnScroll from '@/components/animations/FadeInOnScroll';
-import SectionHeading from '@/components/ui/SectionHeading';
-import Card from '@/components/ui/Card';
-import CTASection from '@/components/sections/CTASection';
-import { Hammer, MessageCircle, Target } from 'lucide-react';
+import Link from 'next/link'
+import { ArrowRight, Compass, Wrench, Users, LineChart } from 'lucide-react'
+import EyebrowBadge from '@/components/insurance/EyebrowBadge'
+import Reveal from '@/components/insurance/Reveal'
+import { generatePageMetadata } from '@/lib/metadata'
 
 export const metadata = generatePageMetadata({
-  title: 'About GrooveGuard',
+  title: 'About — Operators Building for Insurance',
   description:
-    "We're a team of automation architects and AI engineers building intelligent workflow systems for businesses across UK, EU, Gulf, and US.",
+    'GrooveGuard is a workflow automation firm built specifically for independent insurance agencies. We are operators, not order-takers.',
   path: '/about',
-});
+})
 
-const values = [
+const PRINCIPLES = [
   {
-    title: 'Build to Last',
+    icon: Compass,
+    title: 'Specialists, not generalists.',
     description:
-      'We don\'t do quick hacks. Every workflow we build is documented, maintainable, and designed to scale with your business. When we hand it over, it works — and keeps working.',
-    icon: Hammer,
+      'We only work with independent P&C and commercial lines insurance agencies. Every workflow we build is informed by how your industry actually operates \u2014 renewal cycles, carrier relationships, COI obligations, commission economics.',
   },
   {
-    title: 'Plain English',
+    icon: Wrench,
+    title: 'Operators, not order-takers.',
     description:
-      'No jargon, no vague promises. We explain what we\'re building, why it matters, and exactly what results you can expect. If something won\'t work, we\'ll tell you upfront.',
-    icon: MessageCircle,
+      'We don\u2019t build what you ask for. We build what protects and grows your book. If the right answer is a simpler workflow than you imagined, you\u2019ll hear it. If the right answer is to not build something yet, you\u2019ll hear that too.',
   },
   {
-    title: 'Results Over Hype',
+    icon: Users,
+    title: 'Partners, not vendors.',
     description:
-      'We measure success in hours saved, costs cut, and revenue unlocked — not in buzzwords. Every automation we build has a clear, measurable ROI attached to it.',
-    icon: Target,
+      'Our work compounds when we stay engaged. We optimise the systems we deploy, expand them as your agency grows, and treat your roadmap the way we\u2019d treat our own. No hand-off and disappear.',
   },
-];
+  {
+    icon: LineChart,
+    title: 'ROI, not theatre.',
+    description:
+      'Every workflow we build is justified by a specific, measurable outcome \u2014 protected commission, recovered hours, improved retention. If we can\u2019t articulate the math, we don\u2019t build it.',
+  },
+] as const
 
-const differentiators = [
+const COMMITMENTS = [
   {
-    title: 'We Specialise in 3 Industries',
+    title: 'We will turn you down if we are not a fit.',
     description:
-      'Recruitment, e-commerce, and marketing agencies. By going deep instead of wide, we understand the exact pain points, tools, and workflows that matter in your world.',
+      'If your agency is too small, too early, or if the problem you bring us is better solved another way \u2014 we will tell you. A bad fit costs everyone.',
   },
   {
-    title: 'We Build, Not Just Consult',
+    title: 'We will not nickel-and-dime scope.',
     description:
-      'Plenty of agencies will tell you what to automate. We actually build it. You get live, working systems — not a PDF of recommendations gathering dust.',
+      'When we commit to a workflow deployment, we commit to the outcome. We do not bill hours for scoped work, and we do not add fees for things that should have been obvious at the start.',
   },
   {
-    title: 'Ongoing Partnership',
+    title: 'We will not lock you in.',
     description:
-      'We don\'t just build and disappear. We offer ongoing optimisation retainers to keep your automations running smoothly, adapting to changes, and expanding as you grow.',
+      'Every system we build is documented, handed off cleanly, and portable. You should never feel trapped by the infrastructure we deploy.',
   },
-];
+] as const
 
 export default function AboutPage() {
   return (
-    <>
+    <div style={{ backgroundColor: 'var(--color-bg)' }}>
       {/* Hero */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
-        {/* Background glow */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[700px] rounded-full bg-accent-blue/5 blur-[120px]" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <FadeInOnScroll direction="up">
-            <h1 className="text-4xl font-bold font-heading tracking-tight text-white sm:text-5xl lg:text-6xl">
-              We&apos;re GrooveGuard. We Build AI Systems That Work.
+      <section className="relative overflow-hidden pb-16 pt-28 md:pb-24 md:pt-36">
+        <div aria-hidden className="absolute inset-0 dot-pattern opacity-40" />
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 radial-glow"
+        />
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
+          <Reveal>
+            <EyebrowBadge>About GrooveGuard</EyebrowBadge>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h1
+              className="mt-6 text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl"
+              style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+            >
+              We&rsquo;re Operators,
+              <br />
+              <span style={{ color: 'var(--color-accent)' }}>Not Order-Takers.</span>
             </h1>
-          </FadeInOnScroll>
-          <FadeInOnScroll direction="up" delay={0.15}>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-text-secondary font-body leading-relaxed">
-              Automation architects and AI engineers on a mission to free businesses from the busywork that holds them back.
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p
+              className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed md:text-xl"
+              style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
+            >
+              GrooveGuard is a workflow automation firm built specifically for independent
+              insurance agencies. We don&rsquo;t sell software. We don&rsquo;t chase trends. We
+              build the systems that protect your book and grow your commission &mdash; one
+              workflow at a time.
             </p>
-          </FadeInOnScroll>
+          </Reveal>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="relative py-24 lg:py-32">
-        <div className="mx-auto max-w-3xl px-6">
-          <FadeInOnScroll direction="up">
-            <SectionHeading
-              badge="Our Story"
-              title="Why We Started GrooveGuard"
-              align="left"
-            />
-          </FadeInOnScroll>
-
-          <div className="mt-12 space-y-6 text-base text-text-secondary font-body leading-relaxed">
-            <FadeInOnScroll direction="up" delay={0.1}>
+      {/* Why we exist */}
+      <section className="relative py-16 md:py-24">
+        <div className="mx-auto max-w-4xl px-6">
+          <Reveal>
+            <EyebrowBadge variant="muted">Why we exist</EyebrowBadge>
+            <h2
+              className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+              style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+            >
+              Independent agencies are being asked to do more with less &mdash; every year.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div
+              className="mt-8 space-y-5 text-base leading-relaxed md:text-lg"
+              style={{
+                color: 'var(--color-text-secondary)',
+                fontFamily: 'var(--font-body)',
+              }}
+            >
               <p>
-                We started GrooveGuard because we kept seeing the same problem: smart, ambitious teams buried in repetitive work. Recruiters spending hours on admin instead of making placements. E-commerce operators drowning in manual product updates and support tickets. Marketing agencies losing entire days to client reporting. The tools existed to fix all of this — but nobody was connecting the dots.
+                Carriers are consolidating. Clients expect instant responses. Producers are
+                stretched thinner than ever. And the administrative load of running a modern
+                agency &mdash; renewals, COIs, follow-ups, onboarding, compliance &mdash; grows
+                every quarter.
               </p>
-            </FadeInOnScroll>
-
-            <FadeInOnScroll direction="up" delay={0.2}>
               <p>
-                So we became the people who connect the dots. We&apos;re not a generic &ldquo;AI consultancy&rdquo; that talks in abstractions. We&apos;re automation architects — we get into the detail of your processes, understand exactly where time is being wasted, and build intelligent systems that handle it for you. Every workflow we create is tailored to your stack, your team, and your goals.
+                The agencies that thrive in this environment are not the ones with the most
+                producers or the biggest book. They are the ones with the best underlying
+                systems. Systems that protect renewals automatically. Systems that respond to
+                leads in minutes, not days. Systems that run annual reviews at scale.
               </p>
-            </FadeInOnScroll>
+              <p>That&rsquo;s what we build. Nothing else.</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
-            <FadeInOnScroll direction="up" delay={0.3}>
-              <p>
-                Today, we serve businesses across the UK, EU, Gulf, and US — from lean startups to established agencies with 100+ staff. Whether you need a single workflow automated or an entire operational overhaul powered by AI, we build systems that deliver measurable results within weeks, not quarters.
-              </p>
-            </FadeInOnScroll>
+      {/* Principles */}
+      <section
+        className="relative border-y py-20 md:py-28"
+        style={{
+          borderColor: 'var(--color-border-accent)',
+          backgroundColor: 'var(--color-bg-secondary)',
+        }}
+      >
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <Reveal>
+              <EyebrowBadge variant="muted">How we work</EyebrowBadge>
+              <h2
+                className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
+                style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+              >
+                Four principles, strictly enforced.
+              </h2>
+            </Reveal>
           </div>
-        </div>
-      </section>
 
-      {/* Values */}
-      <section className="relative py-24 lg:py-32 bg-bg-secondary/30">
-        <div className="mx-auto max-w-7xl px-6">
-          <FadeInOnScroll direction="up">
-            <SectionHeading
-              badge="Values"
-              title="What We Stand For"
-              subtitle="The principles that guide every workflow we build."
-              gradient
-            />
-          </FadeInOnScroll>
-
-          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {values.map((value, index) => {
-              const Icon = value.icon;
+          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+            {PRINCIPLES.map((p, i) => {
+              const Icon = p.icon
               return (
-                <FadeInOnScroll key={value.title} direction="up" delay={index * 0.15}>
-                  <Card className="p-6 h-full">
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-accent-blue/10 border border-accent-blue/20">
-                      <Icon size={20} className="text-accent-blue" />
+                <Reveal key={p.title} delay={i * 0.08}>
+                  <div
+                    className="card-lift h-full rounded-2xl p-7"
+                    style={{
+                      backgroundColor: 'var(--color-bg)',
+                      border: '1px solid var(--color-border-accent)',
+                    }}
+                  >
+                    <div
+                      className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg"
+                      style={{
+                        backgroundColor: 'rgba(232, 160, 32, 0.08)',
+                        border: '1px solid var(--color-accent)',
+                      }}
+                    >
+                      <Icon
+                        className="h-5 w-5"
+                        style={{ color: 'var(--color-accent)' }}
+                        strokeWidth={1.8}
+                      />
                     </div>
-                    <h3 className="text-lg font-bold font-heading text-white">
-                      {value.title}
+                    <h3
+                      className="text-xl font-semibold leading-snug"
+                      style={{
+                        fontFamily: 'var(--font-heading)',
+                        color: 'var(--color-text-primary)',
+                      }}
+                    >
+                      {p.title}
                     </h3>
-                    <p className="mt-2 text-sm text-text-secondary font-body leading-relaxed">
-                      {value.description}
+                    <p
+                      className="mt-3 text-sm leading-relaxed md:text-base"
+                      style={{
+                        color: 'var(--color-text-secondary)',
+                        fontFamily: 'var(--font-body)',
+                      }}
+                    >
+                      {p.description}
                     </p>
-                  </Card>
-                </FadeInOnScroll>
-              );
+                  </div>
+                </Reveal>
+              )
             })}
           </div>
         </div>
       </section>
 
-      {/* What Makes Us Different */}
-      <section className="relative py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <FadeInOnScroll direction="up">
-            <SectionHeading
-              badge="Differentiators"
-              title="What Makes Us Different"
-              subtitle="We go deeper, build faster, and stay longer than the average automation agency."
-              gradient
-            />
-          </FadeInOnScroll>
+      {/* Commitments */}
+      <section className="relative py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <Reveal>
+              <EyebrowBadge variant="muted">Our commitments</EyebrowBadge>
+              <h2
+                className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
+                style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+              >
+                What you can hold us to.
+              </h2>
+            </Reveal>
+          </div>
 
-          <div className="mt-16 grid gap-8 lg:grid-cols-3">
-            {differentiators.map((item, index) => (
-              <FadeInOnScroll key={item.title} direction="up" delay={index * 0.15}>
-                <div className="relative rounded-2xl border border-border bg-bg-secondary/40 p-8">
-                  {/* Step number */}
-                  <span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent-cyan/10 text-sm font-bold text-accent-cyan font-heading border border-accent-cyan/20">
-                    {index + 1}
-                  </span>
-                  <h3 className="mt-3 text-lg font-bold font-heading text-white">
-                    {item.title}
+          <div className="mt-12 space-y-4">
+            {COMMITMENTS.map((c, i) => (
+              <Reveal key={c.title} delay={i * 0.06}>
+                <div
+                  className="rounded-2xl p-6 md:p-8"
+                  style={{
+                    backgroundColor: 'var(--color-bg-secondary)',
+                    border: '1px solid var(--color-border-accent)',
+                    borderLeft: '3px solid var(--color-accent)',
+                  }}
+                >
+                  <h3
+                    className="text-lg font-semibold leading-snug md:text-xl"
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      color: 'var(--color-text-primary)',
+                    }}
+                  >
+                    {c.title}
                   </h3>
-                  <p className="mt-2 text-sm text-text-secondary font-body leading-relaxed">
-                    {item.description}
+                  <p
+                    className="mt-2 text-sm leading-relaxed md:text-base"
+                    style={{
+                      color: 'var(--color-text-secondary)',
+                      fontFamily: 'var(--font-body)',
+                    }}
+                  >
+                    {c.description}
                   </p>
                 </div>
-              </FadeInOnScroll>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <CTASection
-        headline="Let's Talk About Your Workflows"
-        subtext="Book a free 30-minute call. We'll learn about your processes, identify what can be automated, and outline a clear plan to save your team hours every week."
-        buttonLabel="Book Your Free Audit →"
-        buttonHref="/contact"
-      />
-    </>
-  );
+      {/* Final CTA */}
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <div aria-hidden className="absolute inset-0 radial-glow-strong" />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <Reveal>
+            <h2
+              className="text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
+              style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+            >
+              Let&rsquo;s see if we&rsquo;re a fit.
+            </h2>
+            <p
+              className="mx-auto mt-5 max-w-xl text-base leading-relaxed md:text-lg"
+              style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
+            >
+              Thirty minutes. A written Workflow Opportunity Report. A clear answer either way.
+            </p>
+            <div className="mt-9">
+              <Link
+                href="/audit"
+                className="btn-shimmer inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold transition-transform active:scale-[0.98]"
+                style={{
+                  backgroundColor: 'var(--color-accent)',
+                  color: '#0A0E1A',
+                  fontFamily: 'var(--font-body)',
+                }}
+              >
+                Book Your Free Audit <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </div>
+  )
 }

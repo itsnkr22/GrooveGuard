@@ -3,26 +3,21 @@ import { SITE_URL } from '@/lib/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
-    '',
-    '/industries',
-    '/industries/recruitment',
-    '/industries/ecommerce',
-    '/industries/marketing',
-    '/services',
-    '/resources',
-    '/resources/recruitment-ai-guide',
-    '/resources/ecommerce-ai-guide',
-    '/resources/marketing-ai-guide',
-    '/about',
-    '/contact',
-    '/privacy-policy',
-    '/terms-of-service',
+    { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
+    { path: '/services', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/industries/insurance', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/audit', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/about', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/privacy-policy', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/terms-of-service', priority: 0.3, changeFrequency: 'yearly' as const },
   ]
 
+  const lastModified = new Date('2026-04-18')
+
   return routes.map((route) => ({
-    url: `${SITE_URL}${route}`,
-    lastModified: new Date('2026-03-18'),
-    changeFrequency: route === '' ? 'weekly' : 'monthly',
-    priority: route === '' ? 1 : route.includes('resources/') ? 0.9 : 0.8,
+    url: `${SITE_URL}${route.path}`,
+    lastModified,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
   }))
 }

@@ -1,243 +1,239 @@
-import { generatePageMetadata } from '@/lib/metadata';
-import { Settings, Bot, BarChart3, Puzzle } from 'lucide-react';
-import Hero from '@/components/sections/Hero';
-import CTASection from '@/components/sections/CTASection';
-import FadeInOnScroll from '@/components/animations/FadeInOnScroll';
-import SectionHeading from '@/components/ui/SectionHeading';
-import Badge from '@/components/ui/Badge';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import Link from 'next/link';
+import Link from 'next/link'
+import {
+  ArrowRight,
+  RefreshCw,
+  FileText,
+  Filter,
+  TrendingUp,
+  UserCheck,
+  FileUp,
+  Bell,
+  Calendar,
+  Users,
+  Route,
+} from 'lucide-react'
+import EyebrowBadge from '@/components/insurance/EyebrowBadge'
+import Reveal from '@/components/insurance/Reveal'
+import { SERVICES } from '@/lib/constants'
+import { generatePageMetadata } from '@/lib/metadata'
 
 export const metadata = generatePageMetadata({
-  title: 'AI Automation Services | Workflow, Agents, Integration & Reporting',
+  title: 'Services — AI Workflow Automation for Insurance Agencies',
   description:
-    'We design, build, deploy, and maintain AI-powered workflows that eliminate bottlenecks and scale your operations.',
+    'Ten workflow automation systems built specifically for independent P&C and commercial lines insurance agencies. Renewals, COIs, onboarding, follow-up, retention, and more.',
   path: '/services',
-});
+})
 
-const services = [
-  {
-    icon: Settings,
-    title: 'Workflow Automation',
-    description:
-      'We map your existing processes, identify automation opportunities, and build end-to-end workflows that run without human intervention.',
-    useCases: [
-      'Data entry and document processing',
-      'Scheduling and calendar management',
-      'Automated notifications and reminders',
-      'Reporting and data compilation',
-    ],
-    tools: ['n8n', 'Make', 'Zapier', 'Custom Integrations'],
-  },
-  {
-    icon: Bot,
-    title: 'AI Agent Development',
-    description:
-      'Custom AI agents that handle customer support, lead qualification, content generation, data analysis, and more — powered by the latest LLMs.',
-    useCases: [
-      'Customer support bots',
-      'Sales qualification agents',
-      'Content generation systems',
-      'Research assistants',
-    ],
-    tools: ['GPT-4', 'Claude', 'LangChain', 'Vector Databases'],
-  },
-  {
-    icon: BarChart3,
-    title: 'Data & Reporting Automation',
-    description:
-      'We connect your data sources, build real-time dashboards, and generate automated reports with AI-written commentary.',
-    useCases: [
-      'Client reporting automation',
-      'Internal KPI dashboards',
-      'Competitive intelligence',
-      'Performance monitoring',
-    ],
-    tools: ['APIs', 'Google Sheets', 'Data Studio', 'Custom Dashboards', 'LLM-Generated Insights'],
-  },
-  {
-    icon: Puzzle,
-    title: 'System Integration',
-    description:
-      'We connect your existing tools — CRM, ATS, e-commerce platform, ad platforms, email tools — into a unified automated ecosystem.',
-    useCases: [
-      'CRM-to-email automation',
-      'ATS-to-calendar sync',
-      'Multi-channel data aggregation',
-      'Custom API connections',
-    ],
-    tools: ['REST APIs', 'Webhooks', 'n8n/Make', 'Custom Middleware'],
-  },
-];
-
-const process = [
-  {
-    step: '01',
-    title: 'Discovery & Audit',
-    timeline: 'Week 1',
-    description:
-      'Deep-dive into your current workflows. We identify bottlenecks, manual processes, and automation opportunities.',
-    deliverable: 'Automation Opportunity Map',
-  },
-  {
-    step: '02',
-    title: 'Design & Architecture',
-    timeline: 'Week 2',
-    description:
-      'We design the technical workflow, select tools, and map integrations. You approve the blueprint before we build.',
-    deliverable: 'Workflow Blueprint',
-  },
-  {
-    step: '03',
-    title: 'Build & Deploy',
-    timeline: 'Weeks 3-4',
-    description:
-      'We build, test, and deploy the automations into your live environment. Full documentation and team training included.',
-    deliverable: 'Live, Tested Automations',
-  },
-  {
-    step: '04',
-    title: 'Optimise & Scale',
-    timeline: 'Ongoing',
-    description:
-      'We monitor performance, fix edge cases, and expand automations as your needs evolve.',
-    deliverable: 'Monthly Performance Reviews',
-  },
-];
+const ICON_MAP = {
+  refresh: RefreshCw,
+  document: FileText,
+  funnel: Filter,
+  'trending-up': TrendingUp,
+  'user-check': UserCheck,
+  'file-up': FileUp,
+  bell: Bell,
+  calendar: Calendar,
+  users: Users,
+  route: Route,
+} as const
 
 export default function ServicesPage() {
   return (
-    <>
-      <Hero
-        headline="Our AI Automation Services"
-        subheadline="We design, build, deploy, and maintain AI-powered workflows that eliminate bottlenecks and scale your operations."
-        primaryCTA={{ label: 'Book Your Free Audit', href: '/contact' }}
-      />
+    <div style={{ backgroundColor: 'var(--color-bg)' }}>
+      {/* Hero */}
+      <section className="relative overflow-hidden pb-16 pt-28 md:pb-24 md:pt-36">
+        <div aria-hidden className="absolute inset-0 dot-pattern opacity-40" />
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 radial-glow"
+        />
+        <div className="relative mx-auto max-w-5xl px-6 text-center">
+          <Reveal>
+            <EyebrowBadge>Our Services</EyebrowBadge>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h1
+              className="mt-6 text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl"
+              style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+            >
+              Ten Workflow Systems.
+              <br />
+              <span style={{ color: 'var(--color-accent)' }}>One Protected Book of Business.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p
+              className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed md:text-xl"
+              style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
+            >
+              Each one targets a specific leak in your agency&rsquo;s operations. We deploy them
+              in the order that protects the most commission fastest — starting with whichever
+              workflow is costing you the most today.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
-      <section className="relative py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <FadeInOnScroll direction="up">
-            <SectionHeading
-              badge="Services"
-              title="What We Do"
-              subtitle="End-to-end AI automation solutions tailored to your business needs."
-              gradient
-            />
-          </FadeInOnScroll>
-
-          <div className="mt-16 grid gap-6 lg:grid-cols-2">
-            {services.map((service, index) => {
-              const Icon = service.icon;
+      {/* Services list — full-width alternating rows */}
+      <section className="relative pb-20 md:pb-28">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="space-y-5">
+            {SERVICES.map((service, index) => {
+              const Icon = ICON_MAP[service.icon as keyof typeof ICON_MAP] ?? RefreshCw
+              const num = String(index + 1).padStart(2, '0')
               return (
-                <FadeInOnScroll key={service.title} direction="up" delay={index * 0.1}>
-                  <div className="group relative overflow-hidden rounded-2xl border border-border bg-bg-secondary/70 backdrop-blur-xl p-8 transition-all duration-300 hover:border-accent-blue/30 hover:shadow-lg hover:shadow-accent-blue/5">
-                    <div className="flex flex-col gap-6">
-                      <div className="flex items-start gap-4">
-                        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-accent-blue/15 border border-accent-blue/30">
-                          <Icon size={24} className="text-accent-blue" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold font-heading text-white">
-                            {service.title}
-                          </h3>
-                        </div>
+                <Reveal key={service.title} delay={index * 0.04}>
+                  <div
+                    className="card-lift grid grid-cols-1 gap-6 rounded-2xl p-6 md:grid-cols-[auto_1fr] md:gap-8 md:p-8"
+                    style={{
+                      backgroundColor: 'var(--color-bg-secondary)',
+                      border: '1px solid var(--color-border-accent)',
+                    }}
+                  >
+                    {/* Left rail — number + icon */}
+                    <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-6">
+                      <span
+                        className="text-sm font-medium tracking-[0.2em]"
+                        style={{
+                          color: 'var(--color-accent)',
+                          fontFamily: 'var(--font-mono)',
+                        }}
+                      >
+                        {num}
+                      </span>
+                      <div
+                        className="flex h-14 w-14 items-center justify-center rounded-xl"
+                        style={{
+                          backgroundColor: 'rgba(232, 160, 32, 0.08)',
+                          border: '1px solid var(--color-accent)',
+                        }}
+                      >
+                        <Icon
+                          className="h-6 w-6"
+                          style={{ color: 'var(--color-accent)' }}
+                          strokeWidth={1.8}
+                        />
                       </div>
+                    </div>
 
-                      <p className="text-sm text-text-secondary font-body leading-relaxed">
+                    {/* Content */}
+                    <div>
+                      <h2
+                        className="text-xl font-semibold leading-snug md:text-2xl"
+                        style={{
+                          fontFamily: 'var(--font-heading)',
+                          color: 'var(--color-text-primary)',
+                        }}
+                      >
+                        {service.title}
+                      </h2>
+                      <p
+                        className="mt-3 text-sm leading-relaxed md:text-base"
+                        style={{
+                          color: 'var(--color-text-secondary)',
+                          fontFamily: 'var(--font-body)',
+                        }}
+                      >
                         {service.description}
                       </p>
-
-                      <div>
-                        <p className="text-xs font-semibold text-text-muted font-body uppercase tracking-wider mb-3">
-                          Use Cases
-                        </p>
-                        <ul className="grid gap-2 sm:grid-cols-2">
-                          {service.useCases.map((useCase) => (
-                            <li
-                              key={useCase}
-                              className="flex items-start gap-2 text-sm text-text-secondary font-body"
-                            >
-                              <CheckCircle2
-                                size={14}
-                                className="mt-0.5 flex-shrink-0 text-accent-cyan"
-                              />
-                              {useCase}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div>
-                        <p className="text-xs font-semibold text-text-muted font-body uppercase tracking-wider mb-3">
-                          Tools We Use
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {service.tools.map((tool) => (
-                            <Badge key={tool} variant="cyan">
-                              {tool}
-                            </Badge>
-                          ))}
-                        </div>
+                      <div
+                        className="mt-5 inline-flex items-start gap-2 rounded-lg px-3.5 py-2"
+                        style={{
+                          backgroundColor: 'rgba(232, 160, 32, 0.08)',
+                          border: '1px solid rgba(232, 160, 32, 0.3)',
+                        }}
+                      >
+                        <span
+                          className="text-xs font-semibold uppercase tracking-[0.18em]"
+                          style={{
+                            color: 'var(--color-accent)',
+                            fontFamily: 'var(--font-body)',
+                          }}
+                        >
+                          ROI →
+                        </span>
+                        <span
+                          className="text-xs leading-snug md:text-sm"
+                          style={{
+                            color: 'var(--color-text-primary)',
+                            fontFamily: 'var(--font-body)',
+                          }}
+                        >
+                          {service.roi}
+                        </span>
                       </div>
                     </div>
                   </div>
-                </FadeInOnScroll>
-              );
+                </Reveal>
+              )
             })}
           </div>
         </div>
       </section>
 
-      <section className="relative py-24 lg:py-32 border-t border-border">
-        <div className="mx-auto max-w-7xl px-6">
-          <FadeInOnScroll direction="up">
-            <SectionHeading
-              badge="Process"
-              title="How We Work"
-              subtitle="A proven 4-step methodology that delivers results from day one."
-              gradient
-            />
-          </FadeInOnScroll>
-
-          <div className="mt-16 grid gap-6 lg:grid-cols-4">
-            {process.map((item, index) => (
-              <FadeInOnScroll key={item.step} direction="up" delay={index * 0.1}>
-                <div className="relative rounded-2xl border border-border bg-bg-secondary/50 p-6">
-                  <div className="mb-4 flex items-center justify-between">
-                    <span className="text-3xl font-bold font-heading text-accent-blue/60">
-                      {item.step}
-                    </span>
-                      <Badge variant="blue">{item.timeline}</Badge>
-                  </div>
-                  <h3 className="mb-2 text-lg font-bold font-heading text-white">
-                    {item.title}
-                  </h3>
-                  <p className="mb-4 text-sm text-text-secondary font-body leading-relaxed">
-                    {item.description}
-                  </p>
-                  <div className="rounded-lg bg-accent-blue/5 border border-accent-blue/10 px-3 py-2">
-                    <p className="text-xs font-semibold text-accent-blue font-body">
-                      {item.deliverable}
-                    </p>
-                  </div>
-                  {index < process.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-3 -translate-y-1/2 z-10">
-                      <ArrowRight size={20} className="text-text-muted" />
-                    </div>
-                  )}
-                </div>
-              </FadeInOnScroll>
-            ))}
-          </div>
+      {/* How we sequence */}
+      <section
+        className="relative border-y py-20 md:py-28"
+        style={{
+          borderColor: 'var(--color-border-accent)',
+          backgroundColor: 'var(--color-bg-secondary)',
+        }}
+      >
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <Reveal>
+            <EyebrowBadge variant="muted">Deployment order</EyebrowBadge>
+            <h2
+              className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
+              style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+            >
+              We don&rsquo;t build all ten at once.
+            </h2>
+            <p
+              className="mx-auto mt-5 max-w-2xl text-base leading-relaxed md:text-lg"
+              style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
+            >
+              We start with the one system that&rsquo;s costing your agency the most today —
+              usually renewals or COIs — and expand from there. Each workflow earns its place
+              before the next is scoped. No bloated roadmaps, no feature theatre.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      <CTASection
-        headline="Let's Map Your Automation Opportunities."
-        subtext="Book a free 30-minute audit call. We'll analyze your workflows, identify automation opportunities, and give you a clear roadmap."
-        buttonLabel="Book Your Free Audit →"
-        buttonHref="/contact"
-      />
-    </>
-  );
+      {/* Final CTA */}
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <div aria-hidden className="absolute inset-0 radial-glow-strong" />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <Reveal>
+            <h2
+              className="text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
+              style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+            >
+              Not sure which workflow to start with?
+            </h2>
+            <p
+              className="mx-auto mt-5 max-w-xl text-base leading-relaxed md:text-lg"
+              style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
+            >
+              That&rsquo;s exactly what the free audit is for. Thirty minutes, a written report,
+              and a clear answer on where to begin.
+            </p>
+            <div className="mt-9">
+              <Link
+                href="/audit"
+                className="btn-shimmer inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold transition-transform active:scale-[0.98]"
+                style={{
+                  backgroundColor: 'var(--color-accent)',
+                  color: '#0A0E1A',
+                  fontFamily: 'var(--font-body)',
+                }}
+              >
+                Book Your Free Audit <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </div>
+  )
 }

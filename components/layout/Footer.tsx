@@ -1,130 +1,151 @@
 'use client'
 
 import Link from 'next/link'
-import { Linkedin, ArrowUpRight } from 'lucide-react'
-import { SITE_NAME, SITE_TAGLINE, INDUSTRIES } from '@/lib/constants'
+import { Linkedin } from 'lucide-react'
+import { SITE_NAME, SITE_TAGLINE, SERVICES, MARKETS } from '@/lib/constants'
 
-const FOOTER_COLUMNS = [
-  {
-    title: 'Industries',
-    links: INDUSTRIES.map((industry) => ({
-      label: industry.name,
-      href: industry.href,
-    })),
-  },
-  {
-    title: 'Services',
-    links: [
-      { label: 'Workflow Automation', href: '/services' },
-      { label: 'AI Integration', href: '/services' },
-      { label: 'Custom AI Agents', href: '/services' },
-      { label: 'Reporting Dashboards', href: '/services' },
-    ],
-  },
-  {
-    title: 'Resources',
-    links: [
-      { label: 'Recruitment AI Guide', href: '/resources/recruitment-ai-guide' },
-      { label: 'E-Commerce AI Guide', href: '/resources/ecommerce-ai-guide' },
-      { label: 'Marketing AI Guide', href: '/resources/marketing-ai-guide' },
-    ],
-  },
-  {
-    title: 'Company',
-    links: [
-      { label: 'About', href: '/about' },
-      { label: 'Contact', href: '/contact' },
-      { label: 'Privacy Policy', href: '/privacy-policy' },
-      { label: 'Terms of Service', href: '/terms-of-service' },
-    ],
-  },
+const COMPANY_LINKS = [
+  { label: 'About', href: '/about' },
+  { label: 'Book Free Audit', href: '/audit' },
+  { label: 'Contact', href: '/audit' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms of Service', href: '/terms-of-service' },
 ] as const
 
-const SOCIAL_LINKS = [
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/company/groovegaurd/',
-    icon: Linkedin,
-  },
-] as const
-
-const MARKETS = ['UK', 'EU', 'Gulf', 'US'] as const
+const LINKEDIN_URL = 'https://www.linkedin.com/company/groovegaurd/'
 
 export default function Footer() {
   return (
     <footer
       className="w-full"
       style={{
-        backgroundColor: 'var(--footer-bg)',
-        borderTop: '1px solid var(--border-color)',
+        backgroundColor: 'var(--color-bg-secondary)',
+        borderTop: '1px solid var(--color-border)',
       }}
     >
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        {/* Top section: Logo/tagline + columns */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-6">
-          {/* Logo and tagline */}
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          {/* Column 1 — Brand */}
+          <div>
             <Link
               href="/"
-              className="text-2xl font-bold tracking-tight"
-              style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-primary)' }}
+              className="flex items-center gap-2 text-2xl font-bold tracking-tight"
+              style={{
+                fontFamily: 'var(--font-heading)',
+                color: 'var(--color-text-primary)',
+              }}
             >
+              <span
+                aria-hidden
+                className="inline-block h-2.5 w-2.5 rounded-full"
+                style={{ backgroundColor: 'var(--color-accent)' }}
+              />
               {SITE_NAME}
             </Link>
             <p
               className="mt-4 max-w-xs text-sm leading-relaxed"
-              style={{ color: 'var(--text-secondary)' }}
+              style={{ color: 'var(--color-text-secondary)' }}
             >
               {SITE_TAGLINE}
             </p>
-
-            {/* Social links */}
-            <div className="mt-6 flex items-center gap-4">
-              {SOCIAL_LINKS.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg p-2 transition-all duration-200"
-                  style={{
-                    color: 'var(--text-secondary)',
-                    border: '1px solid var(--border-color)',
-                  }}
-                  aria-label={social.label}
-                >
-                  <social.icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
+            <p
+              className="mt-4 text-xs font-medium uppercase tracking-wider"
+              style={{ color: 'var(--color-text-muted)' }}
+            >
+              US · UK · EU · UAE · Australia
+            </p>
           </div>
 
-          {/* Link columns */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-4">
-            {FOOTER_COLUMNS.map((column) => (
-              <div key={column.title}>
-                <h3
-                  className="mb-4 text-sm font-semibold uppercase tracking-wider"
-                  style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-primary)' }}
+          {/* Column 2 — Services */}
+          <div>
+            <h3
+              className="mb-4 text-sm font-semibold uppercase tracking-wider"
+              style={{
+                fontFamily: 'var(--font-heading)',
+                color: 'var(--color-text-primary)',
+              }}
+            >
+              Services
+            </h3>
+            <ul className="space-y-2.5">
+              {SERVICES.map((service) => (
+                <li key={service.title}>
+                  <Link
+                    href="/services"
+                    className="text-sm transition-colors hover:text-[var(--color-accent)]"
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3 — Company */}
+          <div>
+            <h3
+              className="mb-4 text-sm font-semibold uppercase tracking-wider"
+              style={{
+                fontFamily: 'var(--font-heading)',
+                color: 'var(--color-text-primary)',
+              }}
+            >
+              Company
+            </h3>
+            <ul className="space-y-2.5">
+              {COMPANY_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm transition-colors hover:text-[var(--color-accent)]"
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4 — Markets + Social */}
+          <div>
+            <h3
+              className="mb-4 text-sm font-semibold uppercase tracking-wider"
+              style={{
+                fontFamily: 'var(--font-heading)',
+                color: 'var(--color-text-primary)',
+              }}
+            >
+              Serving Agencies In
+            </h3>
+            <ul className="space-y-2.5">
+              {MARKETS.map((market) => (
+                <li
+                  key={market.label}
+                  className="text-sm"
+                  style={{ color: 'var(--color-text-secondary)' }}
                 >
-                  {column.title}
-                </h3>
-                <ul className="space-y-3">
-                  {column.links.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="group inline-flex items-center gap-1 text-sm transition-colors"
-                        style={{ color: 'var(--text-secondary)' }}
-                      >
-                        {link.label}
-                        <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+                  {market.label}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg p-2 transition-all duration-200 hover:border-[var(--color-accent)]"
+                style={{
+                  color: 'var(--color-text-secondary)',
+                  border: '1px solid var(--color-border)',
+                }}
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
 
@@ -134,27 +155,18 @@ export default function Footer() {
           style={{
             height: '1px',
             background:
-              'linear-gradient(90deg, transparent, var(--border-color), transparent)',
+              'linear-gradient(90deg, transparent, var(--color-border-accent), transparent)',
           }}
         />
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-            &copy; 2025 {SITE_NAME}. All rights reserved.
+        <div className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
+          <p className="text-xs" style={{ color: 'var(--color-text-muted)' }}>
+            &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
           </p>
-
-          <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-muted)' }}>
-            <span className="mr-1">Markets:</span>
-            {MARKETS.map((market, index) => (
-              <span key={market} className="flex items-center gap-2">
-                <span>{market}</span>
-                {index < MARKETS.length - 1 && (
-                  <span style={{ color: 'var(--border-color)' }}>|</span>
-                )}
-              </span>
-            ))}
-          </div>
+          <p className="text-xs" style={{ color: 'var(--color-text-muted)' }}>
+            Built for P&amp;C &amp; Commercial Lines Insurance Agencies
+          </p>
         </div>
       </div>
     </footer>

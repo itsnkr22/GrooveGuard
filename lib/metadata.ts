@@ -10,7 +10,7 @@ interface PageMetaParams {
 
 export function generatePageMetadata({ title, description, path, type = 'website' }: PageMetaParams): Metadata {
   const url = `${SITE_URL}${path}`
-  const fullTitle = path === '/' ? `${SITE_NAME} — AI Workflow Automation Agency` : `${title} | ${SITE_NAME}`
+  const fullTitle = path === '/' ? `${SITE_NAME} | AI Workflow Automation for Insurance Agencies` : `${title} | ${SITE_NAME}`
 
   return {
     title: fullTitle,
