@@ -28,7 +28,7 @@ const dmMono = DM_Mono({
 })
 
 export const viewport: Viewport = {
-  themeColor: '#0A0E1A',
+  themeColor: '#FAF8F3',
   width: 'device-width',
   initialScale: 1,
 }

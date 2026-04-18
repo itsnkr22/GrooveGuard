@@ -43,9 +43,25 @@ export default function TopBanner() {
           className="relative overflow-hidden"
         >
           <div
-            className="relative w-full px-4 py-2.5"
-            style={{ backgroundColor: 'var(--color-accent)' }}
+            className="relative w-full overflow-hidden px-4 py-2.5"
+            style={{
+              background:
+                'linear-gradient(90deg, #B8860B 0%, #E8A020 50%, #B8860B 100%)',
+            }}
           >
+            {/* subtle moving shimmer */}
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute inset-0"
+              initial={{ x: '-100%' }}
+              animate={{ x: '100%' }}
+              transition={{ duration: 6, ease: 'linear', repeat: Infinity }}
+              style={{
+                background:
+                  'linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)',
+                width: '40%',
+              }}
+            />
             <div className="mx-auto flex max-w-7xl items-center justify-center pr-10">
               <p
                 className="text-center text-[13px] font-medium sm:text-sm"

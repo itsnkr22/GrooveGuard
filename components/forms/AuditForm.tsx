@@ -292,7 +292,7 @@ export default function AuditForm() {
         className="btn-shimmer flex w-full items-center justify-center gap-2 rounded-md px-6 py-4 text-base font-semibold transition-transform active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
         style={{
           backgroundColor: 'var(--color-accent)',
-          color: '#0A0E1A',
+          color: '#FAF8F3',
           fontFamily: 'var(--font-body)',
         }}
       >

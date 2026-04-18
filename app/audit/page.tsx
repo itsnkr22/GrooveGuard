@@ -2,6 +2,7 @@ import { Calendar, Clock, ShieldCheck, FileText } from 'lucide-react'
 import AuditForm from '@/components/forms/AuditForm'
 import EyebrowBadge from '@/components/insurance/EyebrowBadge'
 import Reveal from '@/components/insurance/Reveal'
+import OrbField from '@/components/insurance/OrbField'
 import { generatePageMetadata } from '@/lib/metadata'
 
 export const metadata = generatePageMetadata({
@@ -34,23 +35,17 @@ const REASSURANCE = [
 const WHAT_TO_EXPECT = [
   'We map your current renewal, onboarding, and client communication workflows.',
   'We identify where time is being lost and where commission is at risk today.',
-  'We show you the 1–2 highest-impact automations for your agency specifically.',
-  'You receive a written Workflow Opportunity Report — whether you hire us or not.',
+  'We show you the 1\u20132 highest-impact automations for your agency specifically.',
+  'You receive a written Workflow Opportunity Report \u2014 whether you hire us or not.',
 ] as const
 
 export default function AuditPage() {
   return (
-    <div style={{ backgroundColor: 'var(--color-bg)' }}>
+    <div>
       {/* Hero */}
-      <section
-        className="relative overflow-hidden pb-12 pt-28 md:pb-16 md:pt-36"
-        style={{ backgroundColor: 'var(--color-bg)' }}
-      >
-        <div aria-hidden className="absolute inset-0 dot-pattern opacity-40" />
-        <div
-          aria-hidden
-          className="absolute left-1/2 top-0 h-[400px] w-[800px] -translate-x-1/2 radial-glow"
-        />
+      <section className="relative overflow-hidden pb-12 pt-28 md:pb-16 md:pt-36">
+        <OrbField variant="hero" />
+        <div aria-hidden className="absolute inset-0 dot-pattern opacity-50" />
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <Reveal>
             <EyebrowBadge>Free Workflow Audit</EyebrowBadge>
@@ -62,7 +57,7 @@ export default function AuditPage() {
             >
               Find Out Exactly Where
               <br />
-              <span style={{ color: 'var(--color-accent)' }}>Your Agency Is Leaking Money.</span>
+              <span className="gradient-text-amber">Your Agency Is Leaking Money.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
@@ -103,7 +98,7 @@ export default function AuditPage() {
                     >
                       <span
                         aria-hidden
-                        className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full"
+                        className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full"
                         style={{ backgroundColor: 'var(--color-accent)' }}
                       />
                       <span>{item}</span>
@@ -117,6 +112,7 @@ export default function AuditPage() {
                   style={{
                     backgroundColor: 'var(--color-bg-secondary)',
                     border: '1px dashed var(--color-border-accent)',
+                    boxShadow: 'var(--shadow-soft)',
                   }}
                 >
                   <div className="flex items-start gap-3">
@@ -142,7 +138,7 @@ export default function AuditPage() {
                         }}
                       >
                         Submit the form and we&rsquo;ll send you a link to book a slot that works
-                        for you — usually within one business day.
+                        for you &mdash; usually within one business day.
                       </p>
                     </div>
                   </div>
@@ -154,10 +150,11 @@ export default function AuditPage() {
             <div className="lg:col-span-3">
               <Reveal delay={0.1}>
                 <div
-                  className="rounded-2xl p-6 md:p-10"
+                  className="card-gold-glow relative rounded-2xl p-6 md:p-10"
                   style={{
                     backgroundColor: 'var(--color-bg-secondary)',
-                    border: '1px solid var(--color-border-accent)',
+                    border: '1px solid var(--color-border)',
+                    boxShadow: 'var(--shadow-lift)',
                   }}
                 >
                   <h2
@@ -192,7 +189,10 @@ export default function AuditPage() {
       {/* Reassurance strip */}
       <section
         className="relative border-t py-16 md:py-20"
-        style={{ borderColor: 'var(--color-border-accent)' }}
+        style={{
+          borderColor: 'var(--color-border)',
+          backgroundColor: 'var(--color-bg-tertiary)',
+        }}
       >
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -204,8 +204,9 @@ export default function AuditPage() {
                     <div
                       className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg"
                       style={{
-                        backgroundColor: 'rgba(232, 160, 32, 0.08)',
-                        border: '1px solid var(--color-border-accent)',
+                        background:
+                          'linear-gradient(135deg, rgba(232, 160, 32, 0.18), rgba(184, 134, 11, 0.08))',
+                        border: '1px solid var(--color-accent-border)',
                       }}
                     >
                       <Icon className="h-5 w-5" style={{ color: 'var(--color-accent)' }} />

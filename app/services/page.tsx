@@ -11,9 +11,11 @@ import {
   Calendar,
   Users,
   Route,
+  Sparkles,
 } from 'lucide-react'
 import EyebrowBadge from '@/components/insurance/EyebrowBadge'
 import Reveal from '@/components/insurance/Reveal'
+import OrbField from '@/components/insurance/OrbField'
 import { SERVICES } from '@/lib/constants'
 import { generatePageMetadata } from '@/lib/metadata'
 
@@ -39,14 +41,11 @@ const ICON_MAP = {
 
 export default function ServicesPage() {
   return (
-    <div style={{ backgroundColor: 'var(--color-bg)' }}>
+    <div>
       {/* Hero */}
       <section className="relative overflow-hidden pb-16 pt-28 md:pb-24 md:pt-36">
-        <div aria-hidden className="absolute inset-0 dot-pattern opacity-40" />
-        <div
-          aria-hidden
-          className="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 radial-glow"
-        />
+        <OrbField variant="hero" />
+        <div aria-hidden className="absolute inset-0 dot-pattern opacity-50" />
         <div className="relative mx-auto max-w-5xl px-6 text-center">
           <Reveal>
             <EyebrowBadge>Our Services</EyebrowBadge>
@@ -58,7 +57,7 @@ export default function ServicesPage() {
             >
               Ten Workflow Systems.
               <br />
-              <span style={{ color: 'var(--color-accent)' }}>One Protected Book of Business.</span>
+              <span className="gradient-text-amber">One Protected Book of Business.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
@@ -67,45 +66,46 @@ export default function ServicesPage() {
               style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
             >
               Each one targets a specific leak in your agency&rsquo;s operations. We deploy them
-              in the order that protects the most commission fastest — starting with whichever
-              workflow is costing you the most today.
+              in the order that protects the most commission fastest &mdash; starting with
+              whichever workflow is costing you the most today.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Services list — full-width alternating rows */}
-      <section className="relative pb-20 md:pb-28">
+      {/* Services — alternating zig-zag grid with gold number rail */}
+      <section
+        className="relative py-16 md:py-24"
+        style={{ backgroundColor: 'var(--color-bg-tertiary)' }}
+      >
         <div className="mx-auto max-w-6xl px-6">
-          <div className="space-y-5">
+          <div className="space-y-6">
             {SERVICES.map((service, index) => {
               const Icon = ICON_MAP[service.icon as keyof typeof ICON_MAP] ?? RefreshCw
               const num = String(index + 1).padStart(2, '0')
               return (
                 <Reveal key={service.title} delay={index * 0.04}>
                   <div
-                    className="card-lift grid grid-cols-1 gap-6 rounded-2xl p-6 md:grid-cols-[auto_1fr] md:gap-8 md:p-8"
+                    className="card-lift card-gold-glow group grid grid-cols-1 gap-6 rounded-2xl p-6 md:grid-cols-[auto_1fr] md:gap-8 md:p-8"
                     style={{
                       backgroundColor: 'var(--color-bg-secondary)',
-                      border: '1px solid var(--color-border-accent)',
+                      border: '1px solid var(--color-border)',
                     }}
                   >
                     {/* Left rail — number + icon */}
                     <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-6">
                       <span
-                        className="text-sm font-medium tracking-[0.2em]"
-                        style={{
-                          color: 'var(--color-accent)',
-                          fontFamily: 'var(--font-mono)',
-                        }}
+                        className="font-mono text-sm font-semibold tracking-[0.2em]"
+                        style={{ color: 'var(--color-accent)' }}
                       >
                         {num}
                       </span>
                       <div
-                        className="flex h-14 w-14 items-center justify-center rounded-xl"
+                        className="flex h-14 w-14 items-center justify-center rounded-xl transition-all group-hover:scale-110"
                         style={{
-                          backgroundColor: 'rgba(232, 160, 32, 0.08)',
-                          border: '1px solid var(--color-accent)',
+                          background:
+                            'linear-gradient(135deg, rgba(232, 160, 32, 0.18), rgba(184, 134, 11, 0.08))',
+                          border: '1px solid var(--color-accent-border)',
                         }}
                       >
                         <Icon
@@ -116,7 +116,6 @@ export default function ServicesPage() {
                       </div>
                     </div>
 
-                    {/* Content */}
                     <div>
                       <h2
                         className="text-xl font-semibold leading-snug md:text-2xl"
@@ -139,23 +138,19 @@ export default function ServicesPage() {
                       <div
                         className="mt-5 inline-flex items-start gap-2 rounded-lg px-3.5 py-2"
                         style={{
-                          backgroundColor: 'rgba(232, 160, 32, 0.08)',
-                          border: '1px solid rgba(232, 160, 32, 0.3)',
+                          background:
+                            'linear-gradient(135deg, rgba(232, 160, 32, 0.12), rgba(184, 134, 11, 0.06))',
+                          border: '1px solid var(--color-accent-border)',
                         }}
                       >
+                        <Sparkles
+                          className="mt-0.5 h-3.5 w-3.5 flex-shrink-0"
+                          style={{ color: 'var(--color-accent)' }}
+                        />
                         <span
-                          className="text-xs font-semibold uppercase tracking-[0.18em]"
+                          className="text-xs font-medium leading-snug md:text-sm"
                           style={{
-                            color: 'var(--color-accent)',
-                            fontFamily: 'var(--font-body)',
-                          }}
-                        >
-                          ROI →
-                        </span>
-                        <span
-                          className="text-xs leading-snug md:text-sm"
-                          style={{
-                            color: 'var(--color-text-primary)',
+                            color: 'var(--color-accent-dark)',
                             fontFamily: 'var(--font-body)',
                           }}
                         >
@@ -171,15 +166,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* How we sequence */}
-      <section
-        className="relative border-y py-20 md:py-28"
-        style={{
-          borderColor: 'var(--color-border-accent)',
-          backgroundColor: 'var(--color-bg-secondary)',
-        }}
-      >
-        <div className="mx-auto max-w-4xl px-6 text-center">
+      {/* Deployment order */}
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <OrbField variant="subtle" />
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
           <Reveal>
             <EyebrowBadge variant="muted">Deployment order</EyebrowBadge>
             <h2
@@ -192,17 +182,18 @@ export default function ServicesPage() {
               className="mx-auto mt-5 max-w-2xl text-base leading-relaxed md:text-lg"
               style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
             >
-              We start with the one system that&rsquo;s costing your agency the most today —
-              usually renewals or COIs — and expand from there. Each workflow earns its place
-              before the next is scoped. No bloated roadmaps, no feature theatre.
+              We start with the one system that&rsquo;s costing your agency the most today &mdash;
+              usually renewals or COIs &mdash; and expand from there. Each workflow earns its
+              place before the next is scoped. No bloated roadmaps, no feature theatre.
             </p>
           </Reveal>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden py-20 md:py-28">
-        <div aria-hidden className="absolute inset-0 radial-glow-strong" />
+      <section className="relative overflow-hidden py-24 md:py-32">
+        <OrbField variant="cta" />
+        <div aria-hidden className="absolute inset-0 dot-pattern opacity-50" />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <Reveal>
             <h2
@@ -224,7 +215,7 @@ export default function ServicesPage() {
                 className="btn-shimmer inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold transition-transform active:scale-[0.98]"
                 style={{
                   backgroundColor: 'var(--color-accent)',
-                  color: '#0A0E1A',
+                  color: '#FAF8F3',
                   fontFamily: 'var(--font-body)',
                 }}
               >

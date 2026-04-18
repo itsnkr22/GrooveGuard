@@ -38,12 +38,13 @@ export default function Navbar() {
     <nav
       className="sticky top-0 z-50 w-full transition-all duration-300"
       style={{
-        background: scrolled ? 'rgba(10, 14, 26, 0.9)' : 'rgba(10, 14, 26, 0.4)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
+        background: scrolled ? 'rgba(250, 248, 243, 0.88)' : 'rgba(250, 248, 243, 0.6)',
+        backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)',
         borderBottom: scrolled
           ? '1px solid var(--color-border)'
           : '1px solid transparent',
+        boxShadow: scrolled ? '0 4px 20px -12px rgba(10, 14, 26, 0.08)' : 'none',
       }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -121,7 +122,7 @@ export default function Navbar() {
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
             className="fixed inset-0 top-0 z-40 flex flex-col md:hidden"
-            style={{ background: 'rgba(10, 14, 26, 0.98)' }}
+            style={{ background: 'rgba(250, 248, 243, 0.98)' }}
           >
             <div className="flex items-center justify-between px-4 py-4 sm:px-6">
               <Link

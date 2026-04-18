@@ -12,6 +12,7 @@ import {
 import EyebrowBadge from '@/components/insurance/EyebrowBadge'
 import Reveal from '@/components/insurance/Reveal'
 import CountUp from '@/components/insurance/CountUp'
+import OrbField from '@/components/insurance/OrbField'
 import { generatePageMetadata } from '@/lib/metadata'
 
 export const metadata = generatePageMetadata({
@@ -48,7 +49,7 @@ const AGENCY_TYPES = [
   },
   {
     icon: Users,
-    title: 'Growing Agencies (2–25 Producers)',
+    title: 'Growing Agencies (2\u201325 Producers)',
     description:
       'Past the solo stage, not yet enterprise. The operational leverage gap is where we add the most value.',
   },
@@ -56,7 +57,7 @@ const AGENCY_TYPES = [
     icon: FileCheck,
     title: 'MGAs & Wholesale Brokers',
     description:
-      'Submission management, carrier follow-through, retail agent communication — automated where it matters.',
+      'Submission management, carrier follow-through, retail agent communication \u2014 automated where it matters.',
   },
 ] as const
 
@@ -92,35 +93,32 @@ const WHY_INSURANCE = [
   {
     title: 'We understand commission-based economics.',
     description:
-      'Every dollar of protected renewal commission is a dollar of recurring, compounding value. Our ROI math is built around the multiple of EBITDA you&rsquo;ll eventually sell for — not vanity metrics.',
+      'Every dollar of protected renewal commission is a dollar of recurring, compounding value. Our ROI math is built around the multiple of EBITDA you\u2019ll eventually sell for \u2014 not vanity metrics.',
   },
   {
     title: 'We understand carrier and agency management systems.',
     description:
-      'AMS360, Applied Epic, EZLynx, HawkSoft, NowCerts — we integrate with the systems you already use, rather than forcing you to migrate.',
+      'AMS360, Applied Epic, EZLynx, HawkSoft, NowCerts \u2014 we integrate with the systems you already use, rather than forcing you to migrate.',
   },
 ] as const
 
 const OUTCOMES = [
   'Protect renewals that would otherwise slip through the cracks.',
   'Recover 40+ hours of weekly staff time across your account managers.',
-  'Respond to inbound leads in under 5 minutes — automatically.',
+  'Respond to inbound leads in under 5 minutes \u2014 automatically.',
   'Run annual reviews at scale without adding headcount.',
   'Generate COIs in the background while your team focuses on relationships.',
   'Build a systematic referral engine from your existing book.',
-  'Lift retention from 84% toward 91%+ — compounding commission year over year.',
+  'Lift retention from 84% toward 91%+ \u2014 compounding commission year over year.',
 ] as const
 
 export default function InsuranceIndustryPage() {
   return (
-    <div style={{ backgroundColor: 'var(--color-bg)' }}>
+    <div>
       {/* Hero */}
       <section className="relative overflow-hidden pb-20 pt-28 md:pb-28 md:pt-36">
-        <div aria-hidden className="absolute inset-0 dot-pattern opacity-40" />
-        <div
-          aria-hidden
-          className="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 radial-glow"
-        />
+        <OrbField variant="hero" />
+        <div aria-hidden className="absolute inset-0 dot-pattern opacity-50" />
         <div className="relative mx-auto max-w-5xl px-6 text-center">
           <Reveal>
             <EyebrowBadge>Built for Insurance</EyebrowBadge>
@@ -132,7 +130,7 @@ export default function InsuranceIndustryPage() {
             >
               We Only Work With
               <br />
-              <span style={{ color: 'var(--color-accent)' }}>Independent Insurance Agencies.</span>
+              <span className="gradient-text-amber">Independent Insurance Agencies.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
@@ -152,7 +150,7 @@ export default function InsuranceIndustryPage() {
                 className="btn-shimmer inline-flex items-center gap-2 rounded-md px-7 py-3.5 text-base font-semibold transition-transform active:scale-[0.98]"
                 style={{
                   backgroundColor: 'var(--color-accent)',
-                  color: '#0A0E1A',
+                  color: '#FAF8F3',
                   fontFamily: 'var(--font-body)',
                 }}
               >
@@ -160,7 +158,7 @@ export default function InsuranceIndustryPage() {
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 rounded-md px-7 py-3.5 text-base font-medium"
+                className="inline-flex items-center gap-2 rounded-md px-7 py-3.5 text-base font-medium transition-all hover:bg-white"
                 style={{
                   border: '1px solid var(--color-border-accent)',
                   color: 'var(--color-text-primary)',
@@ -178,8 +176,8 @@ export default function InsuranceIndustryPage() {
       <section
         className="relative border-y py-14"
         style={{
-          borderColor: 'var(--color-border-accent)',
-          backgroundColor: 'var(--color-bg-secondary)',
+          borderColor: 'var(--color-border)',
+          backgroundColor: 'var(--color-bg-tertiary)',
         }}
       >
         <div className="mx-auto max-w-6xl px-6">
@@ -190,25 +188,19 @@ export default function InsuranceIndustryPage() {
                   value={stat.number}
                   className="block text-4xl font-semibold tracking-tight md:text-5xl"
                   style={{
-                    color: 'var(--color-accent)',
+                    color: 'var(--color-accent-dark)',
                     fontFamily: 'var(--font-heading)',
                   }}
                 />
                 <p
                   className="mt-3 text-sm leading-relaxed md:text-base"
-                  style={{
-                    color: 'var(--color-text-secondary)',
-                    fontFamily: 'var(--font-body)',
-                  }}
+                  style={{ color: 'var(--color-text-primary)', fontFamily: 'var(--font-body)' }}
                 >
                   {stat.label}
                 </p>
                 <p
-                  className="mt-1 text-xs"
-                  style={{
-                    color: 'var(--color-text-muted)',
-                    fontFamily: 'var(--font-mono)',
-                  }}
+                  className="mt-1 font-mono text-xs"
+                  style={{ color: 'var(--color-text-muted)' }}
                 >
                   {stat.source}
                 </p>
@@ -244,17 +236,18 @@ export default function InsuranceIndustryPage() {
             {WHY_INSURANCE.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.08}>
                 <div
-                  className="card-lift h-full rounded-2xl p-7"
+                  className="card-lift card-gold-glow h-full rounded-2xl p-7"
                   style={{
                     backgroundColor: 'var(--color-bg-secondary)',
-                    border: '1px solid var(--color-border-accent)',
+                    border: '1px solid var(--color-border)',
                   }}
                 >
                   <div
                     className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg"
                     style={{
-                      backgroundColor: 'rgba(232, 160, 32, 0.08)',
-                      border: '1px solid var(--color-accent)',
+                      background:
+                        'linear-gradient(135deg, rgba(232, 160, 32, 0.18), rgba(184, 134, 11, 0.08))',
+                      border: '1px solid var(--color-accent-border)',
                     }}
                   >
                     <Check className="h-5 w-5" style={{ color: 'var(--color-accent)' }} />
@@ -284,10 +277,10 @@ export default function InsuranceIndustryPage() {
         </div>
       </section>
 
-      {/* Agency types served */}
+      {/* Agency types */}
       <section
         className="relative py-20 md:py-28"
-        style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+        style={{ backgroundColor: 'var(--color-bg-tertiary)' }}
       >
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-3xl text-center">
@@ -308,19 +301,28 @@ export default function InsuranceIndustryPage() {
               return (
                 <Reveal key={agency.title} delay={i * 0.06}>
                   <div
-                    className="card-lift h-full rounded-xl p-6"
+                    className="card-lift card-gold-glow h-full rounded-xl p-6"
                     style={{
-                      backgroundColor: 'var(--color-bg)',
-                      border: '1px solid var(--color-border-accent)',
+                      backgroundColor: 'var(--color-bg-secondary)',
+                      border: '1px solid var(--color-border)',
                     }}
                   >
-                    <Icon
-                      className="h-6 w-6"
-                      style={{ color: 'var(--color-accent)' }}
-                      strokeWidth={1.8}
-                    />
+                    <div
+                      className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg"
+                      style={{
+                        background:
+                          'linear-gradient(135deg, rgba(232, 160, 32, 0.18), rgba(184, 134, 11, 0.08))',
+                        border: '1px solid var(--color-accent-border)',
+                      }}
+                    >
+                      <Icon
+                        className="h-5 w-5"
+                        style={{ color: 'var(--color-accent)' }}
+                        strokeWidth={1.8}
+                      />
+                    </div>
                     <h3
-                      className="mt-4 text-lg font-semibold leading-snug"
+                      className="text-lg font-semibold leading-snug"
                       style={{
                         fontFamily: 'var(--font-heading)',
                         color: 'var(--color-text-primary)',
@@ -361,25 +363,23 @@ export default function InsuranceIndustryPage() {
           </div>
 
           <div className="mx-auto mt-12 max-w-3xl">
-            <Reveal delay={0.1}>
-              <ul className="space-y-4">
-                {OUTCOMES.map((outcome) => (
+            <ul className="space-y-4">
+              {OUTCOMES.map((outcome, i) => (
+                <Reveal key={outcome} delay={i * 0.05}>
                   <li
-                    key={outcome}
-                    className="flex items-start gap-4 rounded-xl px-5 py-4"
+                    className="card-lift flex items-start gap-4 rounded-xl px-5 py-4"
                     style={{
                       backgroundColor: 'var(--color-bg-secondary)',
-                      border: '1px solid var(--color-border-accent)',
+                      border: '1px solid var(--color-border)',
                     }}
                   >
                     <div
                       className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full"
                       style={{
-                        backgroundColor: 'rgba(232, 160, 32, 0.12)',
-                        border: '1px solid var(--color-accent)',
+                        backgroundColor: 'var(--color-accent)',
                       }}
                     >
-                      <Check className="h-3.5 w-3.5" style={{ color: 'var(--color-accent)' }} />
+                      <Check className="h-3.5 w-3.5" style={{ color: '#FAF8F3' }} />
                     </div>
                     <span
                       className="text-sm leading-relaxed md:text-base"
@@ -391,16 +391,17 @@ export default function InsuranceIndustryPage() {
                       {outcome}
                     </span>
                   </li>
-                ))}
-              </ul>
-            </Reveal>
+                </Reveal>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden py-20 md:py-28">
-        <div aria-hidden className="absolute inset-0 radial-glow-strong" />
+      <section className="relative overflow-hidden py-24 md:py-32">
+        <OrbField variant="cta" />
+        <div aria-hidden className="absolute inset-0 dot-pattern opacity-50" />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <Reveal>
             <h2
@@ -421,7 +422,7 @@ export default function InsuranceIndustryPage() {
                 className="btn-shimmer inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold transition-transform active:scale-[0.98]"
                 style={{
                   backgroundColor: 'var(--color-accent)',
-                  color: '#0A0E1A',
+                  color: '#FAF8F3',
                   fontFamily: 'var(--font-body)',
                 }}
               >

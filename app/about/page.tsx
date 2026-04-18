@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, Compass, Wrench, Users, LineChart } from 'lucide-react'
 import EyebrowBadge from '@/components/insurance/EyebrowBadge'
 import Reveal from '@/components/insurance/Reveal'
+import OrbField from '@/components/insurance/OrbField'
 import { generatePageMetadata } from '@/lib/metadata'
 
 export const metadata = generatePageMetadata({
@@ -58,14 +59,11 @@ const COMMITMENTS = [
 
 export default function AboutPage() {
   return (
-    <div style={{ backgroundColor: 'var(--color-bg)' }}>
+    <div>
       {/* Hero */}
       <section className="relative overflow-hidden pb-16 pt-28 md:pb-24 md:pt-36">
-        <div aria-hidden className="absolute inset-0 dot-pattern opacity-40" />
-        <div
-          aria-hidden
-          className="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 radial-glow"
-        />
+        <OrbField variant="hero" />
+        <div aria-hidden className="absolute inset-0 dot-pattern opacity-50" />
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <Reveal>
             <EyebrowBadge>About GrooveGuard</EyebrowBadge>
@@ -77,7 +75,7 @@ export default function AboutPage() {
             >
               We&rsquo;re Operators,
               <br />
-              <span style={{ color: 'var(--color-accent)' }}>Not Order-Takers.</span>
+              <span className="gradient-text-amber">Not Order-Takers.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
@@ -95,7 +93,10 @@ export default function AboutPage() {
       </section>
 
       {/* Why we exist */}
-      <section className="relative py-16 md:py-24">
+      <section
+        className="relative py-16 md:py-24"
+        style={{ backgroundColor: 'var(--color-bg-tertiary)' }}
+      >
         <div className="mx-auto max-w-4xl px-6">
           <Reveal>
             <EyebrowBadge variant="muted">Why we exist</EyebrowBadge>
@@ -126,21 +127,21 @@ export default function AboutPage() {
                 systems. Systems that protect renewals automatically. Systems that respond to
                 leads in minutes, not days. Systems that run annual reviews at scale.
               </p>
-              <p>That&rsquo;s what we build. Nothing else.</p>
+              <p
+                className="text-lg font-medium md:text-xl"
+                style={{ color: 'var(--color-text-primary)' }}
+              >
+                That&rsquo;s what we build. Nothing else.
+              </p>
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* Principles */}
-      <section
-        className="relative border-y py-20 md:py-28"
-        style={{
-          borderColor: 'var(--color-border-accent)',
-          backgroundColor: 'var(--color-bg-secondary)',
-        }}
-      >
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <OrbField variant="subtle" />
+        <div className="relative mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
               <EyebrowBadge variant="muted">How we work</EyebrowBadge>
@@ -159,17 +160,18 @@ export default function AboutPage() {
               return (
                 <Reveal key={p.title} delay={i * 0.08}>
                   <div
-                    className="card-lift h-full rounded-2xl p-7"
+                    className="card-lift card-gold-glow h-full rounded-2xl p-7"
                     style={{
-                      backgroundColor: 'var(--color-bg)',
-                      border: '1px solid var(--color-border-accent)',
+                      backgroundColor: 'var(--color-bg-secondary)',
+                      border: '1px solid var(--color-border)',
                     }}
                   >
                     <div
                       className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg"
                       style={{
-                        backgroundColor: 'rgba(232, 160, 32, 0.08)',
-                        border: '1px solid var(--color-accent)',
+                        background:
+                          'linear-gradient(135deg, rgba(232, 160, 32, 0.18), rgba(184, 134, 11, 0.08))',
+                        border: '1px solid var(--color-accent-border)',
                       }}
                     >
                       <Icon
@@ -205,7 +207,10 @@ export default function AboutPage() {
       </section>
 
       {/* Commitments */}
-      <section className="relative py-20 md:py-28">
+      <section
+        className="relative py-20 md:py-28"
+        style={{ backgroundColor: 'var(--color-bg-tertiary)' }}
+      >
         <div className="mx-auto max-w-5xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
@@ -223,10 +228,10 @@ export default function AboutPage() {
             {COMMITMENTS.map((c, i) => (
               <Reveal key={c.title} delay={i * 0.06}>
                 <div
-                  className="rounded-2xl p-6 md:p-8"
+                  className="card-lift rounded-2xl p-6 md:p-8"
                   style={{
                     backgroundColor: 'var(--color-bg-secondary)',
-                    border: '1px solid var(--color-border-accent)',
+                    border: '1px solid var(--color-border)',
                     borderLeft: '3px solid var(--color-accent)',
                   }}
                 >
@@ -256,8 +261,9 @@ export default function AboutPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden py-20 md:py-28">
-        <div aria-hidden className="absolute inset-0 radial-glow-strong" />
+      <section className="relative overflow-hidden py-24 md:py-32">
+        <OrbField variant="cta" />
+        <div aria-hidden className="absolute inset-0 dot-pattern opacity-50" />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <Reveal>
             <h2
@@ -278,7 +284,7 @@ export default function AboutPage() {
                 className="btn-shimmer inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold transition-transform active:scale-[0.98]"
                 style={{
                   backgroundColor: 'var(--color-accent)',
-                  color: '#0A0E1A',
+                  color: '#FAF8F3',
                   fontFamily: 'var(--font-body)',
                 }}
               >
