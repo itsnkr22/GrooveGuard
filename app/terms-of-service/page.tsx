@@ -39,7 +39,7 @@ export default function TermsOfServicePage() {
               1. Agreement to Terms
             </h2>
             <p>
-              By accessing or using the {SITE_NAME} website at groovegaurd.com and any related
+              By accessing or using the {SITE_NAME} website at drrizo.com and any related
               services (collectively, the &quot;Services&quot;), you agree to be bound by these
               Terms of Service. If you do not agree to these terms, please do not use our Services.
             </p>

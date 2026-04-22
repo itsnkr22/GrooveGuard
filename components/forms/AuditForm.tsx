@@ -363,7 +363,7 @@ export default function AuditForm() {
           <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
           <span>
             {errorMsg ||
-              'Something went wrong. Please try again, or email us directly at contact@groovegaurd.com.'}
+              'Something went wrong. Please try again.'}
           </span>
         </div>
       )}

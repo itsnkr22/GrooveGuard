@@ -18,7 +18,7 @@ import { generatePageMetadata } from '@/lib/metadata'
 export const metadata = generatePageMetadata({
   title: 'AI Workflow Automation for Commercial P&C Insurance Agencies',
   description:
-    'GrooveGuard builds AI-powered workflow automation for US-based commercial P&C independent insurance agencies. Flagship specialty: construction and contractor insurance. Also serving trucking, habitational, cannabis, and tech E&O.',
+    'Drrizo builds AI-powered workflow automation for US-based commercial P&C independent insurance agencies. Flagship specialty: construction and contractor insurance. Also serving trucking, habitational, cannabis, and tech E&O.',
   path: '/industries/insurance',
 })
 

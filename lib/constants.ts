@@ -1,8 +1,8 @@
-export const SITE_NAME = 'GrooveGuard'
-export const SITE_URL = 'https://www.groovegaurd.com'
+export const SITE_NAME = 'Drrizo'
+export const SITE_URL = 'https://www.drrizo.com'
 export const SITE_TAGLINE = 'AI Workflow Automation for Commercial P&C Insurance Agencies'
 export const SITE_DESCRIPTION =
-  'GrooveGuard builds AI-powered workflow systems for US-based commercial P&C independent insurance agencies — with specialty depth in construction, trucking, habitational, cannabis, and tech E&O. Automate COIs, renewals, new-business submissions, and direct-bill reconciliation. Protect your book. Compound your commissions.'
+  'Drrizo builds AI-powered workflow systems for US-based commercial P&C independent insurance agencies — with specialty depth in construction, trucking, habitational, cannabis, and tech E&O. Automate COIs, renewals, new-business submissions, and direct-bill reconciliation. Protect your book. Compound your commissions.'
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },

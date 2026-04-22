@@ -8,7 +8,7 @@ import { generatePageMetadata } from '@/lib/metadata'
 export const metadata = generatePageMetadata({
   title: 'About — Operators Building for Insurance',
   description:
-    'GrooveGuard is a workflow automation firm built specifically for independent insurance agencies. We are operators, not order-takers.',
+    'Drrizo is a workflow automation firm built specifically for independent insurance agencies. We are operators, not order-takers.',
   path: '/about',
 })
 
@@ -66,7 +66,7 @@ export default function AboutPage() {
         <div aria-hidden className="absolute inset-0 dot-pattern opacity-50" />
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <Reveal>
-            <EyebrowBadge>About GrooveGuard</EyebrowBadge>
+            <EyebrowBadge>About Drrizo</EyebrowBadge>
           </Reveal>
           <Reveal delay={0.1}>
             <h1
@@ -83,7 +83,7 @@ export default function AboutPage() {
               className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed md:text-xl"
               style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
             >
-              GrooveGuard is a workflow automation firm built specifically for independent
+              Drrizo is a workflow automation firm built specifically for independent
               insurance agencies. We don&rsquo;t sell software. We don&rsquo;t chase trends. We
               build the systems that protect your book and grow your commission &mdash; one
               workflow at a time.

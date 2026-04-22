@@ -45,7 +45,7 @@ import DashboardMock from '@/components/insurance/DashboardMock'
 export const metadata = generatePageMetadata({
   title: 'AI Workflow Automation for Commercial P&C Insurance Agencies',
   description:
-    'GrooveGuard builds AI-powered workflow systems for US-based commercial P&C independent insurance agencies — construction, trucking, habitational, cannabis, tech E&O. Automate COIs, renewals, new-business submissions, and direct-bill reconciliation.',
+    'Drrizo builds AI-powered workflow systems for US-based commercial P&C independent insurance agencies — construction, trucking, habitational, cannabis, tech E&O. Automate COIs, renewals, new-business submissions, and direct-bill reconciliation.',
   path: '/',
 })
 

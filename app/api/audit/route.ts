@@ -4,7 +4,7 @@ import { Resend } from 'resend'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const TO_EMAIL = 'nkrajput.a6@gmail.com'
-const FROM_EMAIL = process.env.FROM_EMAIL || 'contact@groovegaurd.com'
+const FROM_EMAIL = process.env.FROM_EMAIL || 'contact@drrizo.com'
 
 interface AuditPayload {
   firstName?: string
@@ -100,7 +100,7 @@ export async function POST(req: Request) {
       : ''
 
     const { error } = await resend.emails.send({
-      from: `GrooveGuard Audit <${FROM_EMAIL}>`,
+      from: `Drrizo Audit <${FROM_EMAIL}>`,
       to: [TO_EMAIL],
       replyTo: email,
       subject: `${icpAligned ? '✓' : '⚠'} Audit Request — ${agencyName} (${fullName})`,

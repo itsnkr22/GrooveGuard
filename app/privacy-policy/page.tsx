@@ -46,7 +46,7 @@ export default function PrivacyPolicyPage() {
             <p>
               {SITE_NAME} (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to
               protecting your privacy. This Privacy Policy explains how we collect, use, disclose,
-              and safeguard your information when you visit groovegaurd.com or engage with our
+              and safeguard your information when you visit drrizo.com or engage with our
               workflow automation services for independent insurance agencies.
             </p>
           </section>
