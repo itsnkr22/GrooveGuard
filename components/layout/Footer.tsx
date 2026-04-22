@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Linkedin, ArrowUpRight } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { SITE_NAME, SITE_TAGLINE, SERVICES, MARKETS } from '@/lib/constants'
+import { SITE_NAME, SITE_TAGLINE, SERVICES, SPECIALTIES } from '@/lib/constants'
 
 const COMPANY_LINKS = [
   { label: 'About', href: '/about' },
@@ -111,7 +111,7 @@ export default function Footer() {
               className="mt-4 font-mono text-xs font-medium uppercase tracking-[0.18em]"
               style={{ color: 'var(--color-accent-glow)' }}
             >
-              US · UK · EU · UAE · Australia
+              US-Based Commercial P&amp;C Agencies
             </p>
           </div>
 
@@ -167,7 +167,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 — Markets + Social */}
+          {/* Column 4 — Specialties + Social */}
           <div>
             <h3
               className="mb-4 text-xs font-semibold uppercase tracking-[0.2em]"
@@ -176,16 +176,27 @@ export default function Footer() {
                 color: 'var(--color-accent-glow)',
               }}
             >
-              Serving Agencies In
+              Specialties
             </h3>
             <ul className="space-y-2.5">
-              {MARKETS.map((market) => (
+              {SPECIALTIES.map((s) => (
                 <li
-                  key={market.label}
+                  key={s.label}
                   className="text-sm"
                   style={{ color: 'rgba(245, 245, 240, 0.72)' }}
                 >
-                  {market.label}
+                  {s.label}
+                  {s.flagship && (
+                    <span
+                      className="ml-2 rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider"
+                      style={{
+                        backgroundColor: 'rgba(232, 160, 32, 0.18)',
+                        color: 'var(--color-accent-glow)',
+                      }}
+                    >
+                      Flagship
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>

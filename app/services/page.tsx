@@ -6,11 +6,11 @@ import {
   Filter,
   TrendingUp,
   UserCheck,
-  FileUp,
+  Package,
+  Receipt,
   Bell,
   Calendar,
   Users,
-  Route,
   Sparkles,
 } from 'lucide-react'
 import EyebrowBadge from '@/components/insurance/EyebrowBadge'
@@ -29,14 +29,14 @@ export const metadata = generatePageMetadata({
 const ICON_MAP = {
   refresh: RefreshCw,
   document: FileText,
+  package: Package,
   funnel: Filter,
   'trending-up': TrendingUp,
   'user-check': UserCheck,
-  'file-up': FileUp,
+  receipt: Receipt,
   bell: Bell,
   calendar: Calendar,
   users: Users,
-  route: Route,
 } as const
 
 export default function ServicesPage() {

@@ -4,17 +4,36 @@ import { useState } from 'react'
 import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
 
 const COMMISSION_OPTIONS = [
-  'Under $250k',
-  '$250k–$500k',
-  '$500k–$1M',
-  'Over $1M',
+  'Under $500k',
+  '$500k\u2013$1M',
+  '$1M\u2013$1.5M',
+  'Over $1.5M',
+] as const
+
+const COMMERCIAL_MIX_OPTIONS = [
+  'Under 60% commercial',
+  '60\u201380% commercial',
+  '80%+ commercial',
+] as const
+
+const AMS_OPTIONS = [
+  'EZLynx',
+  'Applied Epic',
+  'HawkSoft',
+  'AMS360',
+  'NowCerts',
+  'Other AMS',
+  'No AMS / Spreadsheets',
 ] as const
 
 const PAIN_POINT_OPTIONS = [
-  'Renewals',
-  'Lead follow-up',
-  'COI generation',
-  'Client onboarding',
+  'Certificate of Insurance (COI) processing',
+  'Renewal stewardship (90\u2013120 day)',
+  'New business submission packaging',
+  'Lost-quote / abandoned-lead follow-up',
+  'Cross-sell identification from book data',
+  'Direct-bill reconciliation',
+  'Claims status updates to clients',
   'Other',
 ] as const
 
@@ -25,6 +44,8 @@ type FormState = {
   email: string
   phone: string
   commissionVolume: string
+  commercialMix: string
+  ams: string
   painPoint: string
   message: string
 }
@@ -36,6 +57,8 @@ const initialState: FormState = {
   email: '',
   phone: '',
   commissionVolume: '',
+  commercialMix: '',
+  ams: '',
   painPoint: '',
   message: '',
 }
@@ -205,23 +228,81 @@ export default function AuditForm() {
         </div>
       </div>
 
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div>
+          <label
+            htmlFor="commissionVolume"
+            className="mb-2 block text-sm font-medium"
+            style={labelStyle}
+          >
+            Annual Commission Income <span style={{ color: 'var(--color-accent)' }}>*</span>
+          </label>
+          <select
+            id="commissionVolume"
+            name="commissionVolume"
+            required
+            value={form.commissionVolume}
+            onChange={handleChange}
+            className="w-full rounded-md px-4 py-3 text-sm outline-none focus:border-[var(--color-accent)]"
+            style={inputStyle}
+          >
+            <option value="" disabled>
+              Select a range
+            </option>
+            {COMMISSION_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <label
+            htmlFor="commercialMix"
+            className="mb-2 block text-sm font-medium"
+            style={labelStyle}
+          >
+            Commercial Mix <span style={{ color: 'var(--color-accent)' }}>*</span>
+          </label>
+          <select
+            id="commercialMix"
+            name="commercialMix"
+            required
+            value={form.commercialMix}
+            onChange={handleChange}
+            className="w-full rounded-md px-4 py-3 text-sm outline-none focus:border-[var(--color-accent)]"
+            style={inputStyle}
+          >
+            <option value="" disabled>
+              % of book in commercial P&amp;C
+            </option>
+            {COMMERCIAL_MIX_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       <div>
-        <label htmlFor="commissionVolume" className="mb-2 block text-sm font-medium" style={labelStyle}>
-          Annual Commission Volume <span style={{ color: 'var(--color-accent)' }}>*</span>
+        <label htmlFor="ams" className="mb-2 block text-sm font-medium" style={labelStyle}>
+          Agency Management System <span style={{ color: 'var(--color-accent)' }}>*</span>
         </label>
         <select
-          id="commissionVolume"
-          name="commissionVolume"
+          id="ams"
+          name="ams"
           required
-          value={form.commissionVolume}
+          value={form.ams}
           onChange={handleChange}
           className="w-full rounded-md px-4 py-3 text-sm outline-none focus:border-[var(--color-accent)]"
           style={inputStyle}
         >
           <option value="" disabled>
-            Select a range
+            Select your AMS
           </option>
-          {COMMISSION_OPTIONS.map((opt) => (
+          {AMS_OPTIONS.map((opt) => (
             <option key={opt} value={opt}>
               {opt}
             </option>
@@ -255,7 +336,8 @@ export default function AuditForm() {
 
       <div>
         <label htmlFor="message" className="mb-2 block text-sm font-medium" style={labelStyle}>
-          Anything else we should know? <span style={{ color: 'var(--color-text-muted)' }}>(optional)</span>
+          Anything else we should know?{' '}
+          <span style={{ color: 'var(--color-text-muted)' }}>(optional)</span>
         </label>
         <textarea
           id="message"
@@ -274,7 +356,7 @@ export default function AuditForm() {
           style={{
             backgroundColor: 'rgba(239, 68, 68, 0.08)',
             border: '1px solid rgba(239, 68, 68, 0.3)',
-            color: '#FCA5A5',
+            color: '#B91C1C',
             fontFamily: 'var(--font-body)',
           }}
         >
@@ -299,10 +381,10 @@ export default function AuditForm() {
         {status === 'submitting' ? (
           <>
             <Loader2 className="h-4 w-4 animate-spin" />
-            Sending…
+            Sending&hellip;
           </>
         ) : (
-          <>Request My Free Audit →</>
+          <>Request My Free Audit &rarr;</>
         )}
       </button>
 

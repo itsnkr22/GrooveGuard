@@ -10,7 +10,7 @@ interface PageMetaParams {
 
 export function generatePageMetadata({ title, description, path, type = 'website' }: PageMetaParams): Metadata {
   const url = `${SITE_URL}${path}`
-  const fullTitle = path === '/' ? `${SITE_NAME} | AI Workflow Automation for Insurance Agencies` : `${title} | ${SITE_NAME}`
+  const fullTitle = path === '/' ? `${SITE_NAME} | AI Workflow Automation for Commercial P&C Agencies` : `${title} | ${SITE_NAME}`
 
   return {
     title: fullTitle,
@@ -22,7 +22,7 @@ export function generatePageMetadata({ title, description, path, type = 'website
       url,
       siteName: SITE_NAME,
       type,
-      locale: 'en_GB',
+      locale: 'en_US',
     },
     twitter: {
       card: 'summary_large_image',

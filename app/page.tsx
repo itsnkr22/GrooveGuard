@@ -6,17 +6,22 @@ import {
   TrendingDown,
   RefreshCw,
   FileText,
+  Package,
   Users,
   TrendingUp,
   UserCheck,
-  FileUp,
+  Receipt,
   Bell,
   Calendar,
   Handshake,
-  Route,
   Check,
   X,
   Sparkles,
+  HardHat,
+  Truck,
+  Building2,
+  Leaf,
+  Laptop,
 } from 'lucide-react'
 import { generatePageMetadata } from '@/lib/metadata'
 import {
@@ -26,7 +31,7 @@ import {
   SERVICES,
   ROI_STATS,
   PROCESS_STEPS,
-  MARKETS,
+  SPECIALTIES,
 } from '@/lib/constants'
 import EyebrowBadge from '@/components/insurance/EyebrowBadge'
 import CountUp from '@/components/insurance/CountUp'
@@ -38,9 +43,9 @@ import AnimatedRing from '@/components/insurance/AnimatedRing'
 import DashboardMock from '@/components/insurance/DashboardMock'
 
 export const metadata = generatePageMetadata({
-  title: 'AI Workflow Automation for Insurance Agencies',
+  title: 'AI Workflow Automation for Commercial P&C Insurance Agencies',
   description:
-    'GrooveGuard builds AI-powered workflow systems for independent P&C and commercial lines insurance agencies. Automate renewals, follow-ups, onboarding, and client communication. Protect your book. Grow your commissions.',
+    'GrooveGuard builds AI-powered workflow systems for US-based commercial P&C independent insurance agencies — construction, trucking, habitational, cannabis, tech E&O. Automate COIs, renewals, new-business submissions, and direct-bill reconciliation.',
   path: '/',
 })
 
@@ -49,39 +54,50 @@ const jsonLd = {
   '@type': 'ProfessionalService',
   name: SITE_NAME,
   description:
-    'AI workflow automation for independent P&C and commercial lines insurance agencies',
+    'AI workflow automation for US-based commercial P&C independent insurance agencies — construction, trucking, habitational, cannabis, and tech E&O specialties.',
   url: SITE_URL,
-  areaServed: ['US', 'GB', 'EU', 'AE', 'AU'],
+  areaServed: {
+    '@type': 'Country',
+    name: 'United States',
+  },
   serviceType: 'AI Workflow Automation',
 }
 
 const SERVICE_ICONS: Record<string, typeof RefreshCw> = {
   refresh: RefreshCw,
   document: FileText,
+  package: Package,
   funnel: Users,
   'trending-up': TrendingUp,
   'user-check': UserCheck,
-  'file-up': FileUp,
+  receipt: Receipt,
   bell: Bell,
   calendar: Calendar,
   users: Handshake,
-  route: Route,
 }
 
 const PAIN_ICONS = [AlertTriangle, Droplets, TrendingDown]
 
+const SPECIALTY_ICONS = {
+  'Construction & Contractors': HardHat,
+  'Trucking & Transportation': Truck,
+  'Habitational & Real Estate': Building2,
+  'Cannabis & Emerging Markets': Leaf,
+  'Tech E&O / Professional Liability': Laptop,
+} as const
+
 const FIT_FOR_YOU = [
-  '$250,000+ in annual commission revenue',
-  '2+ producers in the book',
-  'Growing but feeling operational strain',
-  'Ready to invest in protecting what you\u2019ve built',
+  '$500K\u2013$1.5M in annual commission income',
+  '60%+ commercial P&C book',
+  '5\u201315 staff on a modern AMS (EZLynx, Applied Epic, HawkSoft)',
+  '5\u201315 years operating \u2014 past the DIY stage, not yet enterprise',
 ] as const
 
 const NOT_FOR_YOU = [
-  'Brand-new agency with minimal book',
+  'Personal-lines-heavy or captive/franchise agency',
+  'Under $500K annual commission income',
   'Looking for generic SaaS software',
   'Want automation only to cut headcount',
-  'Not committed to client experience',
 ] as const
 
 export default function HomePage() {
@@ -102,7 +118,7 @@ export default function HomePage() {
             {/* LEFT — Copy */}
             <div>
               <Reveal>
-                <EyebrowBadge>For Independent Insurance Agencies</EyebrowBadge>
+                <EyebrowBadge>For Commercial P&amp;C Insurance Agencies</EyebrowBadge>
               </Reveal>
               <Reveal delay={0.1}>
                 <h1
@@ -124,9 +140,18 @@ export default function HomePage() {
                     fontFamily: 'var(--font-body)',
                   }}
                 >
-                  We build AI-powered workflow systems that protect renewals, recover staff
-                  hours, and compound commission year over year &mdash; purpose-built for P&amp;C
-                  and commercial lines agencies.
+                  We build AI-powered workflow systems that protect renewals, clear the COI
+                  backlog, and compound commission year over year &mdash; purpose-built for
+                  US-based commercial P&amp;C agencies, with flagship specialty depth in{' '}
+                  <span
+                    style={{
+                      color: 'var(--color-accent-dark)',
+                      fontWeight: 500,
+                    }}
+                  >
+                    construction and contractor insurance
+                  </span>
+                  .
                 </p>
               </Reveal>
               <Reveal delay={0.3}>
@@ -764,32 +789,68 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          {/* Markets strip */}
+          {/* Specialties strip */}
           <Reveal delay={0.3}>
             <div className="mt-14">
               <div className="divider-gold mb-8" />
               <p
-                className="mb-4 text-center font-mono text-xs uppercase tracking-[0.22em]"
+                className="mb-5 text-center font-mono text-xs uppercase tracking-[0.22em]"
                 style={{ color: 'var(--color-text-muted)' }}
               >
-                Serving Agencies In
+                Specialty Depth
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-                {MARKETS.map((m) => (
-                  <span
-                    key={m.label}
-                    className="rounded-full px-4 py-2 text-sm font-medium"
-                    style={{
-                      backgroundColor: 'var(--color-bg-secondary)',
-                      color: 'var(--color-text-primary)',
-                      border: '1px solid var(--color-border)',
-                      fontFamily: 'var(--font-body)',
-                    }}
-                  >
-                    {m.label}
-                  </span>
-                ))}
+                {SPECIALTIES.map((s) => {
+                  const Icon = SPECIALTY_ICONS[s.label as keyof typeof SPECIALTY_ICONS]
+                  return (
+                    <span
+                      key={s.label}
+                      className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium"
+                      style={{
+                        backgroundColor: 'var(--color-bg-secondary)',
+                        color: 'var(--color-text-primary)',
+                        border: s.flagship
+                          ? '1.5px solid var(--color-accent)'
+                          : '1px solid var(--color-border)',
+                        fontFamily: 'var(--font-body)',
+                        boxShadow: s.flagship
+                          ? '0 6px 20px -10px rgba(184, 134, 11, 0.4)'
+                          : 'none',
+                      }}
+                    >
+                      {Icon && (
+                        <Icon
+                          className="h-3.5 w-3.5"
+                          style={{ color: 'var(--color-accent)' }}
+                          strokeWidth={1.8}
+                        />
+                      )}
+                      {s.label}
+                      {s.flagship && (
+                        <span
+                          className="ml-1 rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider"
+                          style={{
+                            backgroundColor: 'var(--color-accent-soft)',
+                            color: 'var(--color-accent-dark)',
+                          }}
+                        >
+                          Flagship
+                        </span>
+                      )}
+                    </span>
+                  )
+                })}
               </div>
+              <p
+                className="mt-6 text-center text-xs"
+                style={{
+                  color: 'var(--color-text-muted)',
+                  fontFamily: 'var(--font-body)',
+                }}
+              >
+                US-based retail commercial P&amp;C agencies only. Not a fit for captive, franchise,
+                or wholesale/MGA.
+              </p>
             </div>
           </Reveal>
         </div>

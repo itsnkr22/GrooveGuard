@@ -36,31 +36,35 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} | AI Workflow Automation for Insurance Agencies`,
+    default: `${SITE_NAME} | AI Workflow Automation for Commercial P&C Agencies`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    'insurance agency automation',
-    'P&C agency workflow automation',
-    'commercial lines insurance AI',
-    'insurance renewal automation',
-    'independent insurance agency software',
+    'commercial P&C agency automation',
+    'construction insurance agency workflow',
+    'COI automation for insurance agencies',
+    'trucking insurance agency software',
+    'cannabis insurance agency automation',
+    'direct-bill reconciliation automation',
+    'new business submission packaging',
+    'independent insurance agency AI',
+    'EZLynx Applied Epic HawkSoft automation',
   ],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} | AI Workflow Automation for Insurance Agencies`,
+    title: `${SITE_NAME} | AI Workflow Automation for Commercial P&C Agencies`,
     description:
-      "Stop losing commission to manual processes. We build the automation layer that protects your renewal book and grows your agency without adding headcount.",
+      'Purpose-built workflow automation for US commercial P&C independent agencies — with specialty depth in construction, trucking, habitational, cannabis, and tech E&O.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_NAME} | AI Workflow Automation for Insurance Agencies`,
+    title: `${SITE_NAME} | AI Workflow Automation for Commercial P&C Agencies`,
     description:
-      "Stop losing commission to manual processes. We build the automation layer that protects your renewal book and grows your agency without adding headcount.",
+      'Purpose-built workflow automation for US commercial P&C independent agencies — construction, trucking, habitational, cannabis, tech E&O.',
   },
   robots: {
     index: true,
