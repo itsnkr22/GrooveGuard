@@ -18,12 +18,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       changeFrequency: 'monthly' as const,
     },
+    {
+      path: '/insights/retention-gap/',
+      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/insights/ams-commercial-comparison/',
+      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+    },
     { path: '/about', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/privacy-policy', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/terms-of-service', priority: 0.3, changeFrequency: 'yearly' as const },
   ]
 
-  const lastModified = new Date('2026-04-22')
+  const lastModified = new Date('2026-04-23')
 
   return routes.map((route) => ({
     url: `${SITE_URL}${route.path}`,
