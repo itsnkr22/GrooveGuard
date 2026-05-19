@@ -1,20 +1,28 @@
 import type { Metadata } from 'next'
 import { SITE_NAME, SITE_URL } from './constants'
 
-interface PageMetaParams {
+type PageMetaParams = {
   title: string
   description: string
   path: string
   type?: 'website' | 'article'
+  keywords?: string[]
 }
 
-export function generatePageMetadata({ title, description, path, type = 'website' }: PageMetaParams): Metadata {
+export function generatePageMetadata({
+  title,
+  description,
+  path,
+  type = 'website',
+  keywords,
+}: PageMetaParams): Metadata {
   const url = `${SITE_URL}${path}`
-  const fullTitle = path === '/' ? `${SITE_NAME} | AI Workflow Automation for Commercial P&C Agencies` : `${title} | ${SITE_NAME}`
+  const fullTitle = title.includes(`| ${SITE_NAME}`) ? title : `${title} | ${SITE_NAME}`
 
   return {
-    title: fullTitle,
+    title: { absolute: fullTitle },
     description,
+    keywords,
     alternates: { canonical: url },
     openGraph: {
       title: fullTitle,

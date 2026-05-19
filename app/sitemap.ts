@@ -5,35 +5,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
     { path: '/services', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: '/industries/insurance', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: '/audit', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: '/insights/', priority: 0.8, changeFrequency: 'weekly' as const },
     {
-      path: '/insights/commercial-commission-leak-audit/',
-      priority: 0.8,
+      path: '/services/ai-content-engine-for-startups',
+      priority: 0.9,
       changeFrequency: 'monthly' as const,
     },
     {
-      path: '/insights/coi-first-pass-rejection-construction/',
-      priority: 0.8,
+      path: '/services/ai-powered-mvps-for-startups',
+      priority: 0.9,
       changeFrequency: 'monthly' as const,
     },
-    {
-      path: '/insights/retention-gap/',
-      priority: 0.8,
-      changeFrequency: 'monthly' as const,
-    },
-    {
-      path: '/insights/ams-commercial-comparison/',
-      priority: 0.8,
-      changeFrequency: 'monthly' as const,
-    },
+    { path: '/audit', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/about', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/privacy-policy', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/terms-of-service', priority: 0.3, changeFrequency: 'yearly' as const },
   ]
 
-  const lastModified = new Date('2026-04-23')
+  const lastModified = new Date('2026-05-20')
 
   return routes.map((route) => ({
     url: `${SITE_URL}${route.path}`,

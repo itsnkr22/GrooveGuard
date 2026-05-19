@@ -1,70 +1,32 @@
 import Link from 'next/link'
-import { ArrowRight, Compass, Wrench, Users, LineChart } from 'lucide-react'
+import { ArrowRight, Check, ShieldCheck, Sparkles } from 'lucide-react'
 import EyebrowBadge from '@/components/insurance/EyebrowBadge'
 import Reveal from '@/components/insurance/Reveal'
 import OrbField from '@/components/insurance/OrbField'
+import { SERVICES } from '@/lib/constants'
 import { generatePageMetadata } from '@/lib/metadata'
 
 export const metadata = generatePageMetadata({
-  title: 'About — Operators Building for Insurance',
+  title: 'About Drrizo',
   description:
-    'Drrizo is a workflow automation firm built specifically for independent insurance agencies. We are operators, not order-takers.',
+    'Drrizo helps founder-led startups build practical AI content engines and AI-first MVPs with clear workflows, human review, and launch-ready execution.',
   path: '/about',
 })
 
-const PRINCIPLES = [
-  {
-    icon: Compass,
-    title: 'Specialists, not generalists.',
-    description:
-      'We only work with independent P&C and commercial lines insurance agencies. Every workflow we build is informed by how your industry actually operates \u2014 renewal cycles, carrier relationships, COI obligations, commission economics.',
-  },
-  {
-    icon: Wrench,
-    title: 'Operators, not order-takers.',
-    description:
-      'We don\u2019t build what you ask for. We build what protects and grows your book. If the right answer is a simpler workflow than you imagined, you\u2019ll hear it. If the right answer is to not build something yet, you\u2019ll hear that too.',
-  },
-  {
-    icon: Users,
-    title: 'Partners, not vendors.',
-    description:
-      'Our work compounds when we stay engaged. We optimise the systems we deploy, expand them as your agency grows, and treat your roadmap the way we\u2019d treat our own. No hand-off and disappear.',
-  },
-  {
-    icon: LineChart,
-    title: 'ROI, not theatre.',
-    description:
-      'Every workflow we build is justified by a specific, measurable outcome \u2014 protected commission, recovered hours, improved retention. If we can\u2019t articulate the math, we don\u2019t build it.',
-  },
-] as const
-
-const COMMITMENTS = [
-  {
-    title: 'We will turn you down if we are not a fit.',
-    description:
-      'If your agency is too small, too early, or if the problem you bring us is better solved another way \u2014 we will tell you. A bad fit costs everyone.',
-  },
-  {
-    title: 'We will not nickel-and-dime scope.',
-    description:
-      'When we commit to a workflow deployment, we commit to the outcome. We do not bill hours for scoped work, and we do not add fees for things that should have been obvious at the start.',
-  },
-  {
-    title: 'We will not lock you in.',
-    description:
-      'Every system we build is documented, handed off cleanly, and portable. You should never feel trapped by the infrastructure we deploy.',
-  },
-] as const
+const principles = [
+  'Build around real founder knowledge and real user workflows.',
+  'Use AI to accelerate extraction, drafting, automation, and product experience.',
+  'Keep human review, fallback states, and privacy-aware data handling in the system.',
+  'Ship the smallest useful version, then improve with real performance data.',
+]
 
 export default function AboutPage() {
   return (
     <div>
-      {/* Hero */}
       <section className="relative overflow-hidden pb-16 pt-28 md:pb-24 md:pt-36">
         <OrbField variant="hero" />
         <div aria-hidden className="absolute inset-0 dot-pattern opacity-50" />
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
+        <div className="relative mx-auto max-w-5xl px-6 text-center">
           <Reveal>
             <EyebrowBadge>About Drrizo</EyebrowBadge>
           </Reveal>
@@ -73,9 +35,7 @@ export default function AboutPage() {
               className="mt-6 text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl"
               style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
             >
-              We&rsquo;re Operators,
-              <br />
-              <span className="gradient-text-amber">Not Order-Takers.</span>
+              Practical AI systems for founder-led startups.
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
@@ -83,213 +43,131 @@ export default function AboutPage() {
               className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed md:text-xl"
               style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
             >
-              Drrizo is a workflow automation firm built specifically for independent
-              insurance agencies. We don&rsquo;t sell software. We don&rsquo;t chase trends. We
-              build the systems that protect your book and grow your commission &mdash; one
-              workflow at a time.
+              Drrizo helps founders turn existing expertise, startup workflows, and AI product
+              ideas into systems that can be used, reviewed, launched, and improved.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Why we exist */}
-      <section
-        className="relative py-16 md:py-24"
-        style={{ backgroundColor: 'var(--color-bg-tertiary)' }}
-      >
-        <div className="mx-auto max-w-4xl px-6">
-          <Reveal>
-            <EyebrowBadge variant="muted">Why we exist</EyebrowBadge>
-            <h2
-              className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
-              style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
-            >
-              Independent agencies are being asked to do more with less &mdash; every year.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div
-              className="mt-8 space-y-5 text-base leading-relaxed md:text-lg"
-              style={{
-                color: 'var(--color-text-secondary)',
-                fontFamily: 'var(--font-body)',
-              }}
-            >
-              <p>
-                Carriers are consolidating. Clients expect instant responses. Producers are
-                stretched thinner than ever. And the administrative load of running a modern
-                agency &mdash; renewals, COIs, follow-ups, onboarding, compliance &mdash; grows
-                every quarter.
-              </p>
-              <p>
-                The agencies that thrive in this environment are not the ones with the most
-                producers or the biggest book. They are the ones with the best underlying
-                systems. Systems that protect renewals automatically. Systems that respond to
-                leads in minutes, not days. Systems that run annual reviews at scale.
-              </p>
-              <p
-                className="text-lg font-medium md:text-xl"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                That&rsquo;s what we build. Nothing else.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Principles */}
-      <section className="relative overflow-hidden py-20 md:py-28">
-        <OrbField variant="subtle" />
-        <div className="relative mx-auto max-w-6xl px-6">
-          <div className="mx-auto max-w-3xl text-center">
+      <section className="relative py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <Reveal>
-              <EyebrowBadge variant="muted">How we work</EyebrowBadge>
-              <h2
-                className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
-                style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
-              >
-                Four principles, strictly enforced.
-              </h2>
+              <div>
+                <EyebrowBadge variant="muted">Point of View</EyebrowBadge>
+                <h2
+                  className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+                  style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+                >
+                  The best AI systems begin with context.
+                </h2>
+                <p className="mt-5 text-base leading-relaxed md:text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+                  Founder voice, customer objections, product constraints, user behavior, and
+                  approval workflows matter. Drrizo builds around that context so AI becomes a
+                  useful operating layer, not a pile of disconnected prompts.
+                </p>
+              </div>
             </Reveal>
-          </div>
-
-          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-            {PRINCIPLES.map((p, i) => {
-              const Icon = p.icon
-              return (
-                <Reveal key={p.title} delay={i * 0.08}>
+            <div className="grid gap-4">
+              {principles.map((principle, index) => (
+                <Reveal key={principle} delay={index * 0.06}>
                   <div
-                    className="card-lift card-gold-glow h-full rounded-2xl p-7"
+                    className="flex items-start gap-3 rounded-xl p-4"
                     style={{
                       backgroundColor: 'var(--color-bg-secondary)',
                       border: '1px solid var(--color-border)',
                     }}
                   >
-                    <div
-                      className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg"
-                      style={{
-                        background:
-                          'linear-gradient(135deg, rgba(232, 160, 32, 0.18), rgba(184, 134, 11, 0.08))',
-                        border: '1px solid var(--color-accent-border)',
-                      }}
-                    >
-                      <Icon
-                        className="h-5 w-5"
-                        style={{ color: 'var(--color-accent)' }}
-                        strokeWidth={1.8}
-                      />
-                    </div>
-                    <h3
-                      className="text-xl font-semibold leading-snug"
-                      style={{
-                        fontFamily: 'var(--font-heading)',
-                        color: 'var(--color-text-primary)',
-                      }}
-                    >
-                      {p.title}
-                    </h3>
-                    <p
-                      className="mt-3 text-sm leading-relaxed md:text-base"
-                      style={{
-                        color: 'var(--color-text-secondary)',
-                        fontFamily: 'var(--font-body)',
-                      }}
-                    >
-                      {p.description}
-                    </p>
+                    <Check className="mt-0.5 h-4 w-4 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <span className="text-sm leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
+                      {principle}
+                    </span>
                   </div>
                 </Reveal>
-              )
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Commitments */}
       <section
         className="relative py-20 md:py-28"
         style={{ backgroundColor: 'var(--color-bg-tertiary)' }}
       >
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
-              <EyebrowBadge variant="muted">Our commitments</EyebrowBadge>
+              <EyebrowBadge variant="muted">Services</EyebrowBadge>
               <h2
                 className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
                 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
               >
-                What you can hold us to.
+                Two focused ways to help founders ship.
               </h2>
             </Reveal>
           </div>
-
-          <div className="mt-12 space-y-4">
-            {COMMITMENTS.map((c, i) => (
-              <Reveal key={c.title} delay={i * 0.06}>
-                <div
-                  className="card-lift rounded-2xl p-6 md:p-8"
+          <div className="mt-14 grid gap-5 md:grid-cols-2">
+            {SERVICES.map((service, index) => (
+              <Reveal key={service.title} delay={index * 0.08}>
+                <Link
+                  href={service.href}
+                  className="card-lift block h-full rounded-2xl p-7"
                   style={{
                     backgroundColor: 'var(--color-bg-secondary)',
                     border: '1px solid var(--color-border)',
-                    borderLeft: '3px solid var(--color-accent)',
                   }}
                 >
+                  <Sparkles className="h-5 w-5" style={{ color: 'var(--color-accent)' }} />
                   <h3
-                    className="text-lg font-semibold leading-snug md:text-xl"
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      color: 'var(--color-text-primary)',
-                    }}
+                    className="mt-4 text-xl font-semibold"
+                    style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
                   >
-                    {c.title}
+                    {service.title}
                   </h3>
-                  <p
-                    className="mt-2 text-sm leading-relaxed md:text-base"
-                    style={{
-                      color: 'var(--color-text-secondary)',
-                      fontFamily: 'var(--font-body)',
-                    }}
-                  >
-                    {c.description}
+                  <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
+                    {service.description}
                   </p>
-                </div>
+                  <span
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold"
+                    style={{ color: 'var(--color-accent-dark)' }}
+                  >
+                    {service.cta} <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="relative overflow-hidden py-24 md:py-32">
-        <OrbField variant="cta" />
-        <div aria-hidden className="absolute inset-0 dot-pattern opacity-50" />
-        <div className="relative mx-auto max-w-3xl px-6 text-center">
+      <section className="relative py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-6">
           <Reveal>
-            <h2
-              className="text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
-              style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+            <div
+              className="rounded-2xl p-7 md:p-9"
+              style={{
+                backgroundColor: 'var(--color-bg-secondary)',
+                border: '1px solid var(--color-accent-border)',
+                boxShadow: 'var(--shadow-soft)',
+              }}
             >
-              Let&rsquo;s see if we&rsquo;re a fit.
-            </h2>
-            <p
-              className="mx-auto mt-5 max-w-xl text-base leading-relaxed md:text-lg"
-              style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
-            >
-              Thirty minutes. A written Workflow Opportunity Report. A clear answer either way.
-            </p>
-            <div className="mt-9">
-              <Link
-                href="/audit"
-                className="btn-shimmer inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold transition-transform active:scale-[0.98]"
-                style={{
-                  backgroundColor: 'var(--color-accent)',
-                  color: '#FAF8F3',
-                  fontFamily: 'var(--font-body)',
-                }}
-              >
-                Book Your Free Audit <ArrowRight className="h-4 w-4" />
-              </Link>
+              <div className="flex flex-col gap-4 md:flex-row md:items-start">
+                <ShieldCheck className="h-6 w-6 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                <div>
+                  <h2
+                    className="text-2xl font-semibold"
+                    style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+                  >
+                    Responsible by design
+                  </h2>
+                  <p className="mt-3 text-sm leading-relaxed md:text-base" style={{ color: 'var(--color-text-secondary)' }}>
+                    AI should accelerate the workflow, not remove judgment. Drrizo designs with
+                    human review, fallback states, privacy-aware data handling, and practical
+                    guardrails from the start.
+                  </p>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>

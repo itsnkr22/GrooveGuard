@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 import { NAV_LINKS, SITE_NAME } from '@/lib/constants'
 
 export default function Navbar() {
@@ -48,7 +48,6 @@ export default function Navbar() {
       }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        {/* Logo — wordmark with amber dot */}
         <Link
           href="/"
           className="flex items-center gap-2 text-xl font-bold tracking-tight transition-opacity hover:opacity-90"
@@ -62,7 +61,6 @@ export default function Navbar() {
           {SITE_NAME}
         </Link>
 
-        {/* Desktop nav */}
         <div className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <Link
@@ -88,7 +86,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA + Hamburger */}
         <div className="flex items-center gap-3">
           <Link
             href="/audit"
@@ -99,7 +96,7 @@ export default function Navbar() {
               fontFamily: 'var(--font-body)',
             }}
           >
-            Book Free Audit
+            Start AI Project
           </Link>
 
           <button
@@ -113,7 +110,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -187,7 +183,7 @@ export default function Navbar() {
                     fontFamily: 'var(--font-body)',
                   }}
                 >
-                  Book Free Audit
+                  Start AI Project
                 </Link>
               </motion.div>
             </div>
