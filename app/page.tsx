@@ -3,22 +3,14 @@ import {
   ArrowRight,
   Brain,
   Check,
-  FileText,
+  Layers3,
   MessageSquareText,
-  Package,
-  RefreshCw,
+  ShieldCheck,
   Sparkles,
   Workflow,
 } from 'lucide-react'
 import { generatePageMetadata } from '@/lib/metadata'
-import {
-  PAIN_POINTS,
-  PROCESS_STEPS,
-  ROI_STATS,
-  SERVICES,
-  SITE_NAME,
-  SITE_URL,
-} from '@/lib/constants'
+import { PAIN_POINTS, ROI_STATS, SERVICES, SITE_NAME, SITE_URL } from '@/lib/constants'
 import EyebrowBadge from '@/components/insurance/EyebrowBadge'
 import Reveal from '@/components/insurance/Reveal'
 import OrbField from '@/components/insurance/OrbField'
@@ -27,9 +19,9 @@ import DashboardMock from '@/components/insurance/DashboardMock'
 import RenewalFlow from '@/components/insurance/RenewalFlow'
 
 export const metadata = generatePageMetadata({
-  title: 'AI-First Services for Startup Founders',
+  title: 'Drrizo | Customer/GTM Brain for Founder-Led Startups',
   description:
-    'Drrizo helps founders turn AI ideas, existing expertise, and startup workflows into launch-ready systems, from content engines that multiply distribution to AI-powered MVPs that prove real product value.',
+    'Drrizo builds Customer/GTM Brains for founder-led startups, turning sales calls, CRM notes, emails, Slack, support tickets, and customer feedback into AI-powered GTM intelligence.',
   path: '/',
 })
 
@@ -38,18 +30,18 @@ const jsonLd = {
   '@type': 'ProfessionalService',
   name: SITE_NAME,
   description:
-    'AI-first services for startup founders, including AI-powered content repurposing engines and AI MVP development for B2B and B2C startups.',
+    'Drrizo builds Customer/GTM Brains for founder-led startups: AI-powered revenue intelligence systems that turn customer conversations, sales calls, CRM data, Slack threads, emails, support tickets, product feedback, and founder knowledge into a living GTM operating system.',
   url: SITE_URL,
   areaServed: {
     '@type': 'Country',
     name: 'United States',
   },
-  serviceType: 'AI Content Systems and AI MVP Development',
+  serviceType: 'Customer/GTM Brain and GTM Intelligence Systems',
 }
 
-const SERVICE_ICONS: Record<string, typeof RefreshCw> = {
-  document: FileText,
-  package: Package,
+const serviceIcons: Record<string, typeof Brain> = {
+  brain: Brain,
+  layers: Layers3,
 }
 
 export default function HomePage() {
@@ -68,7 +60,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
             <div>
               <Reveal>
-                <EyebrowBadge>For Startup Founders</EyebrowBadge>
+                <EyebrowBadge>Customer/GTM Brain for founder-led startups</EyebrowBadge>
               </Reveal>
               <Reveal delay={0.1}>
                 <h1
@@ -78,8 +70,8 @@ export default function HomePage() {
                     color: 'var(--color-text-primary)',
                   }}
                 >
-                  Turn founder knowledge and AI ideas into{' '}
-                  <span className="gradient-text-amber">systems that ship.</span>
+                  Build a Customer/GTM Brain that helps your startup{' '}
+                  <span className="gradient-text-amber">sell, learn, and grow faster.</span>
                 </h1>
               </Reveal>
               <Reveal delay={0.2}>
@@ -90,9 +82,10 @@ export default function HomePage() {
                     fontFamily: 'var(--font-body)',
                   }}
                 >
-                  Drrizo helps founders turn existing expertise, customer conversations, and
-                  startup workflows into launch-ready systems: content engines that multiply
-                  distribution and AI-powered MVPs that prove real product value.
+                  Drrizo helps founder-led startups turn scattered customer conversations,
+                  sales notes, CRM activity, support tickets, product feedback, and GTM
+                  knowledge into an AI-powered brain for better follow-ups, sharper
+                  positioning, faster onboarding, and clearer revenue decisions.
                 </p>
               </Reveal>
               <Reveal delay={0.3}>
@@ -106,10 +99,10 @@ export default function HomePage() {
                       fontFamily: 'var(--font-body)',
                     }}
                   >
-                    Start AI Project <ArrowRight className="h-4 w-4" />
+                    Request GTM Brain Audit <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link
-                    href="/services"
+                    href="/services/customer-gtm-brain"
                     className="inline-flex items-center gap-2 rounded-md px-7 py-3.5 text-base font-medium transition-all hover:bg-white"
                     style={{
                       border: '1px solid var(--color-border-accent)',
@@ -117,7 +110,7 @@ export default function HomePage() {
                       fontFamily: 'var(--font-body)',
                     }}
                   >
-                    Explore Services
+                    Explore Customer/GTM Brain
                   </Link>
                 </div>
               </Reveal>
@@ -128,9 +121,9 @@ export default function HomePage() {
                   style={{ borderColor: 'var(--color-border)' }}
                 >
                   {[
-                    { big: '2', small: 'Founder-focused AI services' },
-                    { big: '1', small: 'Human review loop in every system' },
-                    { big: '0', small: 'Generic AI hype or bloated roadmaps' },
+                    { big: '1', small: 'Active flagship GTM Brain offer' },
+                    { big: 'Soon', small: 'Company Brain as the future expansion' },
+                    { big: 'QA', small: 'Human-reviewed setup and BrainOps' },
                   ].map((s) => (
                     <div key={s.big}>
                       <div
@@ -191,21 +184,8 @@ export default function HomePage() {
                   color: 'var(--color-text-primary)',
                 }}
               >
-                Most startups do not need more AI experiments.
-                <br />
-                <span style={{ color: 'var(--color-accent)' }}>They need working systems.</span>
+                Your best GTM knowledge is scattered across conversations.
               </h2>
-              <p
-                className="mx-auto mt-5 max-w-2xl text-base leading-relaxed md:text-lg"
-                style={{
-                  color: 'var(--color-text-secondary)',
-                  fontFamily: 'var(--font-body)',
-                }}
-              >
-                Founder knowledge, customer conversations, product ideas, and early workflows
-                already contain the raw material. Drrizo turns that raw material into practical
-                systems your audience and users can actually experience.
-              </p>
             </Reveal>
           </div>
 
@@ -259,12 +239,6 @@ export default function HomePage() {
                     >
                       {p.description}
                     </p>
-                    <p
-                      className="mt-4 font-mono text-[10px] uppercase tracking-[0.15em]"
-                      style={{ color: 'var(--color-text-muted)' }}
-                    >
-                      {p.source}
-                    </p>
                   </div>
                 </Reveal>
               )
@@ -273,113 +247,91 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section
-        className="relative py-20 md:py-28"
-        style={{ backgroundColor: 'var(--color-bg-tertiary)' }}
-      >
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mx-auto max-w-3xl text-center">
+      <section id="services" className="relative overflow-hidden py-20 md:py-28" style={{ backgroundColor: 'var(--color-bg-tertiary)' }}>
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <Reveal>
               <EyebrowBadge variant="muted">What We Build</EyebrowBadge>
               <h2
                 className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  color: 'var(--color-text-primary)',
-                }}
+                style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
               >
-                AI-First Services for Startup Founders
+                AI-first revenue systems for founder-led startups.
               </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
               <p
-                className="mx-auto mt-5 max-w-2xl text-base leading-relaxed md:text-lg"
-                style={{
-                  color: 'var(--color-text-secondary)',
-                  fontFamily: 'var(--font-body)',
-                }}
+                className="text-base leading-relaxed md:text-lg"
+                style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
               >
-                Drrizo helps founders turn AI ideas, existing expertise, and startup workflows
-                into launch-ready systems, from content engines that multiply distribution to
-                AI-powered MVPs that prove real product value.
+                Drrizo builds Customer/GTM Brains for founder-led startups: AI-powered revenue
+                intelligence systems that turn customer conversations, sales calls, CRM data,
+                Slack threads, emails, support tickets, product feedback, and founder knowledge
+                into a living GTM operating system. Company Brain is the future expansion.
               </p>
             </Reveal>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
-            {SERVICES.map((service, i) => {
-              const Icon = SERVICE_ICONS[service.icon] ?? RefreshCw
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {SERVICES.map((service, index) => {
+              const Icon = serviceIcons[service.icon] ?? Brain
+              const isComingSoon = service.status.includes('Coming Soon')
               return (
-                <Reveal key={service.title} delay={i * 0.08}>
-                  <div
-                    className="card-lift card-gold-glow group h-full rounded-2xl p-7"
+                <Reveal key={service.title} delay={index * 0.1}>
+                  <article
+                    className="card-lift flex h-full flex-col rounded-2xl p-7 md:p-8"
                     style={{
                       backgroundColor: 'var(--color-bg-secondary)',
-                      border: '1px solid var(--color-border)',
+                      border: isComingSoon
+                        ? '1px dashed var(--color-border-accent)'
+                        : '1px solid var(--color-border)',
                     }}
                   >
-                    <div className="flex items-start gap-5">
+                    <div className="flex items-start justify-between gap-4">
                       <div
-                        className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl transition-all group-hover:scale-110"
+                        className="flex h-12 w-12 items-center justify-center rounded-xl"
+                        style={{ backgroundColor: 'rgba(232, 160, 32, 0.12)' }}
+                      >
+                        <Icon className="h-6 w-6" style={{ color: 'var(--color-accent)' }} />
+                      </div>
+                      <span
+                        className="rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em]"
                         style={{
-                          background:
-                            'linear-gradient(135deg, rgba(232, 160, 32, 0.15), rgba(184, 134, 11, 0.08))',
-                          border: '1px solid var(--color-accent-border)',
+                          borderColor: 'var(--color-border-accent)',
+                          color: isComingSoon ? 'var(--color-accent-dark)' : 'var(--color-accent)',
                         }}
                       >
-                        <Icon
-                          className="h-5 w-5"
-                          style={{ color: 'var(--color-accent)' }}
-                          strokeWidth={1.8}
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <h3
-                          className="text-lg font-semibold leading-snug md:text-xl"
-                          style={{
-                            fontFamily: 'var(--font-heading)',
-                            color: 'var(--color-text-primary)',
-                          }}
-                        >
-                          {service.title}
-                        </h3>
-                        <p
-                          className="mt-2.5 text-sm leading-relaxed"
-                          style={{
-                            color: 'var(--color-text-secondary)',
-                            fontFamily: 'var(--font-body)',
-                          }}
-                        >
-                          {service.description}
-                        </p>
-                        <ul className="mt-5 space-y-2.5">
-                          {service.bullets.map((bullet) => (
-                            <li key={bullet} className="flex items-start gap-2">
-                              <Check
-                                className="mt-0.5 h-4 w-4 flex-shrink-0"
-                                style={{ color: 'var(--color-accent)' }}
-                              />
-                              <span
-                                className="text-sm"
-                                style={{ color: 'var(--color-text-primary)' }}
-                              >
-                                {bullet}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                        <Link
-                          href={service.href}
-                          className="mt-6 inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold transition-all hover:bg-white"
-                          style={{
-                            border: '1px solid var(--color-border-accent)',
-                            color: 'var(--color-text-primary)',
-                            fontFamily: 'var(--font-body)',
-                          }}
-                        >
-                          {service.cta} <ArrowRight className="h-4 w-4" />
-                        </Link>
-                      </div>
+                        {service.status}
+                      </span>
                     </div>
-                  </div>
+                    <h3
+                      className="mt-6 text-2xl font-semibold tracking-tight md:text-3xl"
+                      style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+                    >
+                      {service.title}
+                    </h3>
+                    <p
+                      className="mt-4 text-sm leading-relaxed md:text-base"
+                      style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
+                    >
+                      {service.description}
+                    </p>
+                    <ul className="mt-6 grid gap-3">
+                      {service.bullets.map((bullet) => (
+                        <li key={bullet} className="flex gap-3 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+                          <Check className="mt-0.5 h-4 w-4 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href={service.href}
+                      className="mt-8 inline-flex items-center gap-2 text-sm font-semibold"
+                      style={{ color: 'var(--color-accent-dark)' }}
+                    >
+                      {service.cta} <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </article>
                 </Reveal>
               )
             })}
@@ -388,183 +340,40 @@ export default function HomePage() {
       </section>
 
       <section className="relative overflow-hidden py-20 md:py-28">
-        <OrbField variant="subtle" />
-        <div className="relative mx-auto max-w-6xl px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <Reveal>
-              <EyebrowBadge variant="muted">How We Think</EyebrowBadge>
-              <h2
-                className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  color: 'var(--color-text-primary)',
-                }}
-              >
-                AI should accelerate the workflow,
-                <br />
-                <span style={{ color: 'var(--color-accent)' }}>not remove judgment.</span>
-              </h2>
-              <p
-                className="mx-auto mt-5 max-w-2xl text-base leading-relaxed md:text-lg"
-                style={{
-                  color: 'var(--color-text-secondary)',
-                  fontFamily: 'var(--font-body)',
-                }}
-              >
-                We design systems with human review, clear fallback states, privacy-aware data
-                handling, and practical guardrails so founders can move fast without shipping
-                careless automation.
-              </p>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.15}>
-            <div
-              className="mt-14 rounded-2xl p-8 md:p-12"
-              style={{
-                backgroundColor: 'var(--color-bg-secondary)',
-                border: '1px solid var(--color-border)',
-                boxShadow: 'var(--shadow-soft)',
-              }}
-            >
-              <RenewalFlow />
-            </div>
-          </Reveal>
-
-          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {PROCESS_STEPS.map((step, i) => (
-              <Reveal key={step.number} delay={i * 0.1}>
-                <div
-                  className="card-lift relative h-full rounded-2xl p-7"
-                  style={{
-                    backgroundColor: 'var(--color-bg-secondary)',
-                    border: '1px solid var(--color-border)',
-                  }}
-                >
-                  <div className="flex items-center justify-between">
-                    <span
-                      className="font-mono text-sm font-semibold tracking-[0.2em]"
-                      style={{ color: 'var(--color-accent)' }}
-                    >
-                      {step.number}
-                    </span>
-                    <span
-                      className="rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider"
-                      style={{
-                        backgroundColor: 'var(--color-accent-soft)',
-                        color: 'var(--color-accent-dark)',
-                        fontFamily: 'var(--font-body)',
-                      }}
-                    >
-                      {step.duration}
-                    </span>
-                  </div>
-                  <h3
-                    className="mt-4 text-xl font-semibold leading-snug md:text-2xl"
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      color: 'var(--color-text-primary)',
-                    }}
-                  >
-                    {step.title}
-                  </h3>
-                  <p
-                    className="mt-3 text-sm leading-relaxed"
-                    style={{
-                      color: 'var(--color-text-secondary)',
-                      fontFamily: 'var(--font-body)',
-                    }}
-                  >
-                    {step.description}
-                  </p>
-                  <div className="mt-5 border-t pt-4" style={{ borderColor: 'var(--color-border)' }}>
-                    <div className="flex items-start gap-2">
-                      <Check
-                        className="mt-0.5 h-4 w-4 flex-shrink-0"
-                        style={{ color: 'var(--color-accent)' }}
-                      />
-                      <p
-                        className="text-xs font-medium leading-snug md:text-sm"
-                        style={{
-                          color: 'var(--color-text-primary)',
-                          fontFamily: 'var(--font-body)',
-                        }}
-                      >
-                        {step.outcome}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="relative py-20 md:py-28"
-        style={{ backgroundColor: 'var(--color-bg-tertiary)' }}
-      >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
               <EyebrowBadge variant="muted">Useful Outputs</EyebrowBadge>
               <h2
                 className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  color: 'var(--color-text-primary)',
-                }}
+                style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
               >
-                From raw input to assets founders can use.
+                From scattered customer context to usable GTM assets.
               </h2>
             </Reveal>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
-            {ROI_STATS.map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 0.08}>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {ROI_STATS.map((item, index) => (
+              <Reveal key={item.number} delay={index * 0.08}>
                 <div
-                  className="card-lift relative h-full overflow-hidden rounded-2xl p-7"
+                  className="card-lift h-full rounded-2xl p-6"
                   style={{
                     backgroundColor: 'var(--color-bg-secondary)',
                     border: '1px solid var(--color-border)',
                   }}
                 >
                   <div
-                    aria-hidden
-                    className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full"
-                    style={{
-                      background:
-                        'radial-gradient(circle, rgba(232, 160, 32, 0.12), transparent 70%)',
-                    }}
-                  />
-                  <div
-                    className="text-4xl font-semibold tracking-tight md:text-5xl"
-                    style={{
-                      color: 'var(--color-accent-dark)',
-                      fontFamily: 'var(--font-heading)',
-                    }}
+                    className="text-3xl font-semibold tracking-tight"
+                    style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-heading)' }}
                   >
-                    {stat.number}
+                    {item.number}
                   </div>
-                  <p
-                    className="mt-2 text-sm font-semibold md:text-base"
-                    style={{
-                      color: 'var(--color-text-primary)',
-                      fontFamily: 'var(--font-body)',
-                    }}
-                  >
-                    {stat.label}
-                  </p>
-                  <p
-                    className="mt-3 text-sm leading-relaxed"
-                    style={{
-                      color: 'var(--color-text-secondary)',
-                      fontFamily: 'var(--font-body)',
-                    }}
-                  >
-                    {stat.subtext}
+                  <h3 className="mt-3 text-base font-semibold" style={{ color: 'var(--color-text-primary)' }}>
+                    {item.label}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
+                    {item.subtext}
                   </p>
                 </div>
               </Reveal>
@@ -573,59 +382,60 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-24 md:py-32">
-        <OrbField variant="cta" />
-        <div aria-hidden className="absolute inset-0 dot-pattern opacity-50" />
-        <div className="relative mx-auto max-w-3xl px-6 text-center">
+      <section className="relative overflow-hidden py-20 md:py-28" style={{ backgroundColor: 'var(--color-bg-tertiary)' }}>
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-10 max-w-3xl">
+            <Reveal>
+              <EyebrowBadge variant="muted">How It Works</EyebrowBadge>
+              <h2
+                className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
+                style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+              >
+                Start with one valuable workflow, then let the brain compound.
+              </h2>
+            </Reveal>
+          </div>
+          <Reveal delay={0.1}>
+            <RenewalFlow />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-6 text-center">
           <Reveal>
-            <EyebrowBadge>AI project audit</EyebrowBadge>
+            <ShieldCheck className="mx-auto h-8 w-8" style={{ color: 'var(--color-accent)' }} />
             <h2
-              className="mt-6 text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl"
-              style={{
-                fontFamily: 'var(--font-heading)',
-                color: 'var(--color-text-primary)',
-              }}
+              className="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+              style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
             >
-              Find the smallest AI system
-              <br />
-              <span className="gradient-text-amber">worth building first.</span>
+              Build the GTM intelligence layer your startup can actually use.
             </h2>
             <p
-              className="mx-auto mt-6 max-w-xl text-base leading-relaxed md:text-lg"
-              style={{
-                color: 'var(--color-text-secondary)',
-                fontFamily: 'var(--font-body)',
-              }}
+              className="mx-auto mt-5 max-w-2xl text-base leading-relaxed md:text-lg"
+              style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
             >
-              Share the content sources, MVP idea, user workflow, or launch problem you want to
-              solve. We will help identify the best first system to build.
+              Customer/GTM Brain is the active paid offer. Company Brain is the next step once
+              the customer and revenue layer is working.
             </p>
-            <div className="mt-10">
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 href="/audit"
-                className="btn-shimmer inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold transition-transform active:scale-[0.98]"
+                className="btn-shimmer inline-flex items-center gap-2 rounded-md px-7 py-3.5 text-base font-semibold"
+                style={{ backgroundColor: 'var(--color-accent)', color: '#FAF8F3' }}
+              >
+                Request GTM Brain Audit <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/services/company-brain"
+                className="inline-flex items-center gap-2 rounded-md px-7 py-3.5 text-base font-medium transition-all hover:bg-white"
                 style={{
-                  backgroundColor: 'var(--color-accent)',
-                  color: '#FAF8F3',
-                  fontFamily: 'var(--font-body)',
+                  border: '1px solid var(--color-border-accent)',
+                  color: 'var(--color-text-primary)',
                 }}
               >
-                Request AI Project Audit <ArrowRight className="h-4 w-4" />
+                Ask About Company Brain
               </Link>
-            </div>
-            <div
-              className="mt-8 flex flex-wrap items-center justify-center gap-5 text-xs md:text-sm"
-              style={{
-                color: 'var(--color-text-secondary)',
-                fontFamily: 'var(--font-body)',
-              }}
-            >
-              {['Content engine', 'AI MVP', 'Human review', 'Launch plan'].map((t) => (
-                <span key={t} className="flex items-center gap-1.5">
-                  <Check className="h-4 w-4" style={{ color: 'var(--color-accent)' }} />
-                  {t}
-                </span>
-              ))}
             </div>
           </Reveal>
         </div>

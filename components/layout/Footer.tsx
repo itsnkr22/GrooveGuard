@@ -6,7 +6,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { SERVICES, SITE_NAME, SITE_TAGLINE, SPECIALTIES } from '@/lib/constants'
 
 const COMPANY_LINKS = [
-  { label: 'Start AI Project', href: '/audit' },
+  { label: 'Request GTM Brain Audit', href: '/audit' },
   { label: 'About', href: '/about' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms of Service', href: '/terms-of-service' },
@@ -47,13 +47,13 @@ export default function Footer() {
               className="text-3xl font-semibold leading-tight md:text-4xl"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
-              Ready to build the system?
+              Ready to turn customer context into GTM intelligence?
             </h3>
             <p
               className="mt-2 text-sm md:text-base"
               style={{ color: 'rgba(245, 245, 240, 0.7)', fontFamily: 'var(--font-body)' }}
             >
-              Start with a focused audit of your content engine, AI MVP, or launch workflow.
+              Start with a focused Customer/GTM Brain audit and identify the first workflow worth building.
             </p>
           </div>
           <Link
@@ -65,7 +65,7 @@ export default function Footer() {
               fontFamily: 'var(--font-body)',
             }}
           >
-            Start AI Project <ArrowUpRight className="h-4 w-4" />
+            Request GTM Brain Audit <ArrowUpRight className="h-4 w-4" />
           </Link>
         </motion.div>
 
@@ -90,7 +90,7 @@ export default function Footer() {
               className="mt-4 font-mono text-xs font-medium uppercase tracking-[0.18em]"
               style={{ color: 'var(--color-accent-glow)' }}
             >
-              Built for founder-led startups
+              Premium GTM intelligence systems
             </p>
           </div>
 
@@ -110,6 +110,7 @@ export default function Footer() {
                     style={{ color: 'rgba(245, 245, 240, 0.72)' }}
                   >
                     {service.title}
+                    {service.status.includes('Coming Soon') && ' - Coming Soon'}
                   </Link>
                 </li>
               ))}
@@ -146,7 +147,7 @@ export default function Footer() {
               Founders
             </h3>
             <ul className="space-y-2.5">
-              {SPECIALTIES.slice(0, 4).map((s) => (
+              {SPECIALTIES.map((s) => (
                 <li key={s.label} className="text-sm" style={{ color: 'rgba(245, 245, 240, 0.72)' }}>
                   {s.label}
                   {s.flagship && (
@@ -163,11 +164,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-
-            <p className="mt-6 text-xs leading-relaxed" style={{ color: 'rgba(245, 245, 240, 0.55)' }}>
-              Content systems, MVPs, and practical AI workflows for founders who need a focused
-              first build.
-            </p>
           </div>
         </div>
 
@@ -188,7 +184,7 @@ export default function Footer() {
             className="font-mono text-xs tracking-wide"
             style={{ color: 'rgba(245, 245, 240, 0.55)' }}
           >
-            AI content systems and AI-first MVPs for startups
+            Customer memory, GTM intelligence, and human-reviewed BrainOps
           </p>
         </div>
       </div>

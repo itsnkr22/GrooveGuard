@@ -12,13 +12,13 @@ export default function TopBanner() {
         fontFamily: 'var(--font-body)',
       }}
     >
-      <span>New services for founders: AI content engines and AI-powered MVPs.</span>
+      <span>Flagship service: Customer/GTM Brain for founder-led startups.</span>
       <Link
-        href="/services"
+        href="/services/customer-gtm-brain"
         className="ml-2 inline-flex items-center gap-1 font-semibold"
         style={{ color: 'var(--color-accent-glow)' }}
       >
-        Explore services <ArrowUpRight className="h-3.5 w-3.5" />
+        Explore the brain <ArrowUpRight className="h-3.5 w-3.5" />
       </Link>
     </div>
   )

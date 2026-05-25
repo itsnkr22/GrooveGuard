@@ -96,7 +96,7 @@ export default function Navbar() {
               fontFamily: 'var(--font-body)',
             }}
           >
-            Start AI Project
+            Request GTM Brain Audit
           </Link>
 
           <button
@@ -183,7 +183,7 @@ export default function Navbar() {
                     fontFamily: 'var(--font-body)',
                   }}
                 >
-                  Start AI Project
+                  Request GTM Brain Audit
                 </Link>
               </motion.div>
             </div>

@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'Drrizo <onboarding@resend.dev>'
 
     if (!resendApiKey || !toEmail) {
-      console.info('AI project audit request received:', {
+      console.info('Customer/GTM Brain audit request received:', {
         name,
         email,
         company,
@@ -41,22 +41,22 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: fromEmail,
       to: toEmail,
-      subject: `New Drrizo project request: ${service || 'AI project'}`,
+      subject: `New Drrizo GTM Brain request: ${service || 'Customer/GTM Brain Audit'}`,
       replyTo: email,
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
         `Company: ${company || 'Not provided'}`,
-        `Service: ${service || 'Not provided'}`,
+        `Request type: ${service || 'Not provided'}`,
         '',
-        'Project context:',
+        'GTM context:',
         message,
       ].join('\n'),
     })
 
     return NextResponse.json({ ok: true })
   } catch (error) {
-    console.error('Failed to submit AI project audit request:', error)
+    console.error('Failed to submit Customer/GTM Brain audit request:', error)
     return NextResponse.json({ error: 'Unable to submit request' }, { status: 500 })
   }
 }

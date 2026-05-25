@@ -5,30 +5,30 @@ import { generatePageMetadata } from '@/lib/metadata'
 
 export const metadata = generatePageMetadata({
   title: 'Terms of Service',
-  description: 'Terms of service for Drrizo AI content engine and AI MVP services.',
+  description: 'Terms of service for Drrizo Customer/GTM Brain and Company Brain services.',
   path: '/terms-of-service',
 })
 
 const sections = [
   {
     title: 'Website use',
-    body: 'The Drrizo website provides information about AI content engine and AI MVP services for startup founders. Website content is informational and does not create a client relationship by itself.',
+    body: 'The Drrizo website provides information about Customer/GTM Brain services and the upcoming Company Brain service for founder-led startups. Website content is informational and does not create a client relationship by itself.',
   },
   {
     title: 'Service proposals',
-    body: 'Project scope, deliverables, timelines, fees, ownership, and support terms are defined in a separate written proposal or agreement before work begins.',
+    body: 'Project scope, deliverables, timelines, fees, ownership, source access, tool responsibilities, and support terms are defined in a separate written proposal or agreement before work begins.',
   },
   {
     title: 'Client responsibilities',
-    body: 'Clients are responsible for providing accurate project context, rights to shared materials, timely feedback, and final approval before publishing content or launching product workflows.',
+    body: 'Clients are responsible for providing accurate project context, rights to shared materials, appropriate source access, timely feedback, and final approval before using outputs in live GTM workflows.',
   },
   {
     title: 'AI outputs',
-    body: 'AI can accelerate research, extraction, drafting, and workflow automation, but outputs should be reviewed before use. Drrizo designs for practical guardrails and human review rather than careless automation.',
+    body: 'AI can accelerate organization, retrieval, drafting, summarization, and workflow support, but outputs should be reviewed before use. Drrizo designs for practical guardrails and human review rather than careless automation.',
   },
   {
     title: 'No guaranteed outcomes',
-    body: 'Drrizo does not guarantee virality, fundraising outcomes, revenue, model behavior, or platform performance. The goal is to build useful systems that can be tested, reviewed, and improved.',
+    body: 'Drrizo does not guarantee revenue, fundraising outcomes, closed deals, model behavior, or platform performance. The goal is to build useful GTM intelligence systems that can be tested, reviewed, and improved.',
   },
 ]
 
@@ -47,7 +47,7 @@ export default function TermsOfServicePage() {
             Terms for using the Drrizo website.
           </h1>
           <p className="mt-5 text-sm" style={{ color: 'var(--color-text-muted)' }}>
-            Last updated May 20, 2026
+            Last updated May 24, 2026
           </p>
         </Reveal>
         <div className="mt-12 space-y-5">

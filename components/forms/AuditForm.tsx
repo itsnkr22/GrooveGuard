@@ -15,9 +15,16 @@ const initialState: FormState = {
   name: '',
   email: '',
   company: '',
-  service: 'AI Content Engine',
+  service: 'Customer/GTM Brain Audit',
   message: '',
 }
+
+const serviceOptions = [
+  'Customer/GTM Brain Audit',
+  'Customer/GTM Brain Pilot',
+  'Company Brain Waitlist',
+  'Not sure yet',
+]
 
 export default function AuditForm() {
   const [form, setForm] = useState<FormState>(initialState)
@@ -114,7 +121,7 @@ export default function AuditForm() {
 
         <label className="block">
           <span className="text-sm font-semibold" style={{ color: 'var(--color-text-primary)' }}>
-            What do you want to build?
+            What should we help with?
           </span>
           <select
             value={form.service}
@@ -126,10 +133,9 @@ export default function AuditForm() {
               color: 'var(--color-text-primary)',
             }}
           >
-            <option>AI Content Engine</option>
-            <option>AI-Powered MVP</option>
-            <option>Both services</option>
-            <option>Not sure yet</option>
+            {serviceOptions.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
           </select>
         </label>
       </div>
@@ -149,7 +155,7 @@ export default function AuditForm() {
             backgroundColor: 'var(--color-bg-primary)',
             color: 'var(--color-text-primary)',
           }}
-          placeholder="Share your content sources, MVP idea, target users, current workflow, timeline, or what you want to validate first."
+          placeholder="Tell us about your startup, current GTM motion, customer sources, CRM/tools, sales process, biggest follow-up or customer-knowledge problem, and what workflow you want the brain to improve first."
         />
       </label>
 
@@ -170,7 +176,7 @@ export default function AuditForm() {
           </>
         ) : (
           <>
-            Request AI Project Audit <ArrowRight className="h-4 w-4" />
+            Request GTM Brain Audit <ArrowRight className="h-4 w-4" />
           </>
         )}
       </button>
@@ -184,7 +190,7 @@ export default function AuditForm() {
           }}
         >
           <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0" />
-          Thanks. Your request is in, and Drrizo will review the project context next.
+          Thanks. Your request is in, and Drrizo will review the GTM context next.
         </div>
       )}
 

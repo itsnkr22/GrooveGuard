@@ -17,7 +17,10 @@ export function generatePageMetadata({
   keywords,
 }: PageMetaParams): Metadata {
   const url = `${SITE_URL}${path}`
-  const fullTitle = title.includes(`| ${SITE_NAME}`) ? title : `${title} | ${SITE_NAME}`
+  const fullTitle =
+    title.startsWith(`${SITE_NAME} |`) || title.endsWith(`| ${SITE_NAME}`)
+      ? title
+      : `${title} | ${SITE_NAME}`
 
   return {
     title: { absolute: fullTitle },

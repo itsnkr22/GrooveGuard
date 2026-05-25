@@ -1,12 +1,38 @@
-import { Check, FileText, MessageSquareText, Sparkles, Workflow, Zap } from 'lucide-react'
+import { ArrowRight, Brain, Database, FileText, Mail, MessageSquareText } from 'lucide-react'
 
-const sourceItems = ['Founder call', 'Product demo', 'Customer objection', 'Launch note']
-const outputs = ['LinkedIn posts', 'Newsletter', 'SEO brief', 'Video scripts']
+const inputs = [
+  'Sales calls',
+  'Customer interviews',
+  'CRM notes',
+  'Emails',
+  'Slack threads',
+  'Support tickets',
+  'Product feedback',
+  'Demo recordings',
+  'Founder notes',
+  'Objections',
+  'Win/loss notes',
+]
+
+const outputs = [
+  'Account briefs',
+  'Follow-up drafts',
+  'Objection library',
+  'ICP insights',
+  'Meeting prep',
+  'Renewal risk signals',
+  'Win/loss patterns',
+  'Sales enablement notes',
+  'Product feedback themes',
+  'Weekly GTM digest',
+]
+
+const sourceIcons = [MessageSquareText, Database, Mail, FileText]
 
 export default function DashboardMock() {
   return (
     <div
-      className="card-lift relative overflow-hidden rounded-2xl p-5 md:p-6"
+      className="relative overflow-hidden rounded-2xl p-5 shadow-2xl md:p-6"
       style={{
         backgroundColor: 'var(--color-bg-secondary)',
         border: '1px solid var(--color-border)',
@@ -14,97 +40,116 @@ export default function DashboardMock() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full"
+        className="absolute inset-x-0 top-0 h-px"
         style={{
-          background: 'radial-gradient(circle, rgba(232, 160, 32, 0.2), transparent 70%)',
+          background:
+            'linear-gradient(90deg, transparent, var(--color-border-accent), transparent)',
         }}
       />
-      <div className="relative flex items-center justify-between">
-        <div>
-          <p
-            className="font-mono text-[10px] uppercase tracking-[0.2em]"
+
+      <div className="grid gap-4 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+        <div className="space-y-3">
+          <div
+            className="font-mono text-[11px] uppercase tracking-[0.22em]"
             style={{ color: 'var(--color-text-muted)' }}
           >
-            System preview
-          </p>
-          <h3
-            className="mt-2 text-2xl font-semibold leading-tight"
-            style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
+            Inputs
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {inputs.map((input, index) => {
+              const Icon = sourceIcons[index % sourceIcons.length]
+              return (
+                <div
+                  key={input}
+                  className="flex min-h-10 items-center gap-2 rounded-lg border px-3 py-2 text-xs font-medium"
+                  style={{
+                    borderColor: 'var(--color-border)',
+                    backgroundColor: 'var(--color-bg-primary)',
+                    color: 'var(--color-text-secondary)',
+                  }}
+                >
+                  <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                  <span>{input}</span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center gap-3 lg:flex-col">
+          <ArrowRight className="hidden h-5 w-5 lg:block" style={{ color: 'var(--color-accent)' }} />
+          <div
+            className="relative flex h-36 w-36 flex-col items-center justify-center rounded-full border text-center shadow-xl"
+            style={{
+              borderColor: 'var(--color-border-accent)',
+              background:
+                'radial-gradient(circle at top, rgba(232, 160, 32, 0.18), var(--color-bg-primary) 64%)',
+            }}
           >
-            Founder input to launch assets
-          </h3>
-        </div>
-        <div
-          className="flex h-12 w-12 items-center justify-center rounded-xl"
-          style={{
-            background:
-              'linear-gradient(135deg, rgba(232, 160, 32, 0.18), rgba(184, 134, 11, 0.08))',
-            border: '1px solid var(--color-accent-border)',
-          }}
-        >
-          <Sparkles className="h-5 w-5" style={{ color: 'var(--color-accent)' }} />
-        </div>
-      </div>
-
-      <div className="relative mt-6 grid gap-4 md:grid-cols-[1fr_auto_1fr] md:items-center">
-        <div className="space-y-2.5">
-          {sourceItems.map((item) => (
+            <Brain className="h-8 w-8" style={{ color: 'var(--color-accent)' }} />
             <div
-              key={item}
-              className="flex items-center gap-3 rounded-xl px-3.5 py-3"
-              style={{
-                backgroundColor: 'var(--color-bg-tertiary)',
-                border: '1px solid var(--color-border)',
-              }}
+              className="mt-3 text-sm font-semibold leading-tight"
+              style={{ color: 'var(--color-text-primary)', fontFamily: 'var(--font-heading)' }}
             >
-              <MessageSquareText className="h-4 w-4" style={{ color: 'var(--color-accent)' }} />
-              <span className="text-sm" style={{ color: 'var(--color-text-primary)' }}>
-                {item}
-              </span>
+              Customer/
+              <br />
+              GTM Brain
             </div>
-          ))}
+            <div className="mt-1 text-[10px] uppercase tracking-[0.18em]" style={{ color: 'var(--color-text-muted)' }}>
+              BrainOps
+            </div>
+          </div>
+          <ArrowRight className="h-5 w-5 rotate-90 lg:rotate-0" style={{ color: 'var(--color-accent)' }} />
         </div>
 
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full md:mx-3">
-          <Workflow className="h-7 w-7" style={{ color: 'var(--color-accent)' }} />
-        </div>
-
-        <div className="space-y-2.5">
-          {outputs.map((item) => (
-            <div
-              key={item}
-              className="flex items-center gap-3 rounded-xl px-3.5 py-3"
-              style={{
-                backgroundColor: 'var(--color-bg-secondary)',
-                border: '1px solid var(--color-accent-border)',
-              }}
-            >
-              <Check className="h-4 w-4" style={{ color: 'var(--color-success)' }} />
-              <span className="text-sm font-medium" style={{ color: 'var(--color-text-primary)' }}>
-                {item}
-              </span>
-            </div>
-          ))}
+        <div className="space-y-3">
+          <div
+            className="font-mono text-[11px] uppercase tracking-[0.22em]"
+            style={{ color: 'var(--color-text-muted)' }}
+          >
+            Outputs
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {outputs.map((output) => (
+              <div
+                key={output}
+                className="min-h-10 rounded-lg border px-3 py-2 text-xs font-medium"
+                style={{
+                  borderColor: 'var(--color-border)',
+                  backgroundColor: 'var(--color-bg-primary)',
+                  color: 'var(--color-text-secondary)',
+                }}
+              >
+                {output}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       <div
-        className="relative mt-5 grid gap-3 rounded-xl p-4 md:grid-cols-3"
+        className="mt-5 rounded-xl border p-4"
         style={{
-          background: 'linear-gradient(135deg, rgba(10, 14, 26, 0.96), rgba(21, 27, 43, 0.96))',
-          color: 'var(--color-text-inverse)',
+          borderColor: 'var(--color-border)',
+          backgroundColor: 'rgba(19, 44, 57, 0.04)',
         }}
       >
-        {[
-          { icon: FileText, label: 'Content brain' },
-          { icon: Zap, label: 'AI workflow' },
-          { icon: Check, label: 'Human review' },
-        ].map(({ icon: Icon, label }) => (
-          <div key={label} className="flex items-center gap-2">
-            <Icon className="h-4 w-4" style={{ color: 'var(--color-accent-glow)' }} />
-            <span className="text-xs font-medium">{label}</span>
-          </div>
-        ))}
+        <div className="grid gap-3 md:grid-cols-3">
+          {[
+            ['Memory', 'Customer and account context stays organized.'],
+            ['Workflows', 'Briefs, follow-ups, digests, and feedback loops become repeatable.'],
+            ['Judgment', 'Human review keeps decisions practical and grounded.'],
+          ].map(([label, text]) => (
+            <div key={label}>
+              <div className="text-sm font-semibold" style={{ color: 'var(--color-text-primary)' }}>
+                {label}
+              </div>
+              <p className="mt-1 text-xs leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
+                {text}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

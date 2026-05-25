@@ -9,15 +9,15 @@ import { generatePageMetadata } from '@/lib/metadata'
 export const metadata = generatePageMetadata({
   title: 'About Drrizo',
   description:
-    'Drrizo helps founder-led startups build practical AI content engines and AI-first MVPs with clear workflows, human review, and launch-ready execution.',
+    'Drrizo builds Customer/GTM Brains for founder-led startups with practical workflows, human review, customer memory, and BrainOps.',
   path: '/about',
 })
 
 const principles = [
-  'Build around real founder knowledge and real user workflows.',
-  'Use AI to accelerate extraction, drafting, automation, and product experience.',
-  'Keep human review, fallback states, and privacy-aware data handling in the system.',
-  'Ship the smallest useful version, then improve with real performance data.',
+  'Build around real customer conversations, account context, objections, and GTM decisions.',
+  'Use AI to organize, retrieve, draft, summarize, and surface the right revenue intelligence.',
+  'Keep human review, source awareness, and privacy-aware data handling inside the workflow.',
+  'Start narrow with one useful GTM workflow, then expand through BrainOps once value is proven.',
 ]
 
 export default function AboutPage() {
@@ -35,7 +35,7 @@ export default function AboutPage() {
               className="mt-6 text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl"
               style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
             >
-              Practical AI systems for founder-led startups.
+              Practical AI-powered GTM intelligence for founder-led startups.
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
@@ -43,8 +43,9 @@ export default function AboutPage() {
               className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed md:text-xl"
               style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-body)' }}
             >
-              Drrizo helps founders turn existing expertise, startup workflows, and AI product
-              ideas into systems that can be used, reviewed, launched, and improved.
+              Drrizo builds Customer/GTM Brains that turn scattered customer conversations,
+              sales notes, CRM activity, support tickets, product feedback, and founder knowledge
+              into workflows founders and GTM teams can actually use.
             </p>
           </Reveal>
         </div>
@@ -60,12 +61,13 @@ export default function AboutPage() {
                   className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
                   style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
                 >
-                  The best AI systems begin with context.
+                  The best AI systems begin with customer context.
                 </h2>
                 <p className="mt-5 text-base leading-relaxed md:text-lg" style={{ color: 'var(--color-text-secondary)' }}>
-                  Founder voice, customer objections, product constraints, user behavior, and
-                  approval workflows matter. Drrizo builds around that context so AI becomes a
-                  useful operating layer, not a pile of disconnected prompts.
+                  Sales calls, objections, win/loss notes, product feedback, customer support,
+                  and founder memory are strategic assets. Drrizo turns that raw material into a
+                  living GTM operating system with practical outputs, review loops, and a clear
+                  BrainOps rhythm.
                 </p>
               </div>
             </Reveal>
@@ -103,7 +105,7 @@ export default function AboutPage() {
                 className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-5xl"
                 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
               >
-                Two focused ways to help founders ship.
+                Customer/GTM Brain is the active service.
               </h2>
             </Reveal>
           </div>
@@ -115,12 +117,20 @@ export default function AboutPage() {
                   className="card-lift block h-full rounded-2xl p-7"
                   style={{
                     backgroundColor: 'var(--color-bg-secondary)',
-                    border: '1px solid var(--color-border)',
+                    border: service.status.includes('Coming Soon')
+                      ? '1px dashed var(--color-border-accent)'
+                      : '1px solid var(--color-border)',
                   }}
                 >
                   <Sparkles className="h-5 w-5" style={{ color: 'var(--color-accent)' }} />
+                  <div
+                    className="mt-4 text-[11px] font-semibold uppercase tracking-[0.16em]"
+                    style={{ color: 'var(--color-accent-dark)' }}
+                  >
+                    {service.status}
+                  </div>
                   <h3
-                    className="mt-4 text-xl font-semibold"
+                    className="mt-3 text-xl font-semibold"
                     style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
                   >
                     {service.title}
@@ -163,7 +173,7 @@ export default function AboutPage() {
                   </h2>
                   <p className="mt-3 text-sm leading-relaxed md:text-base" style={{ color: 'var(--color-text-secondary)' }}>
                     AI should accelerate the workflow, not remove judgment. Drrizo designs with
-                    human review, fallback states, privacy-aware data handling, and practical
+                    human review, source awareness, privacy-aware data handling, and practical
                     guardrails from the start.
                   </p>
                 </div>
