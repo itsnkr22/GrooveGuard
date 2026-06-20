@@ -5,22 +5,22 @@ import { generatePageMetadata } from '@/lib/metadata'
 
 export const metadata = generatePageMetadata({
   title: 'Privacy Policy',
-  description: 'Privacy policy for Drrizo Customer/GTM Brain and Company Brain services.',
+  description: 'Privacy policy for Drrizo AI assessments and implementation services.',
   path: '/privacy-policy',
 })
 
 const sections = [
   {
     title: 'Information we collect',
-    body: 'When you request a Customer/GTM Brain audit, Drrizo may collect your name, email, company, service interest, and GTM context. If you work with Drrizo, project materials may include customer conversations, call transcripts, CRM notes, emails, Slack threads, support tickets, product feedback, documents, or knowledge sources you choose to share.',
+    body: 'When you request a free AI mini assessment, Drrizo may collect your name, email, company, service interest, and project context. If you work with Drrizo, project materials may include task notes, tool access, examples, documents, prompts, workflows, customer context, or other source material you choose to share.',
   },
   {
     title: 'How information is used',
-    body: 'Information is used to respond to requests, scope services, build approved workflows, prepare project deliverables, and improve the quality of Customer/GTM Brain or Company Brain systems Drrizo creates for you.',
+    body: 'Information is used to respond to requests, scope assessments, prepare recommendations, build approved workflows, deliver paid implementation work, and improve the quality of Drrizo services.',
   },
   {
     title: 'Project materials',
-    body: 'Customer data, founder knowledge, revenue notes, product documentation, and internal materials should be shared only when you have permission to use them. Drrizo aims to handle project context in a privacy-aware way and can adapt workflows around sensitive information.',
+    body: 'Business notes, customer context, internal documents, prompts, and workflow examples should be shared only when you have permission to use them. Drrizo aims to handle project context in a privacy-aware way and can adapt workflows around sensitive information.',
   },
   {
     title: 'Third-party services',
@@ -43,8 +43,8 @@ export default function PrivacyPolicyPage() {
           <h1
             className="mt-6 text-4xl font-semibold leading-tight tracking-tight md:text-5xl"
             style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
-          >
-            How Drrizo handles project information.
+            >
+            How Drrizo handles assessment and project information.
           </h1>
           <p className="mt-5 text-sm" style={{ color: 'var(--color-text-muted)' }}>
             Last updated May 24, 2026

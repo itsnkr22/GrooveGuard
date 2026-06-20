@@ -7,29 +7,27 @@ export default function OrbField({ variant = 'subtle' }: OrbFieldProps) {
   const cta = variant === 'cta'
 
   return (
-    <>
+    <div
+      aria-hidden
+      className="surface-field"
+      style={{
+        opacity: hero ? 1 : cta ? 0.82 : 0.66,
+      }}
+    >
       <div
-        aria-hidden
-        className="orb orb-gold animate-float"
+        className="absolute inset-x-0 top-0 h-px"
         style={{
-          width: hero ? 540 : 360,
-          height: hero ? 540 : 360,
-          top: hero ? -220 : cta ? -120 : -160,
-          right: hero ? -120 : -90,
-          opacity: hero ? 0.34 : cta ? 0.28 : 0.18,
+          background: 'linear-gradient(90deg, transparent, rgba(47,111,99,0.35), transparent)',
         }}
       />
       <div
-        aria-hidden
-        className="orb orb-navy animate-float-slower"
+        className="absolute bottom-0 left-1/2 h-28 w-[72vw] -translate-x-1/2"
         style={{
-          width: hero ? 420 : 280,
-          height: hero ? 420 : 280,
-          bottom: hero ? -180 : -120,
-          left: hero ? -130 : -80,
-          opacity: hero ? 0.16 : 0.1,
+          background:
+            'linear-gradient(90deg, transparent, rgba(47,111,99,0.08), rgba(16,24,23,0.07), transparent)',
+          clipPath: 'polygon(8% 100%, 92% 100%, 76% 0, 24% 0)',
         }}
       />
-    </>
+    </div>
   )
 }

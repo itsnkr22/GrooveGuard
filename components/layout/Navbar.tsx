@@ -4,19 +4,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { NAV_LINKS, SITE_NAME } from '@/lib/constants'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   useEffect(() => {
     setMobileOpen(false)
@@ -35,77 +28,82 @@ export default function Navbar() {
   }
 
   return (
-    <nav
-      className="sticky top-0 z-50 w-full transition-all duration-300"
-      style={{
-        background: scrolled ? 'rgba(250, 248, 243, 0.88)' : 'rgba(250, 248, 243, 0.6)',
-        backdropFilter: 'blur(18px)',
-        WebkitBackdropFilter: 'blur(18px)',
-        borderBottom: scrolled
-          ? '1px solid var(--color-border)'
-          : '1px solid transparent',
-        boxShadow: scrolled ? '0 4px 20px -12px rgba(10, 14, 26, 0.08)' : 'none',
-      }}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-3 z-40 px-4 pt-3 md:top-5 md:pt-5">
+      <div
+        className="mx-auto flex max-w-5xl items-center justify-between rounded-full px-3 py-2 pl-5 shadow-[0_18px_50px_-32px_rgba(16,19,24,0.55)] md:px-3 md:pl-6"
+        style={{
+          backgroundColor: 'rgba(255, 250, 241, 0.84)',
+          border: '1px solid rgba(16, 19, 24, 0.1)',
+          backdropFilter: 'blur(18px)',
+          WebkitBackdropFilter: 'blur(18px)',
+        }}
+      >
         <Link
           href="/"
-          className="flex items-center gap-2 text-xl font-bold tracking-tight transition-opacity hover:opacity-90"
+          className="text-lg font-semibold tracking-tight transition-opacity hover:opacity-80"
           style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
         >
-          <span
-            aria-hidden
-            className="inline-block h-2 w-2 rounded-full"
-            style={{ backgroundColor: 'var(--color-accent)' }}
-          />
           {SITE_NAME}
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="group relative py-1 text-sm font-medium transition-colors"
+              className="rounded-full px-4 py-2 text-sm font-medium transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
               style={{
-                color: isActive(link.href)
-                  ? 'var(--color-accent)'
-                  : 'var(--color-text-secondary)',
-                fontFamily: 'var(--font-body)',
+                color: isActive(link.href) ? 'var(--color-text-primary)' : 'var(--color-text-secondary)',
+                backgroundColor: isActive(link.href) ? 'rgba(16, 19, 24, 0.06)' : 'transparent',
               }}
             >
               {link.label}
-              <span
-                className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full transition-transform duration-200 group-hover:scale-x-100"
-                style={{
-                  transform: isActive(link.href) ? 'scaleX(1)' : undefined,
-                  backgroundColor: 'var(--color-accent)',
-                }}
-              />
             </Link>
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Link
             href="/audit"
-            className="btn-shimmer hidden rounded-md px-5 py-2.5 text-sm font-semibold transition-all duration-200 hover:brightness-110 md:inline-flex"
+            className="group btn-shimmer hidden items-center gap-3 rounded-full py-1.5 pl-5 pr-1.5 text-sm font-semibold transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] md:inline-flex"
             style={{
-              backgroundColor: 'var(--color-accent)',
-              color: '#0A0E1A',
-              fontFamily: 'var(--font-body)',
+              backgroundColor: 'var(--color-text-primary)',
+              color: 'var(--color-text-inverse)',
             }}
           >
-            Request GTM Brain Audit
+            Book Free Assessment
+            <span
+              className="flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              style={{ backgroundColor: 'rgba(255,255,255,0.12)' }}
+            >
+              <ArrowUpRight className="h-4 w-4" strokeWidth={1.6} />
+            </span>
           </Link>
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="inline-flex items-center justify-center rounded-lg p-2 transition-colors md:hidden"
-            style={{ color: 'var(--color-text-secondary)' }}
+            className="relative h-10 w-10 rounded-full md:hidden"
+            style={{ backgroundColor: 'rgba(16, 19, 24, 0.06)' }}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
-            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <span
+              className="absolute left-1/2 top-[17px] h-px w-4 -translate-x-1/2 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+              style={{
+                backgroundColor: 'var(--color-text-primary)',
+                transform: mobileOpen
+                  ? 'translateX(-50%) translateY(3px) rotate(45deg)'
+                  : 'translateX(-50%)',
+              }}
+            />
+            <span
+              className="absolute left-1/2 top-[23px] h-px w-4 -translate-x-1/2 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+              style={{
+                backgroundColor: 'var(--color-text-primary)',
+                transform: mobileOpen
+                  ? 'translateX(-50%) translateY(-3px) rotate(-45deg)'
+                  : 'translateX(-50%)',
+              }}
+            />
           </button>
         </div>
       </div>
@@ -113,79 +111,46 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
-            className="fixed inset-0 top-0 z-40 flex flex-col md:hidden"
-            style={{ background: 'rgba(250, 248, 243, 0.98)' }}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 18 }}
+            transition={{ duration: 0.45, ease: [0.32, 0.72, 0, 1] }}
+            className="fixed inset-x-4 top-20 z-30 rounded-[2rem] p-4 md:hidden"
+            style={{
+              backgroundColor: 'rgba(255, 250, 241, 0.92)',
+              border: '1px solid rgba(16, 19, 24, 0.1)',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
+              boxShadow: '0 30px 90px -52px rgba(16, 19, 24, 0.55)',
+            }}
           >
-            <div className="flex items-center justify-between px-4 py-4 sm:px-6">
-              <Link
-                href="/"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-2 text-xl font-bold tracking-tight"
-                style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-text-primary)' }}
-              >
-                <span
-                  aria-hidden
-                  className="inline-block h-2 w-2 rounded-full"
-                  style={{ backgroundColor: 'var(--color-accent)' }}
-                />
-                {SITE_NAME}
-              </Link>
-              <button
-                onClick={() => setMobileOpen(false)}
-                className="rounded-lg p-2"
-                style={{ color: 'var(--color-text-secondary)' }}
-                aria-label="Close menu"
-              >
-                <X className="h-6 w-6" />
-              </button>
-            </div>
-
-            <div className="flex flex-1 flex-col items-center justify-center gap-8">
+            <div className="grid gap-2">
               {NAV_LINKS.map((link, index) => (
                 <motion.div
                   key={link.href}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.08 + 0.1 }}
+                  transition={{ delay: index * 0.05 + 0.08, duration: 0.42, ease: [0.32, 0.72, 0, 1] }}
                 >
                   <Link
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-2xl font-semibold"
+                    className="block rounded-2xl px-4 py-3 text-lg font-semibold"
                     style={{
-                      fontFamily: 'var(--font-heading)',
-                      color: isActive(link.href)
-                        ? 'var(--color-accent)'
-                        : 'var(--color-text-primary)',
+                      color: 'var(--color-text-primary)',
+                      backgroundColor: isActive(link.href) ? 'rgba(16, 19, 24, 0.06)' : 'transparent',
                     }}
                   >
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: NAV_LINKS.length * 0.08 + 0.1 }}
+              <Link
+                href="/audit"
+                className="mt-2 rounded-full px-5 py-3 text-center text-base font-semibold"
+                style={{ backgroundColor: 'var(--color-text-primary)', color: 'var(--color-text-inverse)' }}
               >
-                <Link
-                  href="/audit"
-                  onClick={() => setMobileOpen(false)}
-                  className="inline-flex rounded-md px-8 py-3 text-lg font-semibold"
-                  style={{
-                    backgroundColor: 'var(--color-accent)',
-                    color: '#0A0E1A',
-                    fontFamily: 'var(--font-body)',
-                  }}
-                >
-                  Request GTM Brain Audit
-                </Link>
-              </motion.div>
+                Book Free Assessment
+              </Link>
             </div>
           </motion.div>
         )}

@@ -1,27 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --font-heading: Georgia, "Times New Roman", serif;
-  --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  --color-bg-primary: #faf8f3;
-  --color-bg-secondary: #fffdf8;
-  --color-bg-tertiary: #f2ecdf;
-  --color-bg-navy: #0a0e1a;
-  --color-text-primary: #0a0e1a;
-  --color-text-secondary: #4b5563;
-  --color-text-muted: #7b8190;
-  --color-text-inverse: #f8f4ea;
-  --color-accent: #b8860b;
-  --color-accent-dark: #8a6408;
-  --color-accent-glow: #f5b840;
-  --color-accent-soft: rgba(232, 160, 32, 0.13);
-  --color-accent-border: rgba(184, 134, 11, 0.24);
-  --color-border: rgba(10, 14, 26, 0.1);
-  --color-border-accent: rgba(184, 134, 11, 0.28);
-  --color-danger: #b91c1c;
-  --color-success: #137a4b;
-  --shadow-soft: 0 24px 70px -34px rgba(10, 14, 26, 0.22);
+  --font-heading: "Geist", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --color-bg-primary: #f4f7f4;
+  --color-bg-secondary: #fcfcf8;
+  --color-bg-tertiary: #e6ece6;
+  --color-bg-navy: #101817;
+  --color-text-primary: #101817;
+  --color-text-secondary: #4d5957;
+  --color-text-muted: #6d7773;
+  --color-text-inverse: #fbf6ec;
+  --color-accent: #2f6f63;
+  --color-accent-dark: #204f47;
+  --color-accent-glow: #82c5b7;
+  --color-accent-soft: rgba(47, 111, 99, 0.12);
+  --color-accent-border: rgba(47, 111, 99, 0.24);
+  --color-border: rgba(16, 24, 23, 0.1);
+  --color-border-accent: rgba(47, 111, 99, 0.28);
+  --color-danger: #9f1d24;
+  --color-success: #226a4a;
+  --shadow-soft: 0 28px 90px -48px rgba(16, 19, 24, 0.36);
+  --ease-premium: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 * {
@@ -36,7 +37,8 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(232, 160, 32, 0.1), transparent 34rem),
+    linear-gradient(135deg, rgba(47, 111, 99, 0.08), transparent 34rem),
+    linear-gradient(315deg, rgba(16, 24, 23, 0.06), transparent 28rem),
     var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: var(--font-body), system-ui, sans-serif;
@@ -47,7 +49,7 @@ a {
 }
 
 ::selection {
-  background: rgba(232, 160, 32, 0.28);
+  background: rgba(130, 197, 183, 0.36);
 }
 
 .font-body {
@@ -55,7 +57,7 @@ a {
 }
 
 .font-heading {
-  font-family: var(--font-heading), Georgia, serif;
+  font-family: var(--font-heading), system-ui, sans-serif;
 }
 
 .font-mono {
@@ -63,60 +65,72 @@ a {
 }
 
 .gradient-text-amber {
-  background: linear-gradient(135deg, #8a6408 0%, #b8860b 42%, #f5b840 100%);
+  background: linear-gradient(135deg, #204f47 0%, #2f6f63 44%, #82c5b7 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .dot-pattern {
-  background-image: radial-gradient(rgba(10, 14, 26, 0.12) 1px, transparent 1px);
-  background-size: 26px 26px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent 80%);
+  background-image: radial-gradient(rgba(16, 19, 24, 0.11) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 82%);
 }
 
-.divider-gold {
+.divider-accent {
   height: 1px;
   width: 100%;
-  background: linear-gradient(90deg, transparent, rgba(232, 160, 32, 0.42), transparent);
+  background: linear-gradient(90deg, transparent, rgba(47, 111, 99, 0.35), transparent);
 }
 
-.orb {
+.surface-field {
   position: absolute;
   pointer-events: none;
-  border-radius: 9999px;
-  filter: blur(34px);
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(47, 111, 99, 0.11), transparent 38%),
+    linear-gradient(300deg, rgba(16, 24, 23, 0.08), transparent 44%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.76), transparent 78%);
 }
 
-.orb-gold {
-  background: radial-gradient(circle, rgba(245, 184, 64, 0.55), rgba(184, 134, 11, 0));
+.bezel-shell {
+  border-radius: 2rem;
+  border: 1px solid rgba(16, 19, 24, 0.08);
+  background: rgba(255, 250, 241, 0.62);
+  box-shadow: var(--shadow-soft);
+  padding: 0.45rem;
 }
 
-.orb-navy {
-  background: radial-gradient(circle, rgba(10, 14, 26, 0.18), rgba(10, 14, 26, 0));
+.bezel-core {
+  border-radius: calc(2rem - 0.45rem);
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  background: var(--color-bg-secondary);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.72),
+    inset 0 -1px 0 rgba(16, 19, 24, 0.05);
 }
 
 .card-lift {
   box-shadow: var(--shadow-soft);
   transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease;
+    transform 520ms var(--ease-premium),
+    box-shadow 520ms var(--ease-premium),
+    border-color 520ms var(--ease-premium);
 }
 
 .card-lift:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 28px 80px -34px rgba(10, 14, 26, 0.28);
+  transform: translateY(-4px);
+  box-shadow: 0 34px 96px -48px rgba(16, 19, 24, 0.42);
 }
 
-.card-gold-glow:hover {
+.card-accent-glow:hover {
   border-color: var(--color-accent-border) !important;
 }
 
 .btn-shimmer {
   position: relative;
   overflow: hidden;
-  box-shadow: 0 14px 34px -18px rgba(184, 134, 11, 0.7);
+  box-shadow: 0 18px 42px -22px rgba(47, 111, 99, 0.7);
 }
 
 .btn-shimmer::after {
@@ -127,10 +141,10 @@ a {
   background: linear-gradient(
     110deg,
     transparent,
-    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.34),
     transparent
   );
-  transition: transform 650ms ease;
+  transition: transform 720ms var(--ease-premium);
 }
 
 .btn-shimmer:hover::after {
@@ -138,19 +152,19 @@ a {
 }
 
 .animate-float {
-  animation: float 10s ease-in-out infinite;
+  animation: float 11s var(--ease-premium) infinite;
 }
 
 .animate-float-slower {
-  animation: float 16s ease-in-out infinite;
+  animation: float 17s var(--ease-premium) infinite;
 }
 
-.animate-pulse-gold {
-  animation: pulse-gold 2.4s ease-in-out infinite;
+.animate-pulse-accent {
+  animation: pulse-accent 2.8s var(--ease-premium) infinite;
 }
 
 .animate-spin-slow {
-  animation: spin 16s linear infinite;
+  animation: spin 18s linear infinite;
 }
 
 @keyframes float {
@@ -163,14 +177,25 @@ a {
   }
 }
 
-@keyframes pulse-gold {
+@keyframes pulse-accent {
   0%,
   100% {
     opacity: 1;
     transform: scale(1);
   }
   50% {
-    opacity: 0.55;
-    transform: scale(1.18);
+    opacity: 0.58;
+    transform: scale(1.16);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
   }
 }

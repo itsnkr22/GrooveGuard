@@ -1,13 +1,13 @@
 export const SITE_NAME = 'Drrizo'
 export const SITE_URL = 'https://www.drrizo.com'
-export const SITE_TAGLINE = 'Customer/GTM Brains for founder-led startups'
+export const SITE_TAGLINE = 'AI bottleneck consulting for practical operators'
 export const SITE_DESCRIPTION =
-  'Drrizo builds Customer/GTM Brains for founder-led startups, turning sales calls, CRM notes, emails, Slack, support tickets, and customer feedback into AI-powered GTM intelligence.'
+  'Drrizo helps founders and operators find one repeated bottleneck, map it to one practical AI tool, and choose the right implementation path.'
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
-  { label: 'Audit', href: '/audit' },
+  { label: 'Assessment', href: '/audit' },
   { label: 'About', href: '/about' },
 ] as const
 
@@ -22,123 +22,119 @@ export type Specialty = {
 
 export const SPECIALTIES: readonly Specialty[] = [
   {
-    label: 'B2B SaaS Founders',
-    short: 'B2B SaaS',
+    label: 'Founder-led teams',
+    short: 'Founders',
     flagship: true,
-    tagline: 'Customer conversations, demos, objections, pipeline learning, and GTM memory',
+    tagline: 'A practical AI assessment before a bigger build',
   },
   {
-    label: 'AI Startup Founders',
-    short: 'AI Startups',
-    tagline: 'Customer education, use-case discovery, trust-building, and product feedback',
+    label: 'Service businesses',
+    short: 'Services',
+    tagline: 'Repeated work, client handoffs, research, writing, and ops friction',
   },
   {
-    label: 'Founder-Led GTM Teams',
-    short: 'Founder GTM',
-    tagline: 'Small revenue teams where founder memory still carries the GTM motion',
+    label: 'Sales teams',
+    short: 'Sales',
+    tagline: 'Follow-ups, research, call prep, CRM hygiene, and proposal support',
   },
   {
-    label: 'Product-Led Startups',
-    short: 'Product-Led',
-    tagline: 'Trials, inbound interest, account segmentation, and expansion signals',
+    label: 'Support teams',
+    short: 'Support',
+    tagline: 'Customer questions, response quality, triage, and knowledge gaps',
   },
   {
-    label: 'Expert-Led B2B Businesses',
-    short: 'Expert B2B',
-    tagline: 'High-value client conversations, account memory, proposals, and onboarding',
+    label: 'Lean operations teams',
+    short: 'Ops',
+    tagline: 'Weekly repetition, handoffs, admin load, and workflow stalls',
   },
 ]
 
 export const SERVICES = [
   {
-    title: 'Customer/GTM Brain',
-    status: 'Active flagship service',
+    title: 'Free AI Mini Assessment',
+    status: 'Free discovery offer',
     description:
-      'A living AI-powered GTM intelligence system that organizes customer knowledge, sales conversations, account context, objections, product feedback, and revenue signals so founders and GTM teams can act faster with better context.',
-    roi: 'Turn scattered customer context into account briefs, follow-ups, GTM insights, and weekly founder digests',
-    icon: 'brain',
-    href: '/services/customer-gtm-brain',
-    cta: 'Explore Customer/GTM Brain',
+      'A two-call assessment that finds one repeated bottleneck, anchors the ROI in your words, and returns one practical AI prescription.',
+    roi: 'Best when you know AI could help, but you need the first useful target.',
+    icon: 'search',
+    href: '/services/free-ai-mini-assessment',
+    cta: 'See The Assessment',
     bullets: [
-      'Customer and account intelligence',
-      'Sales call and email memory',
-      'ICP, pain point, objection, and win/loss analysis',
-      'CRM, Slack, email, docs, support, and meeting context',
-      'Follow-up, meeting prep, and weekly GTM workflows',
-      'Human-reviewed setup and ongoing BrainOps',
+      'Discovery-first call with no prescription on call one',
+      'ROI lens: revenue, time, or customer happiness',
+      'Repeated-task and friction mapping',
+      'One bottleneck selected between calls',
+      'Tool name, cost, and first step on call two',
+      'Clear path into handoff, guided build, or done-for-you build',
     ],
   },
   {
-    title: 'Company Brain',
-    status: 'Coming Soon / Work in Progress',
+    title: 'Paid AI Implementation',
+    status: 'Paid engagement',
     description:
-      'A broader internal knowledge brain for company decisions, SOPs, onboarding, docs, meetings, strategy, product context, and team memory. This is being developed as a future expansion after Customer/GTM Brain.',
-    roi: 'A future expansion for internal knowledge, decisions, onboarding, SOPs, and team memory',
-    icon: 'layers',
-    href: '/services/company-brain',
-    cta: 'Join Waitlist / Ask About Company Brain',
+      'When the bottleneck is worth fixing, Drrizo can hand off the plan, build it with you, or build the workflow for you.',
+    roi: 'Best when the assessment reveals a workflow that is frequent, painful, and financially worth fixing.',
+    icon: 'wrench',
+    href: '/services/paid-ai-implementation',
+    cta: 'Explore Paid Work',
     bullets: [
-      'Internal company knowledge',
-      'Decision and meeting memory',
-      'SOP and onboarding intelligence',
-      'Team-wide source organization',
-      'Permission-aware workflows',
-      'Coming after GTM Brain pilots',
+      'Off-the-shelf tool setup when the task is common',
+      'Claude Cowork for judgment, writing, or research',
+      'Custom Claude skill for repeatable unique workflows',
+      'Workflow design, source cleanup, and testing',
+      'Operator training and handoff documentation',
+      'Human review where judgment still matters',
     ],
   },
 ] as const
 
 export const PAIN_POINTS = [
   {
-    stat: '01',
-    statLabel: 'Customer conversations disappear after the call',
+    stat: 'Revenue',
+    statLabel: 'More money from the same motion',
     description:
-      'Founders and GTM teams hear the real pains, objections, buying triggers, and product gaps, but those insights rarely become reusable knowledge.',
-    source: 'Customer memory',
+      'If the bottleneck affects leads, proposals, follow-up, conversion, expansion, or retention, it belongs in the revenue lane.',
+    source: 'ROI lever',
   },
   {
-    stat: '02',
-    statLabel: 'Follow-up depends on manual memory',
+    stat: 'Time',
+    statLabel: 'More hours back each week',
     description:
-      'Every sales conversation creates context, but teams waste time reconstructing what happened, what matters, and what to do next.',
-    source: 'Revenue workflow',
+      'If the work repeats every week and eats valuable human time, it belongs in the time lane.',
+    source: 'ROI lever',
   },
   {
-    stat: '03',
-    statLabel: 'GTM learning is not compounding',
+    stat: 'Customers',
+    statLabel: 'Happier customers and fewer misses',
     description:
-      'Without a brain, each new customer conversation helps one person once. With a brain, every conversation improves positioning, sales, onboarding, product feedback, and future decisions.',
-    source: 'GTM intelligence',
+      'If things stall, slip, or create a worse customer experience, it belongs in the customer happiness lane.',
+    source: 'ROI lever',
   },
 ] as const
 
 export const ROI_STATS = [
   {
-    number: '1 Call',
-    label: 'Can become usable GTM assets',
-    subtext:
-      'A customer call can become follow-up notes, CRM updates, objection tags, product feedback, meeting prep, and sales enablement.',
+    number: '1',
+    label: 'Forking question',
+    subtext: 'What matters more right now: more revenue, more time, or happier customers?',
     color: 'accent',
   },
   {
-    number: '1 CRM Record',
-    label: 'Can become an account brief',
-    subtext:
-      'Turn account context into stakeholders, pain points, open questions, risks, deal context, and recommended next steps.',
+    number: '2',
+    label: 'Repetition question',
+    subtext: 'What is your most repeated weekly task? The best AI targets usually show up here.',
     color: 'accent',
   },
   {
-    number: '1 Week',
-    label: 'Can become a founder GTM digest',
-    subtext:
-      'Summarize pipeline signals, customer themes, follow-up gaps, objections, product feedback, and recommended actions.',
+    number: '3',
+    label: 'Friction question',
+    subtext: 'Where do things stall, get messy, or slip through the cracks?',
     color: 'success',
   },
   {
-    number: '1 Brain',
-    label: 'Can align revenue and product learning',
-    subtext:
-      'Help sales, success, product, marketing, and founders learn from the same customer truth.',
+    number: '4',
+    label: 'ROI anchor',
+    subtext: 'Hours per week times the value of your time. You price the fix in your own words.',
     color: 'accent',
   },
 ] as const
@@ -146,26 +142,26 @@ export const ROI_STATS = [
 export const PROCESS_STEPS = [
   {
     number: '01',
-    title: 'Audit',
-    duration: 'Scope',
+    title: 'Discover',
+    duration: 'Call one',
     description:
-      'We review your current GTM motion, customer sources, tools, sales process, follow-up gaps, ICP, and highest-value workflows.',
-    outcome: 'You leave knowing which Customer/GTM Brain workflow should be built first.',
+      'We ask, listen, and name the pain back to you. No prescriptions on the first call.',
+    outcome: 'The bottleneck candidates are clear without giving away the build.',
   },
   {
     number: '02',
-    title: 'Architect',
-    duration: 'Design',
+    title: 'Isolate',
+    duration: 'Between calls',
     description:
-      'We define the brain structure: accounts, customer types, objections, use cases, decision-makers, revenue signals, and source hierarchy.',
-    outcome: 'Your customer knowledge has a useful operating structure before tools are connected.',
+      'We find where frequency meets friction and select one bottleneck worth prescribing for.',
+    outcome: 'One target gets chosen instead of a scattered AI wish list.',
   },
   {
     number: '03',
-    title: 'Operate',
-    duration: 'BrainOps',
+    title: 'Prescribe',
+    duration: 'Call two',
     description:
-      'We maintain and improve the brain through source updates, workflow QA, prompt refinement, insight review, and output optimization.',
-    outcome: 'The brain stays useful as new customer data, GTM motion, and revenue priorities change.',
+      'You get the tool name, estimated cost, and first practical step you could take this week.',
+    outcome: 'The paid choice is obvious: hand it off, build it together, or have Drrizo build it.',
   },
 ] as const

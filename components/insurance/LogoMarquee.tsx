@@ -14,7 +14,7 @@ export default function LogoMarquee() {
                 ? '1.5px solid var(--color-accent)'
                 : '1px solid var(--color-border)',
               color: 'var(--color-text-primary)',
-              boxShadow: item.flagship ? '0 8px 24px -14px rgba(184, 134, 11, 0.55)' : 'none',
+              boxShadow: item.flagship ? '0 8px 24px -14px rgba(47, 111, 99, 0.45)' : 'none',
             }}
           >
             {item.label}

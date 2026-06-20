@@ -7,7 +7,7 @@ import Footer from '@/components/layout/Footer'
 import TopBanner from '@/components/layout/TopBanner'
 
 export const viewport: Viewport = {
-  themeColor: '#FAF8F3',
+  themeColor: '#F7F3EC',
   width: 'device-width',
   initialScale: 1,
 }
@@ -15,33 +15,33 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} | Customer/GTM Brain for Founder-Led Startups`,
+    default: `${SITE_NAME} | AI Bottleneck Consulting`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    'Customer/GTM Brain',
-    'GTM intelligence',
-    'customer intelligence system',
-    'AI revenue intelligence',
-    'account briefs',
-    'sales follow-up workflows',
-    'objection library',
-    'win loss analysis',
-    'ICP insights',
-    'BrainOps',
+    'AI consulting',
+    'AI mini assessment',
+    'AI bottleneck assessment',
+    'Claude consulting',
+    'Claude Cowork',
+    'custom Claude skill',
+    'AI workflow consulting',
+    'AI implementation',
+    'AI automation consultant',
+    'operator AI tools',
   ],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} | Customer/GTM Brain for Founder-Led Startups`,
+    title: `${SITE_NAME} | AI Bottleneck Consulting`,
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_NAME} | Customer/GTM Brain for Founder-Led Startups`,
+    title: `${SITE_NAME} | AI Bottleneck Consulting`,
     description: SITE_DESCRIPTION,
   },
   robots: {

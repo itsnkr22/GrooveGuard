@@ -1,154 +1,93 @@
-import { ArrowRight, Brain, Database, FileText, Mail, MessageSquareText } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight, Clock3, HeartHandshake, Search, TrendingUp } from 'lucide-react'
 
-const inputs = [
-  'Sales calls',
-  'Customer interviews',
-  'CRM notes',
-  'Emails',
-  'Slack threads',
-  'Support tickets',
-  'Product feedback',
-  'Demo recordings',
-  'Founder notes',
-  'Objections',
-  'Win/loss notes',
+const levers = [
+  { label: 'More revenue', icon: TrendingUp },
+  { label: 'More hours back', icon: Clock3 },
+  { label: 'Happier customers', icon: HeartHandshake },
 ]
 
-const outputs = [
-  'Account briefs',
-  'Follow-up drafts',
-  'Objection library',
-  'ICP insights',
-  'Meeting prep',
-  'Renewal risk signals',
-  'Win/loss patterns',
-  'Sales enablement notes',
-  'Product feedback themes',
-  'Weekly GTM digest',
-]
-
-const sourceIcons = [MessageSquareText, Database, Mail, FileText]
+const outputs = ['Tool name', 'Estimated cost', 'First step this week']
 
 export default function DashboardMock() {
   return (
-    <div
-      className="relative overflow-hidden rounded-2xl p-5 shadow-2xl md:p-6"
-      style={{
-        backgroundColor: 'var(--color-bg-secondary)',
-        border: '1px solid var(--color-border)',
-      }}
-    >
-      <div
-        aria-hidden
-        className="absolute inset-x-0 top-0 h-px"
-        style={{
-          background:
-            'linear-gradient(90deg, transparent, var(--color-border-accent), transparent)',
-        }}
-      />
-
-      <div className="grid gap-4 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-        <div className="space-y-3">
-          <div
-            className="font-mono text-[11px] uppercase tracking-[0.22em]"
-            style={{ color: 'var(--color-text-muted)' }}
-          >
-            Inputs
+    <div className="bezel-shell">
+      <div className="bezel-core overflow-hidden">
+        <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="relative min-h-[360px] overflow-hidden">
+            <img
+              src="https://picsum.photos/seed/drrizo-ai-assessment-desk/1200/900"
+              alt="Premium operator desk with notes and planning materials"
+              className="h-full min-h-[360px] w-full object-cover"
+            />
           </div>
-          <div className="grid grid-cols-2 gap-2">
-            {inputs.map((input, index) => {
-              const Icon = sourceIcons[index % sourceIcons.length]
-              return (
-                <div
-                  key={input}
-                  className="flex min-h-10 items-center gap-2 rounded-lg border px-3 py-2 text-xs font-medium"
-                  style={{
-                    borderColor: 'var(--color-border)',
-                    backgroundColor: 'var(--color-bg-primary)',
-                    color: 'var(--color-text-secondary)',
-                  }}
-                >
-                  <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                  <span>{input}</span>
-                </div>
-              )
-            })}
-          </div>
-        </div>
 
-        <div className="flex items-center justify-center gap-3 lg:flex-col">
-          <ArrowRight className="hidden h-5 w-5 lg:block" style={{ color: 'var(--color-accent)' }} />
-          <div
-            className="relative flex h-36 w-36 flex-col items-center justify-center rounded-full border text-center shadow-xl"
-            style={{
-              borderColor: 'var(--color-border-accent)',
-              background:
-                'radial-gradient(circle at top, rgba(232, 160, 32, 0.18), var(--color-bg-primary) 64%)',
-            }}
-          >
-            <Brain className="h-8 w-8" style={{ color: 'var(--color-accent)' }} />
+          <div className="p-5 md:p-7">
             <div
-              className="mt-3 text-sm font-semibold leading-tight"
-              style={{ color: 'var(--color-text-primary)', fontFamily: 'var(--font-heading)' }}
+              className="rounded-[1.35rem] p-5"
+              style={{
+                backgroundColor: 'var(--color-bg-primary)',
+                border: '1px solid var(--color-border)',
+              }}
             >
-              Customer/
-              <br />
-              GTM Brain
-            </div>
-            <div className="mt-1 text-[10px] uppercase tracking-[0.18em]" style={{ color: 'var(--color-text-muted)' }}>
-              BrainOps
-            </div>
-          </div>
-          <ArrowRight className="h-5 w-5 rotate-90 lg:rotate-0" style={{ color: 'var(--color-accent)' }} />
-        </div>
-
-        <div className="space-y-3">
-          <div
-            className="font-mono text-[11px] uppercase tracking-[0.22em]"
-            style={{ color: 'var(--color-text-muted)' }}
-          >
-            Outputs
-          </div>
-          <div className="grid grid-cols-2 gap-2">
-            {outputs.map((output) => (
-              <div
-                key={output}
-                className="min-h-10 rounded-lg border px-3 py-2 text-xs font-medium"
-                style={{
-                  borderColor: 'var(--color-border)',
-                  backgroundColor: 'var(--color-bg-primary)',
-                  color: 'var(--color-text-secondary)',
-                }}
-              >
-                {output}
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: 'var(--color-accent)' }}>
+                    Assessment path
+                  </div>
+                  <h3
+                    className="mt-2 text-xl font-semibold leading-tight"
+                    style={{ color: 'var(--color-text-primary)', fontFamily: 'var(--font-heading)' }}
+                  >
+                    From repeated friction to one AI prescription.
+                  </h3>
+                </div>
+                <div
+                  className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full"
+                  style={{ backgroundColor: 'var(--color-text-primary)', color: 'var(--color-text-inverse)' }}
+                >
+                  <Search className="h-5 w-5" strokeWidth={1.6} />
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      <div
-        className="mt-5 rounded-xl border p-4"
-        style={{
-          borderColor: 'var(--color-border)',
-          backgroundColor: 'rgba(19, 44, 57, 0.04)',
-        }}
-      >
-        <div className="grid gap-3 md:grid-cols-3">
-          {[
-            ['Memory', 'Customer and account context stays organized.'],
-            ['Workflows', 'Briefs, follow-ups, digests, and feedback loops become repeatable.'],
-            ['Judgment', 'Human review keeps decisions practical and grounded.'],
-          ].map(([label, text]) => (
-            <div key={label}>
-              <div className="text-sm font-semibold" style={{ color: 'var(--color-text-primary)' }}>
-                {label}
+              <div className="mt-6 grid gap-3">
+                {levers.map((lever) => {
+                  const Icon = lever.icon
+                  return (
+                    <div
+                      key={lever.label}
+                      className="flex items-center justify-between gap-3 rounded-2xl px-4 py-3"
+                      style={{
+                        backgroundColor: 'var(--color-bg-secondary)',
+                        border: '1px solid var(--color-border)',
+                      }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <Icon className="h-4 w-4" style={{ color: 'var(--color-accent)' }} strokeWidth={1.6} />
+                        <span className="text-sm font-medium" style={{ color: 'var(--color-text-primary)' }}>
+                          {lever.label}
+                        </span>
+                      </div>
+                      <ArrowDownRight className="h-4 w-4" style={{ color: 'var(--color-text-muted)' }} strokeWidth={1.6} />
+                    </div>
+                  )
+                })}
               </div>
-              <p className="mt-1 text-xs leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
-                {text}
-              </p>
+
+              <div className="mt-5 rounded-2xl p-4" style={{ backgroundColor: 'var(--color-text-primary)' }}>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: 'var(--color-accent-glow)' }}>
+                  Call two returns
+                </p>
+                <div className="mt-3 grid gap-2">
+                  {outputs.map((output) => (
+                    <div key={output} className="flex items-center justify-between text-sm" style={{ color: 'var(--color-text-inverse)' }}>
+                      <span>{output}</span>
+                      <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.6} />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>

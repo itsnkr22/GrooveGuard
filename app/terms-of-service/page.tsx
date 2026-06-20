@@ -5,14 +5,14 @@ import { generatePageMetadata } from '@/lib/metadata'
 
 export const metadata = generatePageMetadata({
   title: 'Terms of Service',
-  description: 'Terms of service for Drrizo Customer/GTM Brain and Company Brain services.',
+  description: 'Terms of service for Drrizo AI assessments and implementation services.',
   path: '/terms-of-service',
 })
 
 const sections = [
   {
     title: 'Website use',
-    body: 'The Drrizo website provides information about Customer/GTM Brain services and the upcoming Company Brain service for founder-led startups. Website content is informational and does not create a client relationship by itself.',
+    body: 'The Drrizo website provides information about AI mini assessments and paid AI implementation services. Website content is informational and does not create a client relationship by itself.',
   },
   {
     title: 'Service proposals',
@@ -20,15 +20,15 @@ const sections = [
   },
   {
     title: 'Client responsibilities',
-    body: 'Clients are responsible for providing accurate project context, rights to shared materials, appropriate source access, timely feedback, and final approval before using outputs in live GTM workflows.',
+    body: 'Clients are responsible for providing accurate project context, rights to shared materials, appropriate source access, timely feedback, and final approval before using outputs in live workflows.',
   },
   {
     title: 'AI outputs',
-    body: 'AI can accelerate organization, retrieval, drafting, summarization, and workflow support, but outputs should be reviewed before use. Drrizo designs for practical guardrails and human review rather than careless automation.',
+    body: 'AI can accelerate research, writing, synthesis, task execution, drafting, and workflow support, but outputs should be reviewed before use. Drrizo designs for practical guardrails and human review rather than careless automation.',
   },
   {
     title: 'No guaranteed outcomes',
-    body: 'Drrizo does not guarantee revenue, fundraising outcomes, closed deals, model behavior, or platform performance. The goal is to build useful GTM intelligence systems that can be tested, reviewed, and improved.',
+    body: 'Drrizo does not guarantee revenue, time savings, customer outcomes, model behavior, or platform performance. The goal is to build useful AI workflows that can be tested, reviewed, and improved.',
   },
 ]
 

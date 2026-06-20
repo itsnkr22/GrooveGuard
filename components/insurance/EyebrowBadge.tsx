@@ -8,10 +8,10 @@ type EyebrowBadgeProps = {
 export default function EyebrowBadge({ children, variant = 'default' }: EyebrowBadgeProps) {
   return (
     <span
-      className="inline-flex items-center rounded-full px-3.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.2em]"
+      className="inline-flex items-center rounded-full px-3.5 py-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.2em]"
       style={{
         backgroundColor:
-          variant === 'muted' ? 'rgba(184, 134, 11, 0.09)' : 'rgba(232, 160, 32, 0.14)',
+          variant === 'muted' ? 'rgba(47, 111, 99, 0.08)' : 'rgba(47, 111, 99, 0.12)',
         border: '1px solid var(--color-accent-border)',
         color: variant === 'muted' ? 'var(--color-accent-dark)' : 'var(--color-accent)',
       }}
